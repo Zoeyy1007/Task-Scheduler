@@ -21,13 +21,14 @@
 
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include:
- > Why is it important or interesting to you?
+ 
+ 
+    Why is it important or interesting to you?
     This particular project is important to us because as students ourselves, the idea of being
     organized on the various activities, homework, and tests dates are essential to doing well in
     school. Working on this project closely aligns to our own necessities are students, which we can 
     therefore utilized in our personal lives in the future. As we are implementing different categories
     of tasks, this project can be personalized to an individual. 
-
 
     What languages/tools/technologies do you plan to use?
     C++, Potentially React, Tailwind CSS.
