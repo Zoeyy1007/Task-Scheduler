@@ -1,59 +1,42 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# Task Scheduler
- > Your author list below should include links to all members GitHub (remove existing author).
  
- > Authors: Joshua Citrin https://github.com/ctraino 
+# Task Scheduler
+ 
+ Authors: Joshua Citrin https://github.com/ctraino 
             Lyda Taing https://github.com/LydaTaing
             Ashley Vo https://github.com/ashvo 
             Zoey Yang https://github.com/Zoeyy1007
             Taha Mohiuddin https://github.com/Tahamohiuddin
 
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
+## Impartance and Motivation 
+This particular project is important to us because as students ourselves, the idea of being organized on the various activities, homework, and tests dates are essential to doing well in school. Working on this project closely aligns to our own necessities are students, which we can therefore utilized in our personal lives in the future. As we are implementing different categories of tasks, this project can be personalized to an individual. 
 
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
+## Tool and Technologies: 
+*C++- terminal base for interface. 
 
-## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- 
- 
-    Why is it important or interesting to you?
-    This particular project is important to us because as students ourselves, the idea of being
-    organized on the various activities, homework, and tests dates are essential to doing well in
-    school. Working on this project closely aligns to our own necessities are students, which we can 
-    therefore utilized in our personal lives in the future. As we are implementing different categories
-    of tasks, this project can be personalized to an individual. 
+## input/output
+** input: title, description, classification, date, priority, duration, due date
+** Output: Lists of tasks to complete in order, suggested schedules
 
-    What languages/tools/technologies do you plan to use?
-    C++, Potentially React, Tailwind CSS.
+## Feature
+### Overview 
+This application allows users to create and manage tasks efficiently. Users can create tasks with attributes such as title, description, classification, priority, duration, and due date. Optional fields are also available to enhance flexibility. Additionally, users can create task lists, grouping multiple tasks together to represent larger projects with subtasks.
 
-    What will be the input/output of your project?
-    Input: title, description, classification, date, priority, duration, due date
-    Output: Lists of tasks to complete in order, suggested schedules
+Users can display, edit, delete, and undo operations on tasks and task lists. The application provides sorting features based on different criteria and can suggest a schedule based on the user's current tasks. 
 
-    What are the features that the project provides?
-    The ability for users to manage their daily tasks and set up reminders for themselves. 
-    Create subtasks for tasks.
-    Sort by deadline (the sooner the higher on the list).
-    Edit/Delete/Sort tasks.
-    Add tags for tasks so that users can categorize them more easily. (Such as science class or math class)
-    Repeating tasks (Could set them to reoccur every week, such as a homework reminder).
-    Potentially add:
-    Email deadlines to users as reminders.
-    Allow users to assign specific time slots for tasks in a daily schedule
-    Linked Tasks (Once one task is completed, another task will be assigned.)
+### Core Features
+* Manage daily tasks and set up reminders
+* Create subtasks for tasks
+* Sort by deadline (tasks with the sooner due dates appear higher)
+* Edit/Delete/Sort tasks
+* Add tags to categorize tasks (e.g., "Science Class," "Math Homework")
+* Optional 
 
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
- > You also need to set up an empty project board using GitHub projects (board view with default columns). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added. All columns should be in the right order.
-> 
-> Finally, one member from your team needs to submit the Project Group Signups form (link available on Canvas) to provide a link to your team's project repository before the deadline for this porposal phase.
+### Additional Feature 
+* Assign specific time slots for tasks in a daily schedule
+* Linked Tasks (Once one task is completed, another task is assigned)
+  
+
+
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
