@@ -1,11 +1,12 @@
  
 # Task Scheduler
  
- Authors: Joshua Citrin https://github.com/ctraino 
-            Lyda Taing https://github.com/LydaTaing
-            Ashley Vo https://github.com/ashvo 
-            Zoey Yang https://github.com/Zoeyy1007
-            Taha Mohiuddin https://github.com/Tahamohiuddin
+## Authors: 
+* Joshua Citrin https://github.com/ctraino 
+* Lyda Taing https://github.com/LydaTaing
+* Ashley Vo https://github.com/ashvo 
+* Zoey Yang https://github.com/Zoeyy1007
+* Taha Mohiuddin https://github.com/Tahamohiuddin
 
 ## Importance and Motivation 
 This particular project is important to us because as students ourselves, the idea of being organized on the various activities, homework, and tests dates are essential to doing well in school. Working on this project closely aligns to our own necessities are students, which we can therefore utilized in our personal lives in the future. As we are implementing different categories of tasks, this project can be personalized to an individual. 
