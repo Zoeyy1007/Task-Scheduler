@@ -30,9 +30,9 @@ Users can display, edit, delete, and undo operations on tasks and task lists. Th
 * Edit/Delete/Sort tasks
 * Add tags to categorize tasks (e.g., "Science Class," "Math Homework")
 * Optional 
-* Additional Feature 
-  ** Assign specific time slots for tasks in a daily schedule
-  ** Linked Tasks (Once one task is completed, another task is assigned)
+ ####Additional Feature:
+  **Assign specific time slots for tasks in a daily schedule
+  **Linked Tasks (Once one task is completed, another task is assigned)
   
 
 
