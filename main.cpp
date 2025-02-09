@@ -14,6 +14,7 @@ void Edit_event(){
     cout << "1. Edit event title" << endl;
     cout << "2. Edit event time" << endl;
     cout << "3. Delete this event" << endl;
+    cout << "4. Mark as completed" << endl;
     cout << "Enter 'q' to go back to the previous menu" << endl;
 }
 
