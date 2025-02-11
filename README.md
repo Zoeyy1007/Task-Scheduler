@@ -37,7 +37,6 @@ Users can display, edit, delete, and undo operations on tasks and task lists. Th
  * Linked Tasks (Once one task is completed, another task is assigned)
   
 
-
 ## User Interface Specification
 ### Navigation Diagram
 ![Navigation Diagram CS100](https://github.com/user-attachments/assets/3413a6f6-595f-4505-a362-9fefb6f8f0cf)
@@ -55,6 +54,8 @@ If the user selects 2, the program will arrange the current events by time, and 
 
 
 ## Class Diagram
+> draft UML diagram.
+![IMG_0607](https://github.com/user-attachments/assets/39cccdd3-fb12-41e9-8882-0453a5fcd341)
 
  
  > ## Phase III
