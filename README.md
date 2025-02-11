@@ -65,7 +65,7 @@ Notification class: This class is responsible for the message the user will rece
 Display Menu class: This class is responsible for keeping track of the selected task number and the display.
 
 User class: This class stores the essential information regarding the name of the user and their ID number. 
-![UML](https://github.com/user-attachments/assets/17db7ee4-f195-42c0-90c1-544b2fa40dc9)
+![UML](https://github.com/user-attachments/assets/10db852b-30b3-433b-9545-8b6d549bde6d)
 
 
  
