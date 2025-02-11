@@ -54,8 +54,19 @@ If the user selects 2, the program will arrange the current events by time, and 
 
 
 ## Class Diagram
-> draft UML diagram.
-![IMG_0607](https://github.com/user-attachments/assets/39cccdd3-fb12-41e9-8882-0453a5fcd341)
+Data class: This class is responsible for tracking the user’s task statistics related to their productivity levels. The getters and setters will store the user’s average time completion for each task, total task completed, and how many pending tasks they have left.
+
+Schedule class: This class is responsible for tracking how many tasks we can add or remove, the priority level, the name of the schedule, the display, and the duration it will take to complete and whether the schedule is active or inactive.
+
+Task class: This class is responsible for keeping track of the name of the task, priority level, what the task is for, the progress of the task, and whether it is a recurring task or not.
+
+Notification class: This class is responsible for the message the user will receive, the way it is displayed, if the user wants the notification to reappear, and the priority level.
+
+Display Menu class: This class is responsible for keeping track of the selected task number and the display.
+
+User class: This class stores the essential information regarding the name of the user and their ID number. 
+![UML](https://github.com/user-attachments/assets/17db7ee4-f195-42c0-90c1-544b2fa40dc9)
+
 
  
  > ## Phase III
