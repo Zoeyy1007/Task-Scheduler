@@ -43,6 +43,16 @@ Users can display, edit, delete, and undo operations on tasks and task lists. Th
 ![Navigation Diagram CS100](https://github.com/user-attachments/assets/3413a6f6-595f-4505-a362-9fefb6f8f0cf)
 
 ### Screen Layouts
+The main menu has two options: create new event or view current schedule
+<img width="583" alt="AD_4nXfr9qvs-kPyda7uohh5-JVJlUtwfrBJsA_Lil0GWVOKzqcNKqC49v_GrdI8gz31EfglH19xCUMLcUZbtcaIASHaA75McrKQfB52tqMxeNHSQhgqWzyI2zSlJSBHv3L_ztlkWzMg" src="https://github.com/user-attachments/assets/68df6144-f1cf-4a95-8156-a7c75ead7376" />
+
+If the user selects 1, the program will ask the user for the new event title, time and tag. After creating the new event, the user can view the current schedule, create a new event or go to the main menu.
+<img width="621" alt="IMG_6944" src="https://github.com/user-attachments/assets/6910ccf4-998f-4172-afc5-0cfba56cd19a" />
+
+If the user selects 2, the program will arrange the current events by time, and display the events. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
+<img width="605" alt="AD_4nXfmGAlGx_ZrxaTki-fARDRDXdv5mhZ5LIXRXbtgkL5p3j-rFHg-TSSuBJDrTj8xBovHb_gtlUn7HUOttswVFtji8Wlut0x1-pCrkuDos8o3JkXAOBAZzL2BmfhOAe8Hk1VQxFkYUg" src="https://github.com/user-attachments/assets/b63ede29-32d7-4b38-93f5-449db4904c45" />
+
+
 
 ## Class Diagram
 
