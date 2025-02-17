@@ -1,21 +1,21 @@
 #include <iostream>
 #include <vector>
-#include "time.h"
 
 using namespace std;
 
 class Task{
     private:
-        string title;
-        string tag;
-        Time Thetime;
-        string status;
-        vector<Task*> tasks;
+        int exec_time;
     
     public:
-    void Delete_Event(Task* CurrTask);
-    void Event_Status(Task* CurrTask);
-    Task(string title, string tag, Time Thetime, string status);
-    Task();
-
+        string task_name;
+        int priority;
+        string task_date;
+        void complete_task();
+        bool task_complete = false;
+        int get_priority();
+        string get_name();
+        string get_date();
+        Task(string taskname, string taskDate,  int priority);
+        Task();
 };

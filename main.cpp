@@ -18,6 +18,12 @@ void Edit_event(){
     cout << "Enter 'q' to go back to the previous menu" << endl;
 }
 
+void display_option(){
+    cout << "How do you like to view your schedule?" << endl;
+    cout << "Enter 1 to view by time. " << endl;
+    cout << "Enter 2 to view by catogory" << endl;
+}
+
 
 int main(){
     int option = 0;
