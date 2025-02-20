@@ -39,11 +39,15 @@ void add_newEvent(Schedule* s){
     string taskDate; 
     int priority;
     cout << "Please enter event title" << endl;
-    cin >> title;
+    cin.ignore(); //ignore the /n from last input
+    getline(cin, title);
     cout << "Please enter event time" << endl;
-    cin >> taskDate;
+    cin.ignore(); 
+    getline(cin, taskDate);
+    cout << taskDate << endl;
     cout << "What is the priority of your event" << endl;
     cin >> priority;
+    cout << priority << endl;
     cout << "Enter 'q' to go back to the previous menu" << endl;
     s->add_task(title, taskDate, priority);
 }
