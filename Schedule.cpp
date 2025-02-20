@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "Schedule.h"
-#include "Task.h"
 
 using namespace std;
 
@@ -11,7 +10,7 @@ void Schedule::add_task(string taskname, string taskDate,  int priority){
     size++;
 }
 
-void Schedule::remove_task(int num){
+void Schedule::remove_task(int num){//input the task number of it in the vector
     if(num <=0){
         cout << "Invalid input" << endl;
         return;
@@ -20,5 +19,15 @@ void Schedule::remove_task(int num){
     Task* curr_task = the_Tasks.at(num);
     the_Tasks.erase(the_Tasks.begin()+num);
     delete curr_task;
+    size--;
     return;
+}
+
+void Schedule::display_full(){
+    if(the_Tasks.size() == 0){return;}
+    for (int i = 0; i < size; i++){
+        cout << i + 1 << ", " ;
+        cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
+        cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
+    }
 }
