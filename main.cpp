@@ -11,7 +11,8 @@ void Edit_event();
 void display_option();
 
 int main(){
-    Schedule* s;
+    string schedule_name;
+    Schedule* s = new Schedule(schedule_name);
     int option = 0;
     Main_menu();
     cin >> option;

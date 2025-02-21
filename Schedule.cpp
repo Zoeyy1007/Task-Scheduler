@@ -31,3 +31,11 @@ void Schedule::display_full(){
         cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
     }
 }
+
+Schedule::Schedule(string schedule_name){
+    this->schedule_name = schedule_name;
+}
+
+Schedule::Schedule(){
+    schedule_name = '0';
+}

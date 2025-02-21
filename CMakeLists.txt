@@ -6,3 +6,9 @@ add_executable(run
   Schedule.cpp
   Task.cpp
 )
+
+add_executable(debug
+  main.cpp 
+  Schedule.cpp 
+  Task.cpp 
+)
