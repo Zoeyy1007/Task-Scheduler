@@ -13,15 +13,19 @@ class Schedule{
         Schedule();
         Schedule(string schedule_name);
         void add_task();
-        void add_task(string taskname, string taskdate, int priority, string category);
-        void remove_task(int num); //num-1 is its current position in the vector, num is the number displayed starting with 1
+        void add_task(string taskname,string taskDate, int priority, string category, int hour, int day);
+        void remove_task(string name);
         int get_priority();
         int get_execTime();
         void display_catogorized();
         void display_full();
         void display_by_category();
-        void complete_task(int index);
+        void display_by_priority();
+        void complete_task(string name);
         int get_size(){return size;}
-        bool is_complete(int index);
+        bool is_complete(string name);
+
+        Task* findTask(string name);
+        void single_display(Task* currtask);
 };
 
