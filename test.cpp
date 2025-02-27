@@ -1,8 +1,10 @@
+
 #include <gtest/gtest.h>
 #include "EventSearch.h"
 #include "EventManager.h"
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -76,3 +78,10 @@ TEST(EventSearchTests, InvalidSearchEvent){
     string output = buffer.str();
     EXPECT_EQ(output, "No events found for the given criteria\n");
 }
+
+
+TEST(scheduleTestSuite, testemptySchedule){
+    Schedule* s = new Schedule();
+    EXPECT_THROW(s->display_full(), runtime_error);
+}
+
