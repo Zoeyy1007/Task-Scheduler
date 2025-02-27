@@ -76,10 +76,6 @@ User class: This class stores the essential information regarding the name of th
 
 
 
- ## Class Diagram Updated
- 
-![IMG_0618](https://github.com/user-attachments/assets/04aeeeff-b446-42b2-b579-2598da23e6c5)
-
 
  ## Class Diagram Updated 
  ![IMG_0618](https://github.com/user-attachments/assets/0397424f-23c2-4433-82a7-b57d20b470d4)
