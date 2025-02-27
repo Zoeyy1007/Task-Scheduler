@@ -75,9 +75,15 @@ User class: This class stores the essential information regarding the name of th
 ![UML](https://github.com/user-attachments/assets/10db852b-30b3-433b-9545-8b6d549bde6d)
 
 
+
+ ## Class Diagram Updated
  
+![IMG_0618](https://github.com/user-attachments/assets/04aeeeff-b446-42b2-b579-2598da23e6c5)
+
+
  ## Class Diagram Updated 
  ![IMG_0618](https://github.com/user-attachments/assets/0397424f-23c2-4433-82a7-b57d20b470d4)
+
 
 Deleting notification class: We removed the notification class feature because we wanted to maintain a more 
 Clean and efficient codebase. Therefore, we wanted to simplify our feature. This change will streamline the
@@ -100,8 +106,6 @@ displaySchedule() had already did
 
 
 
-
- 
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:

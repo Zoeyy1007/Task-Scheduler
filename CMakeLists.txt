@@ -18,3 +18,4 @@ add_executable(debug
 
 TARGET_LINK_LIBRARIES(debug gtest gtest_main)
 TARGET_COMPILE_DEFINITIONS(debug PRIVATE gtest_disable_pthreads=ON)
+

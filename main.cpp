@@ -1,3 +1,4 @@
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -6,13 +7,12 @@
 using namespace std;
 
 void Main_menu();
-void Edit_event();
-void display_option();
-void Sched_options();
 
 int main(){
     string schedule_name;
     Schedule* s = new Schedule(schedule_name);
+
+
     string option = "";
     Main_menu();
     cin >> option;
@@ -80,6 +80,7 @@ int main(){
     }
     cout << "Thank you for using our program!" << endl;
 
+
     return 0;
 }
 
@@ -111,5 +112,4 @@ void display_option(){
     cout << "Enter 1 to view by time. " << endl;
     cout << "Enter 2 to view by catogory" << endl;
 }
-
 

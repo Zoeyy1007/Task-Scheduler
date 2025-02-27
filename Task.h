@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 
@@ -10,14 +11,17 @@ class Task{
         int priority;
         string task_date;
         string category;
+
         int day;
         int hour;
+
         bool task_complete = false;
     
     public:
         void complete_task();
         bool get_status();
         int get_priority();
+
         int get_hour();
         int get_day();
         string get_name();
@@ -27,3 +31,4 @@ class Task{
         string get_category();
        
 };
+
