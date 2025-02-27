@@ -50,3 +50,4 @@ string Task::get_category(){
 
 bool Task::get_status(){
     return task_complete;
+}

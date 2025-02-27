@@ -18,8 +18,9 @@ void Schedule::add_task(){
 
 
     cout << "Please enter event title" << endl; 
-
+    cin.ignore();
     getline(cin, taskname);
+
 
     cout << "Please enter event time" << endl;
     cin.ignore(); 
@@ -27,13 +28,11 @@ void Schedule::add_task(){
 
 
     cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl;
-    cin.ignore(); 
     cin >> day;
 
     cout << "Please enter hour of day, from 0 to 24" << endl;
     cin >> hour;
 
-    cout << taskDate << endl;
   
     cout << "What is the priority of your event, 1 through 10 (10 being the most urgent)" << endl;
     cin >> priority;
@@ -41,9 +40,9 @@ void Schedule::add_task(){
         cout << "Pick a priority that is within the range" << endl;
         cin >> priority;
     }
-    cin >> priority;
 
     cout << "What category of task it is?" << endl;
+    cin.ignore();
     getline(cin, category);
 
     Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
@@ -132,6 +131,8 @@ void Schedule::display_full(){
         count++;
     }
 
+    cout << endl;
+
      cout << "Tuesday:" << endl;
     count = 1;
     for(int i = 0; i < Tuesday.size(); i++){
@@ -139,6 +140,9 @@ void Schedule::display_full(){
         single_display(Tuesday[i]);
         count++;
     }
+
+    cout << endl;
+
     cout << "Wednesday:" << endl;
     count = 1;
     for(int i = 0; i < Wednesday.size(); i++){
@@ -146,6 +150,8 @@ void Schedule::display_full(){
         single_display(Wednesday[i]);
         count++;
     }
+
+    cout << endl;
 
      cout << "Thursday:" << endl;
      count = 1;
@@ -155,6 +161,8 @@ void Schedule::display_full(){
         count++;
     }
 
+    cout << endl;
+
      cout << "Friday:" << endl;
      count = 1;
     for(int i = 0; i < Friday.size(); i++){
@@ -162,6 +170,10 @@ void Schedule::display_full(){
         single_display(Friday[i]);
         count++;
     }
+
+    cout << endl;
+
+
     cout << "Saturday:" << endl;
      count = 1;
     for(int i = 0; i < Saturday.size(); i++){
@@ -170,6 +182,8 @@ void Schedule::display_full(){
         count++;
     }
 
+    cout << endl;
+
      cout << "Sunday:" << endl;
      count = 1;
     for(int i = 0; i < Sunday.size(); i++){
@@ -177,6 +191,7 @@ void Schedule::display_full(){
         single_display(Sunday[i]);
         count++;
     }
+    cout << endl;
     
     
 }
@@ -185,7 +200,7 @@ void Schedule::single_display(Task* currtask){
     cout << currtask->get_name() << ", at " << currtask->get_date();
     cout << ", priority: " << currtask->get_priority() << endl;
     cout << "Completion Status: ";
-    cout << currtask->get_status();
+    cout << currtask->get_status() << endl;
 }
 
 
@@ -243,6 +258,7 @@ void Schedule::display_by_category(){
     }
     int count = 1;
     string category;
+    cout << "Enter a category name" << endl;
     cin >> category;
     cout << "Category: " << category << endl;
     for (int i = 0; i < the_Tasks.size(); i++){

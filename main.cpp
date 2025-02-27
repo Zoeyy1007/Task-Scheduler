@@ -7,6 +7,8 @@
 using namespace std;
 
 void Main_menu();
+void Sched_options();
+void Edit_event();
 
 int main(){
     string schedule_name;
@@ -112,6 +114,7 @@ void Main_menu(){
     cout << "1. Add event" << endl;
     cout << "2. View my schedule" << endl;
     cout << "3. Edit event" << endl;
+    cout << "q. Quit" << endl;
 }
 
 void Sched_options(){
