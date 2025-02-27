@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "Schedule.h"
+#include "category.h"
 
 using namespace std;
 
@@ -70,18 +71,22 @@ void Schedule::display_by_category(){
     if(the_Tasks.size() == 0){
         cout << "You don't have any task. " << endl;
     return;}
-    string category = "School work";
-    cout << "Category: " << category << endl;
+    Category *category = new Category("School work");
+    //string category = "School work";
+    cout << "Category: ";
+    category->printCategory();
+
     for (int i = 0; i < size; i++){
-        if(the_Tasks.at(i)->get_category() == category){
+        if(the_Tasks.at(i)->get_category() == category->category_name){
             cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
             cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
         }
     }
-    category = "home";
-    cout << "Category: " << category << endl;
+    delete category;
+    Category *category = new Category("Home");
+    category->printCategory();
     for (int i = 0; i < size; i++){
-        if(the_Tasks.at(i)->get_category() == category){
+        if(the_Tasks.at(i)->get_category() == category->category_name){
             cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
             cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
         }
