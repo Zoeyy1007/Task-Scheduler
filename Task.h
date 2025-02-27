@@ -1,23 +1,25 @@
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-class Task {
+class Task{
     private:
+        int exec_time;
         string task_name;
-        string task_date;
         int priority;
+        string task_date;
         string category;
-        bool task_complete = false;  // Ensure this exists
+        bool task_complete = false;
     
     public:
-        Task(string taskname, string taskDate, int priority, string category);
         void complete_task();
-        string get_date();
-        string get_name();
+        bool get_status();
         int get_priority();
+        string get_name();
+        string get_date();
+        Task(string taskname, string taskDate,  int priority, string category);
+        Task();
         string get_category();
-        bool get_status();  
-    };
-    
+};
