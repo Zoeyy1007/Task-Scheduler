@@ -27,5 +27,6 @@ class Schedule{
 
         Task* findTask(string name);
         void single_display(Task* currtask);
+        void display_by_day();
 };
 

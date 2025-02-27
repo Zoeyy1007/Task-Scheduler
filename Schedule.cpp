@@ -77,7 +77,6 @@ void Schedule::display_full(){
         throw runtime_error("No tasks in schedule");
         return;
     }
-    string daysOfWeek[7] = {"Monday:", "Tuesday:", "Wednesday:", "Thursday:", "Friday:", "Saturday:", "Sunday:"};
 
 
     vector<Task*> Monday;
@@ -194,6 +193,23 @@ void Schedule::display_by_priority(){
     return;
     
     
+}
+
+void Schedule::display_by_day(){
+    cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl << endl;
+    int day;
+    cin >> day;
+    string days_of_week[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    cout << "DISPLAYING DAY :" << days_of_week[day-1] << endl;
+    int count = 1;
+    for(int i = 0; i < the_Tasks.size(); i++){
+        if(the_Tasks[i]->get_day() == day){
+            cout << count << "." << endl;
+            single_display(the_Tasks[i]);
+            count++;
+        }
+    }
+    return;
 }
 
 Schedule::Schedule(string schedule_name){
