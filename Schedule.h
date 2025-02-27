@@ -16,7 +16,7 @@ private:
 public:
     Schedule();  
     Schedule(string schedule_name);  
-    ~Schedule();  // ✅ Explicitly declare the destructor
+    ~Schedule();  
 
     void add_task();  
     void add_task(string taskname, string taskdate, int priority, string category);
