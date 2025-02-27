@@ -3,21 +3,21 @@
 
 using namespace std;
 
-class Task{
+class Task {
     private:
-        int exec_time;
         string task_name;
-        int priority;
         string task_date;
+        int priority;
         string category;
+        bool task_complete = false;  // Ensure this exists
     
     public:
+        Task(string taskname, string taskDate, int priority, string category);
         void complete_task();
-        bool task_complete = false;
-        int get_priority();
-        string get_name();
         string get_date();
-        Task(string taskname, string taskDate,  int priority, string category);
-        Task();
+        string get_name();
+        int get_priority();
         string get_category();
-};
+        bool get_status();  // ✅ Add this line if it's missing
+    };
+    
