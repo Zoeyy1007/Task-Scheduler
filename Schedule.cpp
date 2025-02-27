@@ -2,6 +2,7 @@
 #include <vector>
 #include <stdexcept>
 #include "Schedule.h"
+#include "category.h"
 
 using namespace std;
 
@@ -208,6 +209,7 @@ Schedule::Schedule(){
 void Schedule::display_by_category(){
     if(the_Tasks.size() == 0){
         cout << "You don't have any task. " << endl;
+
     return;
     }
     int count = 1;
@@ -217,6 +219,7 @@ void Schedule::display_by_category(){
     for (int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks.at(i)->get_category() == category){
             cout << count << "." << endl;
+
             cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
             cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
             cout << "Completion Status: " << the_Tasks.at(i)->get_status() << endl;

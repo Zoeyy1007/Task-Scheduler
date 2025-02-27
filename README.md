@@ -44,16 +44,20 @@ The Task Scheduler application provides a structured flow for managing events an
 ![Navigation Diagram CS100](https://github.com/user-attachments/assets/3413a6f6-595f-4505-a362-9fefb6f8f0cf)
 
 ### Screen Layouts
-The main menu has two options: create new event or view current schedule
-<img width="583" alt="AD_4nXfr9qvs-kPyda7uohh5-JVJlUtwfrBJsA_Lil0GWVOKzqcNKqC49v_GrdI8gz31EfglH19xCUMLcUZbtcaIASHaA75McrKQfB52tqMxeNHSQhgqWzyI2zSlJSBHv3L_ztlkWzMg" src="https://github.com/user-attachments/assets/68df6144-f1cf-4a95-8156-a7c75ead7376" />
+<img width="771" alt="AD_4nXd3yY746di-W9LHkeTGwQUy514UbkJWhY2GCx1RH1O8RoGhUZintlI3sRf-Iws1649zHmfcOweQUFPd5lraz3D9h1j_NpERTWdXq2T1OdYcW-c2Xt2lGCcqIGhGLZ-XK5qkCLhfAQ" src="https://github.com/user-attachments/assets/2679e73f-8121-488c-aa28-b43ee020188e" />
+The main menu has two options: create new event, view current schedule or view completed task. Users can also end the program directly by entering 0. 
 
-If the user selects 1, the program will ask the user for the new event title, time and tag. After creating the new event, the user can view the current schedule, create a new event or go to the main menu.
-<img width="621" alt="IMG_6944" src="https://github.com/user-attachments/assets/6910ccf4-998f-4172-afc5-0cfba56cd19a" />
+<img width="771" alt="AD_4nXfMvfk03_GZPOxSOCHx6xax7g_Ot4UBsBcbNDTiZ8J1T9MBarAwNyLakMdklw-mBNm8uSVKxZMgDVFAV9CbgabhmqtrtlnWh51fM9lzgntG3oW-A--OyFbcP5-zvA_ZcI9fFkVI" src="https://github.com/user-attachments/assets/e12dbe04-f91a-4311-9425-db1a5f5495a3" />
+If the user selects 1, the program will ask the user for the new event title, time, priority and category. After creating the new event, the user can view the current schedule, create a new event or go to the main menu. 
 
-If the user selects 2, the program will arrange the current events by time, and display the events. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
-<img width="605" alt="AD_4nXfmGAlGx_ZrxaTki-fARDRDXdv5mhZ5LIXRXbtgkL5p3j-rFHg-TSSuBJDrTj8xBovHb_gtlUn7HUOttswVFtji8Wlut0x1-pCrkuDos8o3JkXAOBAZzL2BmfhOAe8Hk1VQxFkYUg" src="https://github.com/user-attachments/assets/b63ede29-32d7-4b38-93f5-449db4904c45" />
+<img width="771" alt="AD_4nXfMvfk03_GZPOxSOCHx6xax7g_Ot4UBsBcbNDTiZ8J1T9MBarAwNyLakMdklw-mBNm8uSVKxZMgDVFAV9CbgabhmqtrtlnWh51fM9lzgntG3oW-A--OyFbcP5-zvA_ZcI9fFkVI" src="https://github.com/user-attachments/assets/1a45a33c-befd-4ee8-ad85-5c05f16ba100" />
+If the user selects 2, the program will arrange the current events by category or by time. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
 
+<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/f0162dea-62b7-479e-ba98-2d4712db0cbd" />
+After the user selects a task, the program would ask how the user wants to edit the event. 
 
+<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/ba65d198-2512-4b6e-9f01-029a8684ac62" />
+If the user selects 3 from the main menu, the completed task would be displayed. After the completed tasks are displayed, user would return to the main menu. 
 
 ## Class Diagram
 Data class: This class is responsible for tracking the user’s task statistics related to their productivity levels. The getters and setters will store the user’s average time completion for each task, total task completed, and how many pending tasks they have left.
@@ -71,26 +75,30 @@ User class: This class stores the essential information regarding the name of th
 
 
  
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * Make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
->  * Each team member should also submit the Peer Evaluation Form on Canvas for phase III. In this form, you need to fill in the names of all team members, the percentage of work contributed by each member for phase III, and a description of their contributions. Remember that each team member should submit the form individually.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+ ## Class Diagram Updated 
+ ![IMG_0618](https://github.com/user-attachments/assets/0397424f-23c2-4433-82a7-b57d20b470d4)
+
+Deleting notification class: We removed the notification class feature because we wanted to maintain a more 
+Clean and efficient codebase. Therefore, we wanted to simplify our feature. This change will streamline the
+code and ensure that future updates are easier to implement and maintain. 
+
+Deleting data class: We removed the data class because there is no need for these data features and 
+Functions. The idea of getting data from task is already similar to the schedule class. Therefore, removing
+This class will follow the single responsibility principle. 
+
+Deleting user class: SInce it is input, terminal-based there is no need for the user class. This is because all of
+The inputs and user’s schedules will start from the display menu. Therefore, this removal encourages code
+efficiency and simplicity.
+
+Moving functions: We moved the display_categorized() function that initially belonged to the Schedule class
+into the DisplayMenu class instead. This is because this function aligns better with the purpose of the 
+DisplayMenu class instead of the Schedule class. By moving this into DisplayMenu class we are following
+The Single Responsibility Rule where a class should have a single purpose only and not have many purposes.
+We deleted the display_full() class in the Schedule class because it was repetitive to what DiplayMenu class’
+displaySchedule() had already did
+
+
+
 
  
  > ## Final deliverable
