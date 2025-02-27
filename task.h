@@ -1,14 +1,14 @@
-#ifndef EVENT_HPP
-#define EVENT_HPP
+#ifndef TASK_HPP
+#define TASK_HPP
 #include <iostream>
 using namespace std;
 
-class Event {
+class Task {
     private:
-    string event_name;
-    int event_priority = 0;
-    int event_date = 0;
-    int event_exec_time = 0;
+    string task_name;
+    int task_priority = 0;
+    int task_date = 0;
+    int task_exec_time = 0;
     public:
     bool task_complete = 0;
     string getName();
@@ -19,4 +19,4 @@ class Event {
 
 
 
-#endif // EVENT_HPP
+#endif // TASK_HPP
