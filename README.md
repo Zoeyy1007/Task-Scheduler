@@ -41,19 +41,24 @@ Users can display, edit, delete, and undo operations on tasks and task lists. Th
 The Task Scheduler application provides a structured flow for managing events and tasks efficiently. The navigation diagram illustrates how users can interact with the system from the Home Screen and perform various actions on tasks.
 
 ### Navigation Diagram
-![Navigation Diagram CS100](https://github.com/user-attachments/assets/3413a6f6-595f-4505-a362-9fefb6f8f0cf)
+<img width="1045" alt="Screenshot 2025-02-27 at 2 41 08 AM" src="https://github.com/user-attachments/assets/0c8d16a6-fd24-4a4b-9f24-4e9969e4e27c" />
+
 
 ### Screen Layouts
-The main menu has two options: create new event or view current schedule
-<img width="583" alt="AD_4nXfr9qvs-kPyda7uohh5-JVJlUtwfrBJsA_Lil0GWVOKzqcNKqC49v_GrdI8gz31EfglH19xCUMLcUZbtcaIASHaA75McrKQfB52tqMxeNHSQhgqWzyI2zSlJSBHv3L_ztlkWzMg" src="https://github.com/user-attachments/assets/68df6144-f1cf-4a95-8156-a7c75ead7376" />
+<img width="771" alt="AD_4nXd3yY746di-W9LHkeTGwQUy514UbkJWhY2GCx1RH1O8RoGhUZintlI3sRf-Iws1649zHmfcOweQUFPd5lraz3D9h1j_NpERTWdXq2T1OdYcW-c2Xt2lGCcqIGhGLZ-XK5qkCLhfAQ" src="https://github.com/user-attachments/assets/2679e73f-8121-488c-aa28-b43ee020188e" />
+The main menu has two options: create new event, view current schedule or view completed task. Users can also end the program directly by entering 0. 
 
-If the user selects 1, the program will ask the user for the new event title, time and tag. After creating the new event, the user can view the current schedule, create a new event or go to the main menu.
-<img width="621" alt="IMG_6944" src="https://github.com/user-attachments/assets/6910ccf4-998f-4172-afc5-0cfba56cd19a" />
+<img width="771" alt="AD_4nXfMvfk03_GZPOxSOCHx6xax7g_Ot4UBsBcbNDTiZ8J1T9MBarAwNyLakMdklw-mBNm8uSVKxZMgDVFAV9CbgabhmqtrtlnWh51fM9lzgntG3oW-A--OyFbcP5-zvA_ZcI9fFkVI" src="https://github.com/user-attachments/assets/e12dbe04-f91a-4311-9425-db1a5f5495a3" />
+If the user selects 1, the program will ask the user for the new event title, time, priority and category. After creating the new event, the user can view the current schedule, create a new event or go to the main menu. 
 
-If the user selects 2, the program will arrange the current events by time, and display the events. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
-<img width="605" alt="AD_4nXfmGAlGx_ZrxaTki-fARDRDXdv5mhZ5LIXRXbtgkL5p3j-rFHg-TSSuBJDrTj8xBovHb_gtlUn7HUOttswVFtji8Wlut0x1-pCrkuDos8o3JkXAOBAZzL2BmfhOAe8Hk1VQxFkYUg" src="https://github.com/user-attachments/assets/b63ede29-32d7-4b38-93f5-449db4904c45" />
+<img width="771" alt="AD_4nXfMvfk03_GZPOxSOCHx6xax7g_Ot4UBsBcbNDTiZ8J1T9MBarAwNyLakMdklw-mBNm8uSVKxZMgDVFAV9CbgabhmqtrtlnWh51fM9lzgntG3oW-A--OyFbcP5-zvA_ZcI9fFkVI" src="https://github.com/user-attachments/assets/1a45a33c-befd-4ee8-ad85-5c05f16ba100" />
+If the user selects 2, the program will arrange the current events by category or by time. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
 
+<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/f0162dea-62b7-479e-ba98-2d4712db0cbd" />
+After the user selects a task, the program would ask how the user wants to edit the event. 
 
+<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/ba65d198-2512-4b6e-9f01-029a8684ac62" />
+If the user selects 3 from the main menu, the completed task would be displayed. After the completed tasks are displayed, user would return to the main menu. 
 
 ## Class Diagram
 Data class: This class is responsible for tracking the user’s task statistics related to their productivity levels. The getters and setters will store the user’s average time completion for each task, total task completed, and how many pending tasks they have left.
@@ -70,12 +75,16 @@ User class: This class stores the essential information regarding the name of th
 ![UML](https://github.com/user-attachments/assets/10db852b-30b3-433b-9545-8b6d549bde6d)
 
 
- 
+
  ## Class Diagram Updated
  
 ![IMG_0618](https://github.com/user-attachments/assets/04aeeeff-b446-42b2-b579-2598da23e6c5)
 
-￼
+
+ ## Class Diagram Updated 
+ ![IMG_0618](https://github.com/user-attachments/assets/0397424f-23c2-4433-82a7-b57d20b470d4)
+
+
 Deleting notification class: We removed the notification class feature because we wanted to maintain a more 
 Clean and efficient codebase. Therefore, we wanted to simplify our feature. This change will streamline the
 code and ensure that future updates are easier to implement and maintain. 

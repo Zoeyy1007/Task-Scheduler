@@ -4,11 +4,16 @@
 
 using namespace std;
 
-Task::Task(string taskname, string taskDate,  int priority, string category){
+
+Task::Task(string taskname, string task_date, int priority, string category, int day, int hour){
+    
     this->task_name=taskname;
-    this->task_date=taskDate;
     this->priority=priority;
+    this->task_date = task_date;
     this->category = category;
+    this->day = day;
+    this->hour = hour;
+
 }
 
 void Task::complete_task(){
@@ -29,10 +34,19 @@ int Task::get_priority(){
     return priority;
 }
 
+
+int Task::get_hour(){
+    return hour;
+}
+
+int Task::get_day(){
+    return day;
+}
+
+
 string Task::get_category(){
     return category;
 }
 
 bool Task::get_status(){
     return task_complete;
-}

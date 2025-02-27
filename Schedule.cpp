@@ -1,7 +1,10 @@
 
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 #include "Schedule.h"
+#include "category.h"
+
 
 using namespace std;
 
@@ -9,43 +12,263 @@ void Schedule::add_task(){
     string taskname;
     string taskDate;
     int priority;
-
     string category;
-    cout << "Please enter event title" << endl;
-    cin.ignore();
+    int day;
+    int hour;
+
+
+    cout << "Please enter event title" << endl; 
+
     getline(cin, taskname);
 
     cout << "Please enter event time" << endl;
     cin.ignore(); 
     getline(cin, taskDate);
-    cout << taskDate << endl;
 
-    cout << "Enter priority (1 to 5): ";
-    while (!(cin >> priority) || priority < 1 || priority > 5) {
+
+    cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl;
+    cin.ignore(); 
+    cin >> day;
+
+    cout << "Please enter hour of day, from 0 to 24" << endl;
+    cin >> hour;
+
+    cout << taskDate << endl;
+  
+    cout << "What is the priority of your event, 1 through 10 (10 being the most urgent)" << endl;
+    while (!(cin >> priority) || priority < 1 || priority > 10) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid priority. Please enter a number between 1 and 5: ";
     }
     cin.ignore();
-    cout << priority << endl;
+    cin >> priority;
 
-    cout << "What type of task it is?" << endl;
+    cout << "What category of task it is?" << endl;
     cin.ignore();
-
     getline(cin, category);
-    Task* taskPtr = new Task(taskname, taskDate, priority, category);
+
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+
     the_Tasks.push_back(taskPtr);
     size++;
 }
 
-void Schedule::add_task(string taskname, string taskdate, int priority, string category){
-    Task* taskPtr = new Task(taskname, taskdate, priority, category);
+
+Task* Schedule::findTask(string name){
+    for (int i = 0; i < the_Tasks.size(); i++){
+        if(the_Tasks[i]->get_name() == name){
+            return the_Tasks[i];
+        }
+    }
+    cout << "Task cannot be found" << endl;
+    return nullptr;
+
+}
+
+void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day){
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+
     the_Tasks.push_back(taskPtr);
     size++;
 }
 
-Schedule::~Schedule() {
-    for (Task* task : the_Tasks) {
-        delete task; // Free memory
+
+void Schedule::remove_task(string name){
+    for(int i = 0; i < the_Tasks.size(); i++){
+        if(name == the_Tasks[i]->get_name()){
+            delete the_Tasks[i];
+            the_Tasks.erase(the_Tasks.begin()+i);
+            return;
+        }
+    }
+    cout << "No task by this name" << endl;
+    return;
+}
+
+
+
+void Schedule::display_full(){
+    if(the_Tasks.size() == 0){
+        throw runtime_error("No tasks in schedule");
+        return;
+    }
+    string daysOfWeek[7] = {"Monday:", "Tuesday:", "Wednesday:", "Thursday:", "Friday:", "Saturday:", "Sunday:"};
+
+
+    vector<Task*> Monday;
+    vector<Task*> Tuesday;
+    vector<Task*> Wednesday;
+    vector<Task*> Thursday;
+    vector<Task*> Friday;
+    vector<Task*> Saturday;
+    vector<Task*> Sunday;
+    for(int i = 0; i < the_Tasks.size(); i++){
+       if(the_Tasks[i]->get_day()==1){
+        Monday.push_back(the_Tasks[i]);
+       }
+       if(the_Tasks[i]->get_day()==2){
+        Tuesday.push_back(the_Tasks[i]);
+       }
+       if(the_Tasks[i]->get_day()==3){
+        Wednesday.push_back(the_Tasks[i]);;
+       }
+       if(the_Tasks[i]->get_day()==4){
+        Thursday.push_back(the_Tasks[i]);;
+       }
+       if(the_Tasks[i]->get_day()==5){
+        Friday.push_back(the_Tasks[i]);;
+       }
+       if(the_Tasks[i]->get_day()==6){
+        Saturday.push_back(the_Tasks[i]);;
+       }
+       if(the_Tasks[i]->get_day()==7){
+        Sunday.push_back(the_Tasks[i]);
+       }
+    }
+
+    cout << "Monday:" << endl;
+    int count = 1;
+    for(int i = 0; i < Monday.size(); i++){
+        cout << count << ":" << endl;
+        single_display(Monday[i]);
+        count++;
+    }
+
+     cout << "Tuesday:" << endl;
+    count = 1;
+    for(int i = 0; i < Tuesday.size(); i++){
+        cout << count << ":" << endl;
+        single_display(Tuesday[i]);
+        count++;
+    }
+    cout << "Wednesday:" << endl;
+    count = 1;
+    for(int i = 0; i < Wednesday.size(); i++){
+        cout << count << ":" << endl;
+        single_display(Wednesday[i]);
+        count++;
+    }
+
+     cout << "Thursday:" << endl;
+     count = 1;
+    for(int i = 0; i < Thursday.size(); i++){
+        cout << count << ":" << endl;
+        single_display(Thursday[i]);
+        count++;
+    }
+
+     cout << "Friday:" << endl;
+     count = 1;
+    for(int i = 0; i < Friday.size(); i++){
+        cout << count << ":" << endl;
+        single_display(Friday[i]);
+        count++;
+    }
+    cout << "Saturday:" << endl;
+     count = 1;
+    for(int i = 0; i < Saturday.size(); i++){
+        cout << count << ":" << endl;
+        single_display(Saturday[i]);
+        count++;
+    }
+
+     cout << "Sunday:" << endl;
+     count = 1;
+    for(int i = 0; i < Sunday.size(); i++){
+        cout << count << ":" << endl;
+        single_display(Sunday[i]);
+        count++;
+    }
+    
+    
+}
+
+void Schedule::single_display(Task* currtask){
+    cout << currtask->get_name() << ", at " << currtask->get_date();
+    cout << ", priority: " << currtask->get_priority() << endl;
+    cout << "Completion Status: ";
+    cout << currtask->get_status();
+}
+
+
+
+
+void Schedule::display_by_priority(){
+    cout << "Pick a priority to display (1 through 10)" << endl << endl;
+    int prio;
+    cin >> prio;
+    cout << "DISPLAYING PRIORITY :" << prio << endl;
+    int count = 1;
+    for(int i = 0; i < the_Tasks.size(); i++){
+        if(the_Tasks[i]->get_priority() == prio){
+            cout << count << "." << endl;
+            single_display(the_Tasks[i]);
+            count++;
+        }
+    }
+    return;
+    
+    
+}
+
+Schedule::Schedule(string schedule_name){
+    this->schedule_name = schedule_name;
+    
+}
+
+Schedule::Schedule(){
+    schedule_name = "Basic Schedule";
+}
+
+void Schedule::display_by_category(){
+    if(the_Tasks.size() == 0){
+        cout << "You don't have any task. " << endl;
+
+    return;
+    }
+    int count = 1;
+    string category;
+    cin >> category;
+    cout << "Category: " << category << endl;
+    for (int i = 0; i < the_Tasks.size(); i++){
+        if(the_Tasks.at(i)->get_category() == category){
+            cout << count << "." << endl;
+
+            cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
+            cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
+            cout << "Completion Status: " << the_Tasks.at(i)->get_status() << endl;
+            count ++;
+        }
     }
 }
+
+void Schedule::complete_task(string name){
+    for(int i = 0; i < the_Tasks.size(); i++){
+        if(the_Tasks[i]->get_name() == name){
+            the_Tasks[i]->complete_task();
+            return;
+        }
+    }
+    cout << "Task not found";
+    return;
+}
+
+bool Schedule::is_complete(string name){
+    for(int i = 0; i < the_Tasks.size(); i++){
+        if(the_Tasks[i]->get_name() == name){
+            bool correct = the_Tasks[i]->get_status();
+            if(correct == true){
+                cout << "Is completed";
+                return true;;
+            }
+            else{
+                cout << "Is not completed";
+                return false;
+            }
+        }
+    }
+    cout << "Task not found";
+    return false;
+}
+

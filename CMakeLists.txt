@@ -1,13 +1,21 @@
-
 cmake_minimum_required(VERSION 3.20)
 
-add_subdirectory(test/googletest)
 
-add_executable(runtest
-  test/test.cpp
+ADD_SUBDIRECTORY(googletest)
+
+
+add_executable(run
+  main.cpp
   Schedule.cpp
   Task.cpp
-  
 )
 
-target_link_libraries(runtest gmock gtest gtest_main)
+add_executable(debug
+  test.cpp
+  Schedule.cpp 
+  Task.cpp 
+)
+
+TARGET_LINK_LIBRARIES(debug gtest gtest_main)
+TARGET_COMPILE_DEFINITIONS(debug PRIVATE gtest_disable_pthreads=ON)
+
