@@ -1,3 +1,4 @@
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -6,13 +7,12 @@
 using namespace std;
 
 void Main_menu();
-void Edit_event();
-void display_option();
-void Sched_options();
 
 int main(){
     string schedule_name;
     Schedule* s = new Schedule(schedule_name);
+
+
     string option = "";
     Main_menu();
     cin >> option;
@@ -59,7 +59,7 @@ int main(){
                 s->display_by_category();
             }
             else if(op2choice1 == "3"){
-                //s->display_by_day();
+                s->display_by_day();
             }
             else if(op2choice1 == "4"){
                 s->display_by_priority();
