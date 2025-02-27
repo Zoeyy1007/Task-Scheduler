@@ -56,7 +56,6 @@ If the user selects 1, the program will ask the user for the new event title, ti
 <img width="771" alt="IMG_6663" src="https://github.com/user-attachments/assets/b7ab4d27-9058-48d9-9ab7-760456cca647" />
 
 If the user selects 2, the program will arrange the current events by category or by priority. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
-
 After the user selects a task, the program would ask how the user wants to edit the event. 
 
 <img width="771" alt="IMG_8861" src="https://github.com/user-attachments/assets/582264f6-1e17-4bbe-a55f-f630ee87a98c" />
@@ -64,6 +63,7 @@ After the user selects a task, the program would ask how the user wants to edit 
 User can choose to link event or make adjustment on the event inoformation and option to return main menu. 
 
 <img width="771" alt="IMG_0379" src="https://github.com/user-attachments/assets/c4e6f579-0774-419b-8a42-88faafa57184" />
+
 If the user selects Link events, the user can link the current event to another event. After that, user can link another event or return to previous menu. 
 After any edit completed, the program will ask the user whether they want to create a new task or return to the main menu. 
 
