@@ -62,7 +62,7 @@ int main(){
                 //s->display_by_day();
             }
             else if(op2choice1 == "4"){
-                s->display_by_priority;
+                s->display_by_priority();
             }
         Main_menu();
         cin >> option;
@@ -74,24 +74,21 @@ int main(){
             string eventName;
             cout << "Type name of task" << endl;
             getline(cin, eventName);
-            Task temp = s->findTask(eventName);
-
-
-
+            Task* temp = s->findTask(eventName);
 
             Edit_event();
             string op3choice1;
             cin >> op3choice1;
             if(op3choice1 == "1") {
-                //s->edit_event_title();  
+                //temp->edit_event_title();  
             } else if(op3choice1 == "2") {
-               // s->edit_event_time();  
+               // temp->edit_event_time();  
             } else if(op3choice1 == "3") {
-                //s->edit_event_day();  
+                //temp->edit_event_day();  
             } else if(op3choice1== "4") {
-                //s->delete_event();  
+                s->remove_task(eventName);
             } else if(op3choice1 == "5") {
-                //s->mark_as_completed();  
+                s->is_complete(eventName); 
             } else if(op3choice1 == "q") {
                 cout << "Returning to main menu" << endl;
                 option = "q";
@@ -99,15 +96,6 @@ int main(){
                 cout << "Invalid choice, try again." << endl;
             }
 
-
-
-        }
-        else if(option == "4"){
-            cout << "What priority level would you want to view?" << endl;
-            int prio;
-            cin >> prio;
-            //s->display_priority(prio);
-            Main_menu();
         }
         else{
             cout << "seems like you didnt pick something, pick again" << endl << endl;
@@ -124,14 +112,13 @@ void Main_menu(){
     cout << "1. Add event" << endl;
     cout << "2. View my schedule" << endl;
     cout << "3. Edit event" << endl;
-    cout << "4. View Priority" << endl;
 }
 
 void Sched_options(){
     cout << "1. View full Schedule" << endl;
     cout << "2. View Schedule by category" << endl;
     cout << "3. View schedule by day." << endl;
-    cout << "4. View schedule by priority."
+    cout << "4. View schedule by priority." << endl;
 }
 
 
