@@ -5,10 +5,10 @@ using namespace std;
 
 Schedule::Schedule() {}  // Default constructor
 
-Schedule::Schedule(string schedule_name) : schedule_name(schedule_name) {} // Constructor with name
+Schedule::Schedule(string schedule_name) : schedule_name(schedule_name) {}
 
 Schedule::~Schedule() {
-    for (Task* task : the_Tasks) {  // ✅ FIXED: Using the_Tasks instead of tasks
+    for (Task* task : the_Tasks) { 
         delete task;
     }
     the_Tasks.clear();
@@ -37,7 +37,7 @@ void Schedule::add_task() {
     getline(cin, category);
 
     Task* taskPtr = new Task(title, date, priority, category);
-    the_Tasks.push_back(taskPtr);  // ✅ FIXED: Using the_Tasks instead of tasks
+    the_Tasks.push_back(taskPtr);  
     size++;  
 }
 
@@ -46,12 +46,12 @@ void Schedule::add_task(string taskname, string taskDate, int priority, string c
     if (priority > 5) priority = 5;
 
     Task* taskPtr = new Task(taskname, taskDate, priority, category);
-    the_Tasks.push_back(taskPtr);  // ✅ FIXED: Using the_Tasks instead of tasks
+    the_Tasks.push_back(taskPtr);  
     size++;  
 }
 
 Task* Schedule::get_task(int index) {
-    if (index >= 0 && index < the_Tasks.size()) {  // ✅ FIXED: Using the_Tasks instead of tasks
+    if (index >= 0 && index < the_Tasks.size()) { 
         return the_Tasks[index];
     }
     return nullptr;
