@@ -33,14 +33,14 @@ void Schedule::add_task(string taskname, string taskdate, int priority, string c
     size++;
 }
 
-void Schedule::remove_task(int num){//input the task number of it in the vector
-    if(num <=0){
+void Schedule::remove_task(int index){
+    if(index <=0){
         cout << "Invalid input" << endl;
         return;
     }
-    num = num-1;
-    Task* curr_task = the_Tasks.at(num);
-    the_Tasks.erase(the_Tasks.begin()+num);
+    index = index-1;
+    Task* curr_task = the_Tasks.at(index);
+    the_Tasks.erase(the_Tasks.begin()+index);
     delete curr_task;
     size--;
     return;
