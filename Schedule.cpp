@@ -58,5 +58,5 @@ Task* Schedule::get_task(int index) {
 }
 
 int Schedule::get_size() {
-    return the_Tasks.size();  // ✅ FIXED: Using the_Tasks instead of tasks
+    return the_Tasks.size(); 
 }
