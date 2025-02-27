@@ -44,15 +44,16 @@ The Task Scheduler application provides a structured flow for managing events an
 ![Navigation Diagram CS100](https://github.com/user-attachments/assets/3413a6f6-595f-4505-a362-9fefb6f8f0cf)
 
 ### Screen Layouts
-The main menu has two options: create new event or view current schedule
-<img width="583" alt="AD_4nXfr9qvs-kPyda7uohh5-JVJlUtwfrBJsA_Lil0GWVOKzqcNKqC49v_GrdI8gz31EfglH19xCUMLcUZbtcaIASHaA75McrKQfB52tqMxeNHSQhgqWzyI2zSlJSBHv3L_ztlkWzMg" src="https://github.com/user-attachments/assets/68df6144-f1cf-4a95-8156-a7c75ead7376" />
+The main menu has 4 options: exit program, add Event, view schedule, and view complete tasks. 
+<img width="771" alt="AD_4nXd3yY746di-W9LHkeTGwQUy514UbkJWhY2GCx1RH1O8RoGhUZintlI3sRf-Iws1649zHmfcOweQUFPd5lraz3D9h1j_NpERTWdXq2T1OdYcW-c2Xt2lGCcqIGhGLZ-XK5qkCLhfAQ" src="https://github.com/user-attachments/assets/d76d27ef-7e70-4368-96e1-4ec54ecb2360" />
 
-If the user selects 1, the program will ask the user for the new event title, time and tag. After creating the new event, the user can view the current schedule, create a new event or go to the main menu.
-<img width="621" alt="IMG_6944" src="https://github.com/user-attachments/assets/6910ccf4-998f-4172-afc5-0cfba56cd19a" />
+If the user selects 1, the program will ask the user for the new event title, date, prioritty and tag. After creating the new event, the user can view the current schedule, create a new event or go to the main menu.
+<img width="771" alt="AD_4nXfMvfk03_GZPOxSOCHx6xax7g_Ot4UBsBcbNDTiZ8J1T9MBarAwNyLakMdklw-mBNm8uSVKxZMgDVFAV9CbgabhmqtrtlnWh51fM9lzgntG3oW-A--OyFbcP5-zvA_ZcI9fFkVI" src="https://github.com/user-attachments/assets/35b51360-b8f4-4536-9b60-055db69da22e" />
+
 
 If the user selects 2, the program will arrange the current events by time, and display the events. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
-<img width="605" alt="AD_4nXfmGAlGx_ZrxaTki-fARDRDXdv5mhZ5LIXRXbtgkL5p3j-rFHg-TSSuBJDrTj8xBovHb_gtlUn7HUOttswVFtji8Wlut0x1-pCrkuDos8o3JkXAOBAZzL2BmfhOAe8Hk1VQxFkYUg" src="https://github.com/user-attachments/assets/b63ede29-32d7-4b38-93f5-449db4904c45" />
 
+<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/998e7405-820f-46f7-bee7-fbd826bd53f8" />
 
 
 ## Class Diagram
