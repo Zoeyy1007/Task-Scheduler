@@ -67,10 +67,13 @@ After the user selects a task, the program would ask how the user wants to edit 
 
 User can choose to link event or make adjustment on the event inoformation and option to return main menu. 
 
+<img width="771" alt="IMG_0379" src="https://github.com/user-attachments/assets/c4e6f579-0774-419b-8a42-88faafa57184" />
+If the user selects Link events, the user can link the current event to another event. After that, user can link another event or return to previous menu. 
+After any edit completed, the program will ask the user whether they want to create a new task or return to the main menu. 
 
 <img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/ba65d198-2512-4b6e-9f01-029a8684ac62" />
 
-If the user selects 3 from the main menu, the completed task would be displayed. After the completed tasks are displayed, user would return to the main menu. 
+If the user selects 3 from the main menu, the completed task would be displayed. User can choose display by time or by priority. After the completed tasks are displayed, user would return to the main menu. 
 
 ## Class Diagram
 Data class: This class is responsible for tracking the user’s task statistics related to their productivity levels. The getters and setters will store the user’s average time completion for each task, total task completed, and how many pending tasks they have left.
