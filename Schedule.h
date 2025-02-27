@@ -23,4 +23,5 @@ class Schedule{
         void complete_task(int index);
         int get_size(){return size;}
         bool is_complete(int index);
+        vector<Task*> getTasks() { return the_Tasks; }
 };
