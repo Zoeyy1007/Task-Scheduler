@@ -58,9 +58,6 @@ If the user selects 1, the program will ask the user for the new event title, ti
 If the user selects 2, the program will arrange the current events by category or by priority. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
 
 
-
-<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/f0162dea-62b7-479e-ba98-2d4712db0cbd" />
-
 After the user selects a task, the program would ask how the user wants to edit the event. 
 
 <img width="771" alt="IMG_8861" src="https://github.com/user-attachments/assets/582264f6-1e17-4bbe-a55f-f630ee87a98c" />
