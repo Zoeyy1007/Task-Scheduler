@@ -18,6 +18,6 @@ class Task {
         string get_name();
         int get_priority();
         string get_category();
-        bool get_status();  // ✅ Add this line if it's missing
+        bool get_status();  
     };
     
