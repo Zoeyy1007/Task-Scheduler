@@ -1,3 +1,4 @@
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -6,48 +7,44 @@
 using namespace std;
 
 void Main_menu();
-void Edit_event();
-void display_option();
+void Edit_event(int index, Schedule* s);
+void display_option(Schedule* s);
 
-int main() {
+int main(){
     string schedule_name;
     Schedule* s = new Schedule(schedule_name);
     int option = 0;
     Main_menu();
     cin >> option;
-    while (option != 'q') { // Incorrect comparison, 'q' is a char, option is an int
-        if (option == 1) {
-            s->add_task();
-            cout << "You created a new event. Enter 1 to see your current schedule, 2 to create another event" << endl;
+    while(option != -1){
+        if(option == 6){
+            Main_menu();
             cin >> option;
-        } else if (option == 2) {
-            // Display events
-            s->display_full();
-            cout << "Select the event you want to edit by entering its number." << endl;
-            cout << "Enter 'q' to go back to the main menu. " << endl;
-            cin >> option;
-            if (option != 'q') { // Ensuring correct input handling
-                cout << "(Getting user input)" << endl;
-                Edit_event();
-                cin >> option;
-            }
-        } else {
-            cout << "Invalid option. Please enter 1 or 2." << endl;
         }
-        Main_menu();
-        cin >> option;
+        if(option == 1){
+            s->add_task
+            cout << "You created a new event. Enter 1 to see you current schedule, 2 to create another event" << endl;
+            cin >> option;
+        }
+        if(option == 2){
+            display_option(s);
+            cout << "Select the event you want to edit" << endl;
+            int index;
+            cin >> index;
+            Edit_event(index,s);
+            cin >> option;
+        }
     }
-    delete s; // Free allocated memory
     return 0;
 }
 
-void Main_menu() {
+void Main_menu(){
     cout << "1. Add event" << endl;
     cout << "2. View my schedule" << endl;
-    cout << "Enter 'q' to quit." << endl;
 }
 
-void Edit_event() {
+
+void Edit_event(){
     cout << "Edit options: " << endl;
     cout << "1. Edit event title" << endl;
     cout << "2. Edit event time" << endl;
@@ -56,8 +53,8 @@ void Edit_event() {
     cout << "Enter 'q' to go back to the previous menu" << endl;
 }
 
-void display_option() {
+void display_option(){
     cout << "How do you like to view your schedule?" << endl;
     cout << "Enter 1 to view by time. " << endl;
-    cout << "Enter 2 to view by category" << endl; // Fixed typo "catogory" -> "category"
+    cout << "Enter 2 to view by catogory" << endl;
 }
