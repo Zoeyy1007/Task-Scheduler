@@ -19,8 +19,9 @@ class Schedule{
         int get_execTime();
         void display_catogorized();
         void display_full();
-        bool is_active();
         void display_by_category();
         void complete_task(int index);
+        int get_size(){return size;}
+        bool is_complete(int index);
 };
 

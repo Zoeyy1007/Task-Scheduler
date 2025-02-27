@@ -34,7 +34,7 @@ void Schedule::add_task(string taskname, string taskdate, int priority, string c
 }
 
 void Schedule::remove_task(int index){
-    if(index <=0){
+    if(index <=0 || index > size){
         cout << "Invalid input" << endl;
         return;
     }
@@ -96,4 +96,12 @@ void Schedule::complete_task(int index){
     Task* curr_task = the_Tasks.at(index-1);
     curr_task->complete_task();
     return;
+}
+
+bool Schedule::is_complete(int index){
+    if(index <=0 || index > size){
+        cout << "Invalid input" << endl;
+        return false;
+    }
+    return the_Tasks.at(index-1)->get_status();
 }

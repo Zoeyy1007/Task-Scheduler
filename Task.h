@@ -10,10 +10,11 @@ class Task{
         int priority;
         string task_date;
         string category;
+        bool task_complete = false;
     
     public:
         void complete_task();
-        bool task_complete = false;
+        bool get_status();
         int get_priority();
         string get_name();
         string get_date();

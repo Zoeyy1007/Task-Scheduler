@@ -32,3 +32,7 @@ int Task::get_priority(){
 string Task::get_category(){
     return category;
 }
+
+bool Task::get_status(){
+    return task_complete;
+}
