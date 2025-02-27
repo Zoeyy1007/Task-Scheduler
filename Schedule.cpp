@@ -36,16 +36,14 @@ void Schedule::add_task(){
     cout << taskDate << endl;
   
     cout << "What is the priority of your event, 1 through 10 (10 being the most urgent)" << endl;
-    while (!(cin >> priority) || priority < 1 || priority > 10) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid priority. Please enter a number between 1 and 5: ";
+    cin >> priority;
+    while(priority > 10 || priority < 0){
+        cout << "Pick a priority that is within the range" << endl;
+        cin >> priority;
     }
-    cin.ignore();
     cin >> priority;
 
     cout << "What category of task it is?" << endl;
-    cin.ignore();
     getline(cin, category);
 
     Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
