@@ -61,6 +61,9 @@ int main(){
             else if(op2choice1 == "3"){
                 //s->display_by_day();
             }
+            else if(op2choice1 == "4"){
+                s->display_by_priority;
+            }
         Main_menu();
         cin >> option;
 
@@ -128,6 +131,7 @@ void Sched_options(){
     cout << "1. View full Schedule" << endl;
     cout << "2. View Schedule by category" << endl;
     cout << "3. View schedule by day." << endl;
+    cout << "4. View schedule by priority."
 }
 
 
