@@ -41,7 +41,8 @@ Users can display, edit, delete, and undo operations on tasks and task lists. Th
 The Task Scheduler application provides a structured flow for managing events and tasks efficiently. The navigation diagram illustrates how users can interact with the system from the Home Screen and perform various actions on tasks.
 
 ### Navigation Diagram
-![Navigation Diagram CS100](https://github.com/user-attachments/assets/3413a6f6-595f-4505-a362-9fefb6f8f0cf)
+<img width="1045" alt="Screenshot 2025-02-27 at 2 41 08 AM" src="https://github.com/user-attachments/assets/0c8d16a6-fd24-4a4b-9f24-4e9969e4e27c" />
+
 
 ### Screen Layouts
 <img width="771" alt="AD_4nXd3yY746di-W9LHkeTGwQUy514UbkJWhY2GCx1RH1O8RoGhUZintlI3sRf-Iws1649zHmfcOweQUFPd5lraz3D9h1j_NpERTWdXq2T1OdYcW-c2Xt2lGCcqIGhGLZ-XK5qkCLhfAQ" src="https://github.com/user-attachments/assets/2679e73f-8121-488c-aa28-b43ee020188e" />
