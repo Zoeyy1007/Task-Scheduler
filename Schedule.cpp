@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 #include "Schedule.h"
 
 using namespace std;
@@ -73,7 +74,7 @@ void Schedule::remove_task(string name){
 
 void Schedule::display_full(){
     if(the_Tasks.size() == 0){
-        cout << "You don't have any task. " << endl;
+        throw runtime_error("No tasks in schedule");
         return;
     }
     string daysOfWeek[7] = {"Monday:", "Tuesday:", "Wednesday:", "Thursday:", "Friday:", "Saturday:", "Sunday:"};
@@ -142,14 +143,14 @@ void Schedule::display_full(){
     }
 
      cout << "Friday:" << endl;
-    int count = 1;
+     count = 1;
     for(int i = 0; i < Friday.size(); i++){
         cout << count << ":" << endl;
         single_display(Friday[i]);
         count++;
     }
     cout << "Saturday:" << endl;
-    int count = 1;
+     count = 1;
     for(int i = 0; i < Saturday.size(); i++){
         cout << count << ":" << endl;
         single_display(Saturday[i]);
@@ -157,7 +158,7 @@ void Schedule::display_full(){
     }
 
      cout << "Sunday:" << endl;
-    int count = 1;
+     count = 1;
     for(int i = 0; i < Sunday.size(); i++){
         cout << count << ":" << endl;
         single_display(Sunday[i]);
@@ -201,7 +202,7 @@ Schedule::Schedule(string schedule_name){
 }
 
 Schedule::Schedule(){
-    schedule_name = 'Basic Schedule';
+    schedule_name = "Basic Schedule";
 }
 
 void Schedule::display_by_category(){
