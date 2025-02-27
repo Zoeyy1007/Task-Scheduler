@@ -1,5 +1,3 @@
-#ifndef SCHEDULE_H
-#define SCHEDULE_H
 
 #include <iostream>
 #include <vector>
@@ -16,7 +14,7 @@ private:
 public:
     Schedule();  
     Schedule(string schedule_name);  
-    ~Schedule();  
+    ~Schedule();  // ✅ Explicitly declare the destructor
 
     void add_task();  
     void add_task(string taskname, string taskdate, int priority, string category);
@@ -36,5 +34,3 @@ public:
 
     Task* get_task(int index);  
 };
-
-#endif // SCHEDULE_H

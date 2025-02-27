@@ -1,14 +1,16 @@
-#include "Schedule.h"
+
 #include <iostream>
+#include <vector>
+#include "Schedule.h"
 
 using namespace std;
 
 Schedule::Schedule() {}  // Default constructor
 
-Schedule::Schedule(string schedule_name) : schedule_name(schedule_name) {}
+Schedule::Schedule(string schedule_name) : schedule_name(schedule_name) {} // Constructor with name
 
 Schedule::~Schedule() {
-    for (Task* task : the_Tasks) { 
+    for (Task* task : the_Tasks) {  // ✅ FIXED: Using the_Tasks instead of tasks
         delete task;
     }
     the_Tasks.clear();
@@ -17,13 +19,17 @@ Schedule::~Schedule() {
 void Schedule::add_task() {
     string title, date, category;
     int priority;
+    string category;
 
-    cout << "Please enter task title: ";
-    cin.ignore();
-    getline(cin, title);
+    cout << "Please enter event title" << endl;
+    cin.ignore(); 
+    
+    getline(cin, taskname);
+    cout << "Please enter event date" << endl;
+    cin.ignore(); 
 
-    cout << "Please enter task date: ";
-    getline(cin, date); 
+    getline(cin, taskDate);
+    cout << taskDate << endl;
 
     cout << "Please enter task priority (1 to 5): ";
     cin >> priority; 
@@ -32,12 +38,13 @@ void Schedule::add_task() {
         cin >> priority;
     }
     cin.ignore();
-
-    cout << "Please enter task category: ";
+    cout << priority << endl;
+    cout << "What type of task it is?" << endl;
+    cin.ignore();
     getline(cin, category);
 
     Task* taskPtr = new Task(title, date, priority, category);
-    the_Tasks.push_back(taskPtr);  
+    the_Tasks.push_back(taskPtr);  // ✅ FIXED: Using the_Tasks instead of tasks
     size++;  
 }
 
@@ -46,17 +53,17 @@ void Schedule::add_task(string taskname, string taskDate, int priority, string c
     if (priority > 5) priority = 5;
 
     Task* taskPtr = new Task(taskname, taskDate, priority, category);
-    the_Tasks.push_back(taskPtr);  
+    the_Tasks.push_back(taskPtr);  // ✅ FIXED: Using the_Tasks instead of tasks
     size++;  
 }
 
 Task* Schedule::get_task(int index) {
-    if (index >= 0 && index < the_Tasks.size()) { 
+    if (index >= 0 && index < the_Tasks.size()) {  // ✅ FIXED: Using the_Tasks instead of tasks
         return the_Tasks[index];
     }
     return nullptr;
 }
 
 int Schedule::get_size() {
-    return the_Tasks.size(); 
+    return the_Tasks.size();  // ✅ FIXED: Using the_Tasks instead of tasks
 }
