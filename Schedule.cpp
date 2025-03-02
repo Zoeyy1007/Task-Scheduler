@@ -15,7 +15,10 @@ void Schedule::add_task(){
     string category;
     int day;
     int hour;
-
+    int week;
+    cout << "Please enter the week of this event" << endl;
+    cin.ignore();
+    cin >> week;
 
     cout << "Please enter event title" << endl; 
     cin.ignore();
@@ -99,6 +102,7 @@ void Schedule::display_full(){
     vector<Task*> Friday;
     vector<Task*> Saturday;
     vector<Task*> Sunday;
+
     for(int i = 0; i < the_Tasks.size(); i++){
        if(the_Tasks[i]->get_day()==1){
         Monday.push_back(the_Tasks[i]);
@@ -122,7 +126,7 @@ void Schedule::display_full(){
         Sunday.push_back(the_Tasks[i]);
        }
     }
-
+    
     cout << "Monday:" << endl;
     int count = 1;
     for(int i = 0; i < Monday.size(); i++){
@@ -197,6 +201,7 @@ void Schedule::display_full(){
 }
 
 void Schedule::single_display(Task* currtask){
+    cout << "In Week " << currtask->get_week() << ":" << endl;
     cout << currtask->get_name() << ", at " << currtask->get_date();
     cout << ", priority: " << currtask->get_priority() << endl;
     cout << "Completion Status: ";
@@ -264,7 +269,7 @@ void Schedule::display_by_category(){
     for (int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks.at(i)->get_category() == category){
             cout << count << "." << endl;
-
+            cout << "In Week " << the_Tasks.at(i)->get_week() << ":" << endl;
             cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
             cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
             cout << "Completion Status: " << the_Tasks.at(i)->get_status() << endl;
