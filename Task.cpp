@@ -13,6 +13,7 @@ Task::Task(string taskname, string task_date, int priority, string category, int
     this->category = category;
     this->day = day;
     this->hour = hour;
+    this->week = week;
 
 }
 
@@ -43,6 +44,10 @@ int Task::get_day(){
     return day;
 }
 
+int Task::get_week()
+{
+    return week;
+}
 
 string Task::get_category(){
     return category;
