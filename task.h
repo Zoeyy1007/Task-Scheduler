@@ -5,14 +5,16 @@ using namespace std;
 
 class Task {
     private:
+    int exec_time;
     string task_name;
-    int task_priority = 0;
+    int priority;
     string task_date;
-    int task_exec_time = 0;
-    int task_day;
-    int task_hour;
-    int task_complete;
+    string category;
 
+    int day;
+    int hour;
+    int week;
+    bool task_complete = false;
     public:
 
     Task(string taskname, string task_date, int priority, string category, int day, int hour)
@@ -23,12 +25,12 @@ class Task {
     int getPriority();
     string getDate();
     int get_exec_time();
-    int get_day()
+    int get_day();
     int get_hour();
     string get_category();
 
     //setter
-    void set_name(string newName);
+    void set_name(string newName);    
     void set_date(string newDate);
     void set_priority(int newPriority);
     void set_category(string newCategory);
@@ -36,7 +38,7 @@ class Task {
     void set_hour(int newHour);
 
     //completion
-    void task_complete();
+    void complete_task();
 };
 
 
