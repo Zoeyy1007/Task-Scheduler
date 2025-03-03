@@ -5,6 +5,7 @@
 using namespace std;
 
 Task::Task(string taskname, string task_date, int priority, string category, int day, int hour, int week){
+
     
     this->task_name=taskname;
     this->priority=priority;
@@ -12,7 +13,7 @@ Task::Task(string taskname, string task_date, int priority, string category, int
     this->category = category;
     this->day = day;
     this->hour = hour;
-    this->week = 0;
+    this->week = week;
 }
 
 void Task::complete_task(){
@@ -33,12 +34,18 @@ int Task::get_priority(){
     return priority;
 }
 
+
 int Task::get_hour(){
     return hour;
 }
 
 int Task::get_day(){
     return day;
+}
+
+int Task::get_week()
+{
+    return week;
 }
 
 string Task::get_category(){
@@ -73,3 +80,4 @@ void Task::set_day(int newDay) {
 void Task::set_hour(int newHour) {
     hour = newHour;
 }
+

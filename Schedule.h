@@ -27,6 +27,7 @@ class Schedule{
         void display_by_category();
         void display_by_priority();
         void single_display(Task* currtask);
+        void display_by_day();
 
         //status and edit
         void complete_task(string name);
@@ -36,7 +37,7 @@ class Schedule{
         //utility
         Task* findTask(string name);
         int get_size(){return size;}
+      
         
-        
-};
+
 

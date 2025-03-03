@@ -46,19 +46,30 @@ The Task Scheduler application provides a structured flow for managing events an
 
 ### Screen Layouts
 <img width="771" alt="AD_4nXd3yY746di-W9LHkeTGwQUy514UbkJWhY2GCx1RH1O8RoGhUZintlI3sRf-Iws1649zHmfcOweQUFPd5lraz3D9h1j_NpERTWdXq2T1OdYcW-c2Xt2lGCcqIGhGLZ-XK5qkCLhfAQ" src="https://github.com/user-attachments/assets/2679e73f-8121-488c-aa28-b43ee020188e" />
+
 The main menu has two options: create new event, view current schedule or view completed task. Users can also end the program directly by entering 0. 
 
 <img width="771" alt="AD_4nXfMvfk03_GZPOxSOCHx6xax7g_Ot4UBsBcbNDTiZ8J1T9MBarAwNyLakMdklw-mBNm8uSVKxZMgDVFAV9CbgabhmqtrtlnWh51fM9lzgntG3oW-A--OyFbcP5-zvA_ZcI9fFkVI" src="https://github.com/user-attachments/assets/e12dbe04-f91a-4311-9425-db1a5f5495a3" />
+
 If the user selects 1, the program will ask the user for the new event title, time, priority and category. After creating the new event, the user can view the current schedule, create a new event or go to the main menu. 
 
-<img width="771" alt="AD_4nXfMvfk03_GZPOxSOCHx6xax7g_Ot4UBsBcbNDTiZ8J1T9MBarAwNyLakMdklw-mBNm8uSVKxZMgDVFAV9CbgabhmqtrtlnWh51fM9lzgntG3oW-A--OyFbcP5-zvA_ZcI9fFkVI" src="https://github.com/user-attachments/assets/1a45a33c-befd-4ee8-ad85-5c05f16ba100" />
-If the user selects 2, the program will arrange the current events by category or by time. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
+<img width="771" alt="IMG_6663" src="https://github.com/user-attachments/assets/b7ab4d27-9058-48d9-9ab7-760456cca647" />
 
-<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/f0162dea-62b7-479e-ba98-2d4712db0cbd" />
+If the user selects 2, the program will arrange the current events by category or by priority. The user can select a specific event and edit it. The user can edit the event title, time, delete it or mark it as complete. 
 After the user selects a task, the program would ask how the user wants to edit the event. 
 
-<img width="771" alt="AD_4nXf0z5JgmaG1yXh1Cjgur8gq03JTdwqyjXYw5xm78G5OfaYI80MbWFRje3BqqCA1jdSRyjFaDeJLC0eIpViQyFhX9lAkLkGqMjpS080aJFCkV31S4-JTugDvvZD0jgOgBayTBR1Q4A" src="https://github.com/user-attachments/assets/ba65d198-2512-4b6e-9f01-029a8684ac62" />
-If the user selects 3 from the main menu, the completed task would be displayed. After the completed tasks are displayed, user would return to the main menu. 
+<img width="771" alt="IMG_8861" src="https://github.com/user-attachments/assets/582264f6-1e17-4bbe-a55f-f630ee87a98c" />
+
+User can choose to link event or make adjustment on the event inoformation and option to return main menu. 
+
+<img width="771" alt="IMG_0379" src="https://github.com/user-attachments/assets/c4e6f579-0774-419b-8a42-88faafa57184" />
+
+If the user selects Link events, the user can link the current event to another event. After that, user can link another event or return to previous menu. 
+After any edit completed, the program will ask the user whether they want to create a new task or return to the main menu. 
+
+<img width="771" alt="image" src="https://github.com/user-attachments/assets/fe367bbf-b25d-4b0e-808a-8d3b1a733eb1" />
+
+If the user selects 3 from the main menu, the completed task would be displayed. User can choose display by time or by priority. After the completed tasks are displayed, user would return to the main menu. 
 
 ## Class Diagram
 Data class: This class is responsible for tracking the user’s task statistics related to their productivity levels. The getters and setters will store the user’s average time completion for each task, total task completed, and how many pending tasks they have left.
@@ -75,9 +86,11 @@ User class: This class stores the essential information regarding the name of th
 ![UML](https://github.com/user-attachments/assets/10db852b-30b3-433b-9545-8b6d549bde6d)
 
 
- 
+
+
  ## Class Diagram Updated 
  ![IMG_0618](https://github.com/user-attachments/assets/0397424f-23c2-4433-82a7-b57d20b470d4)
+
 
 Deleting notification class: We removed the notification class feature because we wanted to maintain a more 
 Clean and efficient codebase. Therefore, we wanted to simplify our feature. This change will streamline the
@@ -100,8 +113,6 @@ displaySchedule() had already did
 
 
 
-
- 
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:

@@ -1,5 +1,7 @@
+
 #ifndef TASK_H
 #define TASK_H
+
 #include <iostream>
 #include <vector>
 
@@ -12,6 +14,7 @@ class Task{
         int priority;
         string task_date;
         string category;
+
         int day;
         int hour;
         int week;
@@ -21,8 +24,10 @@ class Task{
         void complete_task();
         bool get_status();
         int get_priority();
+
         int get_hour();
         int get_day();
+        int get_week();
         string get_name();
         string get_date();
         Task(string taskname, string task_date, int priority, string category, int day, int hour, int week);
