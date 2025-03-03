@@ -15,14 +15,14 @@ class Schedule{
 
         //management
         void add_task();
-        void add_task(string taskname,string taskDate, int priority, string category, int hour, int day);
+        void add_task(string taskname,string taskDate, int priority, string category, int hour, int day, int week);
         void remove_task(string name);
 
-        int get_priority(); //this should be in task.h
-        int get_execTime();
+        //int get_priority(); //this should be in task.h
+        //int get_execTime();
 
         //display function 
-        void display_catogorized();
+        void display_categorized();
         void display_full();
         void display_by_category();
         void display_by_priority();

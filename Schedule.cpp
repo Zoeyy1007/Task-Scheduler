@@ -7,12 +7,12 @@
 using namespace std;
 
 //constructor
-Schedule::schedule(){
-    schedule_name = "Defult Schedule"
+Schedule::Schedule(){
+    schedule_name = "Defult Schedule";
     size = 0;
 }
 
-Schedule(string schedule_name){
+Schedule::Schedule(string schedule_name){
     this->schedule_name = schedule_name;
     size = 0;
 }
@@ -25,6 +25,7 @@ void Schedule::add_task(){
     string category;
     int day;
     int hour;
+    int week =0;
 
 
     cout << "Please enter event title" << endl; 
@@ -49,13 +50,13 @@ void Schedule::add_task(){
     cin.ignore();
     getline(cin, category);
 
-    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day, week);
     the_Tasks.push_back(taskPtr);
     size++;
 }
 
-void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day){
-    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day, int week){
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day, week);
     the_Tasks.push_back(taskPtr);
     size++;
 }
@@ -272,7 +273,7 @@ void Schedule::edit_task(string name) {
     }
 
     while (true) {
-        taskName = task->get_name();
+        string taskName = task->get_name();
         cout << "\nEditing Task: " << taskName << endl;
         cout << "1. Edit Name\n2. Edit Date\n3. Edit Priority\n4. Edit Category\n5. Edit Day\n6. Edit Hour\n7. Exit Edit Menu\n";
         cout << "Enter your choice: ";
