@@ -8,6 +8,18 @@
 
 using namespace std;
 
+//constructor
+Schedule::Schedule(){
+    schedule_name = "Defult Schedule";
+    size = 0;
+}
+
+Schedule::Schedule(string schedule_name){
+    this->schedule_name = schedule_name;
+    size = 0;
+}
+
+//add new task 
 void Schedule::add_task(){
     string taskname;
     string taskDate;
@@ -33,7 +45,7 @@ void Schedule::add_task(){
     cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl;
     cin >> day;
 
-    cout << "Please enter hour of day, from 0 to 24" << endl;
+    cout << "Please enter hour of day, from 0 to 23" << endl;
     cin >> hour;
 
   
@@ -48,13 +60,19 @@ void Schedule::add_task(){
     cin.ignore();
     getline(cin, category);
 
-    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day, week);
+    the_Tasks.push_back(taskPtr);
+    size++;
+}
+
+void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day, int week){
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day, week);
 
     the_Tasks.push_back(taskPtr);
     size++;
 }
 
-
+//find task by name
 Task* Schedule::findTask(string name){
     for (int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks[i]->get_name() == name){
@@ -66,6 +84,8 @@ Task* Schedule::findTask(string name){
 
 }
 
+
+//remove task by name
 void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day){
     Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
 
@@ -79,6 +99,7 @@ void Schedule::remove_task(string name){
         if(name == the_Tasks[i]->get_name()){
             delete the_Tasks[i];
             the_Tasks.erase(the_Tasks.begin()+i);
+            size--;
             return;
         }
     }
@@ -86,8 +107,7 @@ void Schedule::remove_task(string name){
     return;
 }
 
-
-
+//Display functions
 void Schedule::display_full(){
     if(the_Tasks.size() == 0){
         throw runtime_error("No tasks in schedule");
@@ -209,8 +229,6 @@ void Schedule::single_display(Task* currtask){
 }
 
 
-
-
 void Schedule::display_by_priority(){
     cout << "Pick a priority to display (1 through 10)" << endl << endl;
     int prio;
@@ -228,6 +246,7 @@ void Schedule::display_by_priority(){
     
     
 }
+
 
 void Schedule::display_by_day(){
     cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl << endl;
@@ -255,6 +274,7 @@ Schedule::Schedule(){
     schedule_name = "Basic Schedule";
 }
 
+
 void Schedule::display_by_category(){
     if(the_Tasks.size() == 0){
         cout << "You don't have any task. " << endl;
@@ -278,6 +298,8 @@ void Schedule::display_by_category(){
     }
 }
 
+
+//mark as complete task
 void Schedule::complete_task(string name){
     for(int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks[i]->get_name() == name){
@@ -288,7 +310,7 @@ void Schedule::complete_task(string name){
     cout << "Task not found";
     return;
 }
-
+//check if the task is completed 
 bool Schedule::is_complete(string name){
     for(int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks[i]->get_name() == name){
@@ -307,3 +329,79 @@ bool Schedule::is_complete(string name){
     return false;
 }
 
+//edit a task
+void Schedule::edit_task(string name) {
+    Task* task = findTask(name);
+
+    if (task == nullptr) {
+        cout << "Task not found. Unable to edit." << endl;
+        return;
+    }
+
+    while (true) {
+        string taskName = task->get_name();
+        cout << "\nEditing Task: " << taskName << endl;
+        cout << "1. Edit Name\n2. Edit Date\n3. Edit Priority\n4. Edit Category\n5. Edit Day\n6. Edit Hour\n7. Exit Edit Menu\n";
+        cout << "Enter your choice: ";
+        
+        int choice;
+        cin >> choice;
+        cin.ignore(); 
+
+        if (choice == 1) {
+            string newName;
+            cout << "Enter new task name: ";
+            getline(cin, newName);
+            task->set_name(newName);
+        } 
+        else if (choice == 2) {
+            string newDate;
+            cout << "Enter new date: ";
+            getline(cin, newDate);
+            task->set_date(newDate);
+        } 
+        else if (choice == 3) {
+            int newPriority;
+            cout << "Enter new priority (1-10): ";
+            cin >> newPriority;
+            while (newPriority < 1 || newPriority > 10) {
+                cout << "Invalid priority. Enter a number between 1-10: ";
+                cin >> newPriority;
+            }
+            task->set_priority(newPriority);
+        } 
+        else if (choice == 4) {
+            string newCategory;
+            cout << "Enter new category: ";
+            getline(cin, newCategory);
+            task->set_category(newCategory);
+        } 
+        else if (choice == 5) {
+            int newDay;
+            cout << "Enter new day (1 for Monday, 7 for Sunday): ";
+            cin >> newDay;
+            while (newDay < 1 || newDay > 7) {
+                cout << "Invalid day. Enter a number between 1-7: ";
+                cin >> newDay;
+            }
+            task->set_day(newDay);
+        } 
+        else if (choice == 6) {
+            int newHour;
+            cout << "Enter new hour (0-23): ";
+            cin >> newHour;
+            while (newHour < 0 || newHour > 23) {
+                cout << "Invalid hour. Enter a number between 0-23: ";
+                cin >> newHour;
+            }
+            task->set_hour(newHour);
+        } 
+        else if (choice == 7) {
+            cout << "Exiting edit menu." << endl;
+            return;
+        } 
+        else {
+            cout << "Invalid choice, try again." << endl;
+        }
+    }
+}
