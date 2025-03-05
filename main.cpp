@@ -16,7 +16,11 @@ int main(){
     Main_menu();
     cin >> option;
     while(option != "q"){
-        if(option == "1"){
+        if(option == "0"){
+            Main_menu();
+            cin >> option;
+        }
+        else if(option == "1"){
             s->add_task();
             cout << "You created a new event. Enter 1 to see you current schedule, 2 to create another event, type anything else to quit" << endl;
             string op1choice1;
@@ -52,20 +56,24 @@ int main(){
             else if(op2choice1 == "4"){
                 s->display_by_priority();
             }
-            Main_menu();
-            cin >> option;
+            option = "0";
+        }
+        else if(option == "3" && s->get_size()==0){
+            option == "0";
         }
         else if(option == "3"){
-            if(s->get_size() == 0){
-                cout << "You don't have any task. " << endl;
-                Main_menu();
-                cin >> option;
-            }
             string eventName;
             cout << "Type name of task" << endl;
             cin.ignore();
             getline(cin, eventName);
             Task* temp = s->findTask(eventName);
+
+            while(temp == nullptr){
+                cout << "Please enter again. " << endl;
+                cin.ignore();
+                getline(cin, eventName);
+                temp = s->findTask(eventName);
+            }
 
             Edit_event();
             string op3choice1;
