@@ -10,9 +10,9 @@ using namespace std;
 
 void Schedule::add_task(){
     string taskname;
-    string taskDate;
     int priority;
     string category;
+    int month;
     int day;
     int hour;
 
@@ -21,13 +21,10 @@ void Schedule::add_task(){
     cin.ignore();
     getline(cin, taskname);
 
+    cout << "Please enter month, Janurary is 01, so on." << endl;
+    cin >> month;
 
-    cout << "Please enter event time" << endl;
-    cin.ignore(); 
-    getline(cin, taskDate);
-
-
-    cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl;
+    cout << "Please enter the day, Januray 1st is 01, and so on" << endl;
     cin >> day;
 
     cout << "Please enter hour of day, from 0 to 24" << endl;
@@ -45,7 +42,7 @@ void Schedule::add_task(){
     cin.ignore();
     getline(cin, category);
 
-    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+    Task* taskPtr = new Task(taskname, priority, category, month, hour, day);
 
     the_Tasks.push_back(taskPtr);
     size++;
@@ -63,8 +60,8 @@ Task* Schedule::findTask(string name){
 
 }
 
-void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day){
-    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+void Schedule::add_task(string taskname, int priority, string category, int month, int day, int hour){
+    Task* taskPtr = new Task(taskname, priority, category, month, day, hour);
 
     the_Tasks.push_back(taskPtr);
     size++;
@@ -76,6 +73,7 @@ void Schedule::remove_task(string name){
         if(name == the_Tasks[i]->get_name()){
             delete the_Tasks[i];
             the_Tasks.erase(the_Tasks.begin()+i);
+            size--;
             return;
         }
     }
@@ -214,7 +212,7 @@ void Schedule::display_by_priority(){
     int count = 1;
     for(int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks[i]->get_priority() == prio){
-            cout << count << "." << endl;
+            cout << count << ".";
             single_display(the_Tasks[i]);
             count++;
         }
@@ -241,13 +239,7 @@ void Schedule::display_by_day(){
     return;
 }
 
-Schedule::Schedule(string schedule_name){
-    this->schedule_name = schedule_name;
-    
-}
-
 Schedule::Schedule(){
-    schedule_name = "Basic Schedule";
 }
 
 void Schedule::display_by_category(){
@@ -261,9 +253,9 @@ void Schedule::display_by_category(){
     cout << "Enter a category name" << endl;
     cin >> category;
     cout << "Category: " << category << endl;
-    for (int i = 0; i < the_Tasks.size(); i++){
+    for (int i = 0; i < size; i++){
         if(the_Tasks.at(i)->get_category() == category){
-            cout << count << "." << endl;
+            cout << count << "." ;
 
             cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
             cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
@@ -302,3 +294,11 @@ bool Schedule::is_complete(string name){
     return false;
 }
 
+Schedule::~Schedule(){
+    Task* temp = nullptr;
+    for(int i = 0; i < size; i++){
+        temp = the_Tasks[i];
+        delete temp;
+    }
+    size = 0;
+}

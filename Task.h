@@ -9,9 +9,8 @@ class Task{
         int exec_time;
         string task_name;
         int priority;
-        string task_date;
         string category;
-
+        int month;
         int day;
         int hour;
 
@@ -26,9 +25,9 @@ class Task{
         int get_day();
         string get_name();
         string get_date();
-        Task(string taskname, string task_date, int priority, string category, int day, int hour);
+        Task(string taskname, int priority, string category, int month, int day, int hour);
         Task();
         string get_category();
-       
+        void Edit_name();
 };
 

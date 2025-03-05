@@ -6,15 +6,14 @@ using namespace std;
 
 class Schedule{
     private:
-        string schedule_name;
         int size = 0;
         vector<Task*> the_Tasks;
     public:
         Schedule();
-        Schedule(string schedule_name);
+        ~Schedule();
         void add_task();
 
-        void add_task(string taskname,string taskDate, int priority, string category, int hour, int day);
+        void add_task(string taskname, int priority, string category, int month, int day, int hour);
         void remove_task(string name);
 
         int get_priority();

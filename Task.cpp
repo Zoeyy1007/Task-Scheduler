@@ -5,12 +5,12 @@
 using namespace std;
 
 
-Task::Task(string taskname, string task_date, int priority, string category, int day, int hour){
+Task::Task(string taskname, int priority, string category, int month, int day, int hour){
     
     this->task_name=taskname;
     this->priority=priority;
-    this->task_date = task_date;
     this->category = category;
+    this->month = month;
     this->day = day;
     this->hour = hour;
 
@@ -23,7 +23,8 @@ void Task::complete_task(){
 
 
 string Task::get_date(){
-    return task_date;
+    string date = to_string(month) + "/" + to_string(day);
+    return date;
 }
 
 string Task::get_name(){
@@ -50,4 +51,13 @@ string Task::get_category(){
 
 bool Task::get_status(){
     return task_complete;
+}
+
+void Task::Edit_name(){
+    string new_name = " ";
+    cout << "Please enter the new name for current task." << endl;
+    cin.ignore();
+    getline(cin, new_name);
+    task_name = new_name;
+    cout << "You changed the task name to " << task_name << endl;
 }
