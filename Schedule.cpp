@@ -71,8 +71,9 @@ void Schedule::add_task(string taskname, int priority, string category, int mont
 void Schedule::remove_task(string name){
     for(int i = 0; i < the_Tasks.size(); i++){
         if(name == the_Tasks[i]->get_name()){
-            delete the_Tasks[i];
+            Task* temp = the_Tasks[i];
             the_Tasks.erase(the_Tasks.begin()+i);
+            delete temp;
             size--;
             return;
         }
