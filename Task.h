@@ -29,5 +29,12 @@ class Task{
         Task();
         string get_category();
         void Edit_name();
+
+        void set_name(string newName);    
+        void set_month(int month);
+        void set_priority(int newPriority);
+        void set_category(string newCategory);
+        void set_day(int newDay);
+        void set_hour(int newHour);
 };
 

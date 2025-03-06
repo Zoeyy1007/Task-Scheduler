@@ -1,10 +1,10 @@
-
 #include <gtest/gtest.h>
 #include "EventSearch.h"
 #include "EventManager.h"
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include "Schedule.h"
 
 using namespace std;
 
@@ -86,5 +86,15 @@ TEST(scheduleTestSuite, testemptySchedule){
 }
 TEST(scheduleTestSuite, testIsCompleted){
     Schedule* s = new Schedule();
-    s->add_task("birthday", "october 2", 4, "bday", 5, 2);
+    s->add_task("birthday", 6, "home", 10, 2, 12); //birthday on 10/02, priority 6, starts from 12
+    s->complete_task("birthday");
+    EXPECT_TRUE(s->is_complete("birthday"));
+}
+
+
+TEST(RmTaskTests, Remove1Task){
+    Schedule* s = new Schedule();
+    s->add_task("birthday", 6, "home", 10, 2, 12); //birthday on 10/02, priority 6, starts from 12
+    s->remove_task("birthday");
+    EXPECT_EQ(s->get_size(), 0);
 }

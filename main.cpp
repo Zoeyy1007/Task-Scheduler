@@ -66,44 +66,16 @@ int main(){
             cout << "Type name of task" << endl;
             cin.ignore();
             getline(cin, eventName);
-            Task* temp = s->findTask(eventName);
-
-            while(temp == nullptr){
-                cout << "Please enter again. " << endl;
-                cin.ignore();
-                getline(cin, eventName);
-                temp = s->findTask(eventName);
-            }
-
-            Edit_event();
-            string op3choice1;
-            cin >> op3choice1;
-            if(op3choice1 == "1") {
-                temp->Edit_name();
-            } else if(op3choice1 == "2") {
-               // temp->edit_event_time();  
-            } else if(op3choice1 == "3") {
-                //temp->edit_event_day();  
-            } else if(op3choice1== "4") {
-                s->remove_task(eventName);
-                cout << "You removed a task from your schedule" << endl;
-            } else if(op3choice1 == "5") {
-                s->complete_task(temp->get_name()); 
-            } else if(op3choice1 == "q") {
-                cout << "Returning to main menu" << endl;
-                option = "q";
-            } else {
-                cout << "Invalid choice, try again." << endl;
-            }
-
-            cout << "1. continue editing" << endl;
-            cout << "2. return to main menu" << endl;
-            cin >> op3choice1;
-            if(op3choice1 == "1"){option = 3;}
-            if(op3choice1 == "2"){
-                Main_menu();
-                cin >> option;
-            }
+            s->edit_task(eventName);
+            option = "0";
+        }
+        else if(option == "4"){//delete a task
+            string taskName;
+            cout << "Please enter the name of the task you would like to delete." << endl;
+            cin.ignore();
+            getline(cin, taskName);
+            s->remove_task(taskName);
+            option = "0";
         }
         else{
             cout << "seems like you didnt pick something, pick again" << endl << endl;
@@ -120,6 +92,7 @@ void Main_menu(){
     cout << "1. Add event" << endl;
     cout << "2. View my schedule" << endl;
     cout << "3. Edit event" << endl;
+    cout << "4. Delete an event" << endl;
     cout << "q. Quit" << endl;
 }
 
@@ -140,4 +113,3 @@ void Edit_event(){
     cout << "5. Mark as completed" << endl;
     cout << "Enter 'q' to go back to the main menu" << endl;
 }
-

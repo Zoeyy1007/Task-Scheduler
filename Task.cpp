@@ -53,11 +53,26 @@ bool Task::get_status(){
     return task_complete;
 }
 
-void Task::Edit_name(){
-    string new_name = " ";
-    cout << "Please enter the new name for current task." << endl;
-    cin.ignore();
-    getline(cin, new_name);
-    task_name = new_name;
-    cout << "You changed the task name to " << task_name << endl;
+void Task::set_name(string newName) {  
+    task_name = newName;
+}
+
+void Task::set_month(int month) {
+    this->month = month;
+}
+
+void Task::set_priority(int newPriority) {
+    priority = newPriority;
+}
+
+void Task::set_category(string newCategory) {
+    category = newCategory;
+}
+
+void Task::set_day(int newDay) {
+    day = newDay;
+}
+
+void Task::set_hour(int newHour) {
+    hour = newHour;
 }
