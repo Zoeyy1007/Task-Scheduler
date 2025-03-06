@@ -204,8 +204,6 @@ void Schedule::single_display(Task* currtask){
 }
 
 
-
-
 void Schedule::display_by_priority(){
     cout << "Pick a priority to display (1 through 10)" << endl << endl;
     int prio;
@@ -268,10 +266,13 @@ void Schedule::display_by_category(){
     }
 }
 
-void Schedule::complete_task(string name){
+void Schedule::complete_task(const string& name){
     for(int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks[i]->get_name() == name){
-            the_Tasks[i]->complete_task();
+            Task* task = the_Tasks[i];
+            task->complete_task();
+            completed_Tasks.push_back(task);
+            the_Tasks.erase(the_Tasks.begin()+i);
             return;
         }
     }

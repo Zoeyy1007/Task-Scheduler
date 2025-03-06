@@ -20,7 +20,7 @@ class Task{
         void complete_task();
         bool get_status();
         int get_priority();
-
+        int get_month() {return month;}
         int get_hour();
         int get_day();
         string get_name();

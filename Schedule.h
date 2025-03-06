@@ -8,6 +8,7 @@ class Schedule{
     private:
         int size = 0;
         vector<Task*> the_Tasks;
+        vector<Task*> completed_Tasks;
     public:
         Schedule();
         ~Schedule();
@@ -23,7 +24,7 @@ class Schedule{
         void display_by_category();
 
         void display_by_priority();
-        void complete_task(string name);
+        void complete_task(const string& name);
         int get_size(){return size;}
         bool is_complete(string name);
 
@@ -31,5 +32,6 @@ class Schedule{
         void single_display(Task* currtask);
         void display_by_day();
         void edit_task(string name);
+        void display_by_time(const vector<Task*>& v);
 };
 
