@@ -29,7 +29,6 @@ class Task{
         Task(string taskname, int priority, string category, int month, int day, int hour);
         Task();
         string get_category(){return category;}
-        void Edit_name();
 
         void set_name(string newName);    
         void set_month(int month);

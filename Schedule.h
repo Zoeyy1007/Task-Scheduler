@@ -32,6 +32,5 @@ class Schedule{
         void single_display(Task* currtask);
         void display_by_day();
         void edit_task(string name);
-        void display_by_time(const vector<Task*>& v);
 };
 
