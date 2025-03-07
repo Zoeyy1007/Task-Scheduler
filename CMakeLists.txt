@@ -11,7 +11,7 @@ add_executable(run
 )
 
 add_executable(debug
-  test.cpp
+  test2.cpp
   Schedule.cpp 
   Task.cpp 
 )
