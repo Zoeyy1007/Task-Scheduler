@@ -4,7 +4,6 @@
 
 using namespace std;
 
-Task::Task(string taskname, string task_date, int priority, string category, int day, int hour, int week){
 
 Task::Task(string taskname, int priority, string category, int month, int day, int hour){
     this->task_name=taskname;
