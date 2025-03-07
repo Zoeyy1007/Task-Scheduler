@@ -13,7 +13,8 @@ Task::Task(string taskname, int priority, string category, int month, int day, i
     this->month = month;
     this->day = day;
     this->hour = hour;
-
+    Date the_date = Date(month, day);
+    this->day_in_week = the_date.day_in_week();
 }
 
 void Task::complete_task(){
@@ -27,31 +28,6 @@ string Task::get_date(){
     return date;
 }
 
-string Task::get_name(){
-    return task_name;
-}
-
-int Task::get_priority(){
-    return priority;
-}
-
-
-int Task::get_hour(){
-    return hour;
-}
-
-int Task::get_day(){
-    return day;
-}
-
-
-string Task::get_category(){
-    return category;
-}
-
-bool Task::get_status(){
-    return task_complete;
-}
 
 void Task::set_name(string newName) {  
     task_name = newName;

@@ -104,12 +104,12 @@ void Sched_options(){
 }
 
 
-void Edit_event(){
+void Edit_task(){
     cout << "Edit options: " << endl;
-    cout << "1. Edit event title" << endl;
-    cout << "2. Edit event time" << endl;
-    cout << "3. Edit event day" << endl;
-    cout << "4. Delete this event" << endl;
+    cout << "1. Edit task title" << endl;
+    cout << "2. Edit task time" << endl;
+    cout << "3. Edit task day" << endl;
+    cout << "4. Delete this task" << endl;
     cout << "5. Mark as completed" << endl;
     cout << "Enter 'q' to go back to the main menu" << endl;
 }

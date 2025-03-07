@@ -100,25 +100,25 @@ void Schedule::display_full(){
     vector<Task*> Saturday;
     vector<Task*> Sunday;
     for(int i = 0; i < the_Tasks.size(); i++){
-       if(the_Tasks[i]->get_day()==1){
+       if(the_Tasks[i]->get_day_in_week()==1){
         Monday.push_back(the_Tasks[i]);
        }
-       if(the_Tasks[i]->get_day()==2){
+       if(the_Tasks[i]->get_day_in_week()==2){
         Tuesday.push_back(the_Tasks[i]);
        }
-       if(the_Tasks[i]->get_day()==3){
-        Wednesday.push_back(the_Tasks[i]);;
+       if(the_Tasks[i]->get_day_in_week()==3){
+        Wednesday.push_back(the_Tasks[i]);
        }
-       if(the_Tasks[i]->get_day()==4){
-        Thursday.push_back(the_Tasks[i]);;
+       if(the_Tasks[i]->get_day_in_week()==4){
+        Thursday.push_back(the_Tasks[i]);
        }
-       if(the_Tasks[i]->get_day()==5){
-        Friday.push_back(the_Tasks[i]);;
+       if(the_Tasks[i]->get_day_in_week()==5){
+        Friday.push_back(the_Tasks[i]);
        }
-       if(the_Tasks[i]->get_day()==6){
-        Saturday.push_back(the_Tasks[i]);;
+       if(the_Tasks[i]->get_day_in_week()==6){
+        Saturday.push_back(the_Tasks[i]);
        }
-       if(the_Tasks[i]->get_day()==7){
+       if(the_Tasks[i]->get_day_in_week()==0){
         Sunday.push_back(the_Tasks[i]);
        }
     }
@@ -226,11 +226,11 @@ void Schedule::display_by_day(){
     cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl << endl;
     int day;
     cin >> day;
-    string days_of_week[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-    cout << "DISPLAYING DAY :" << days_of_week[day-1] << endl;
+    string days_of_week[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    cout << "DISPLAYING DAY :" << days_of_week[day] << endl;
     int count = 1;
     for(int i = 0; i < the_Tasks.size(); i++){
-        if(the_Tasks[i]->get_day() == day){
+        if(the_Tasks[i]->get_day_in_week() == day){
             cout << count << "." << endl;
             single_display(the_Tasks[i]);
             count++;
