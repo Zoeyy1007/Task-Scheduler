@@ -8,6 +8,18 @@
 
 using namespace std;
 
+//constructor
+Schedule::Schedule(){
+    schedule_name = "Defult Schedule";
+    size = 0;
+}
+
+Schedule::Schedule(string schedule_name){
+    this->schedule_name = schedule_name;
+    size = 0;
+}
+
+//add new task 
 void Schedule::add_task(){
     string taskname;
     int priority;
@@ -15,7 +27,10 @@ void Schedule::add_task(){
     int month;
     int day;
     int hour;
-
+    int week;
+    cout << "Please enter the week of this event" << endl;
+    cin.ignore();
+    cin >> week;
 
     cout << "Please enter event title" << endl; 
     cin.ignore();
@@ -27,7 +42,7 @@ void Schedule::add_task(){
     cout << "Please enter the day, Januray 1st is 01, and so on" << endl;
     cin >> day;
 
-    cout << "Please enter hour of day, from 0 to 24" << endl;
+    cout << "Please enter hour of day, from 0 to 23" << endl;
     cin >> hour;
 
   
@@ -48,7 +63,14 @@ void Schedule::add_task(){
     size++;
 }
 
+void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day, int week){
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day, week);
 
+    the_Tasks.push_back(taskPtr);
+    size++;
+}
+
+//find task by name
 Task* Schedule::findTask(string name){
     for (int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks[i]->get_name() == name){
@@ -63,6 +85,7 @@ Task* Schedule::findTask(string name){
 void Schedule::add_task(string taskname, int priority, string category, int month, int day, int hour){
     Task* taskPtr = new Task(taskname, priority, category, month, day, hour);
 
+
     the_Tasks.push_back(taskPtr);
     size++;
 }
@@ -76,6 +99,7 @@ void Schedule::remove_task(string name){
             delete temp;
             size--;
             cout << name << "was deleted. " << endl;
+
             return;
         }
     }
@@ -83,8 +107,7 @@ void Schedule::remove_task(string name){
     return;
 }
 
-
-
+//Display functions
 void Schedule::display_full(){
     if(the_Tasks.size() == 0){
         throw runtime_error("No tasks in schedule");
@@ -99,6 +122,7 @@ void Schedule::display_full(){
     vector<Task*> Friday;
     vector<Task*> Saturday;
     vector<Task*> Sunday;
+
     for(int i = 0; i < the_Tasks.size(); i++){
        if(the_Tasks[i]->get_day_in_week()==1){
         Monday.push_back(the_Tasks[i]);
@@ -122,7 +146,7 @@ void Schedule::display_full(){
         Sunday.push_back(the_Tasks[i]);
        }
     }
-
+    
     cout << "Monday:" << endl;
     int count = 1;
     for(int i = 0; i < Monday.size(); i++){
@@ -197,6 +221,7 @@ void Schedule::display_full(){
 }
 
 void Schedule::single_display(Task* currtask){
+    cout << "In Week " << currtask->get_week() << ":" << endl;
     cout << currtask->get_name() << ", at " << currtask->get_date();
     cout << ", priority: " << currtask->get_priority() << endl;
     cout << "Completion Status: ";
@@ -222,6 +247,7 @@ void Schedule::display_by_priority(){
     
 }
 
+
 void Schedule::display_by_day(){
     cout << "Please enter day, Monday is 1, Tuesday is 2, etc.." << endl << endl;
     int day;
@@ -242,6 +268,7 @@ void Schedule::display_by_day(){
 Schedule::Schedule(){
 }
 
+
 void Schedule::display_by_category(){
     if(the_Tasks.size() == 0){
         cout << "You don't have any task. " << endl;
@@ -256,7 +283,6 @@ void Schedule::display_by_category(){
     for (int i = 0; i < size; i++){
         if(the_Tasks.at(i)->get_category() == category){
             cout << count << "." ;
-
             cout << the_Tasks.at(i)->get_name() << ", at " << the_Tasks.at(i)->get_date();
             cout << ", at " << the_Tasks.at(i)->get_hour();
             cout << ", priority: " << the_Tasks.at(i)->get_priority() << endl;
@@ -265,6 +291,7 @@ void Schedule::display_by_category(){
         }
     }
 }
+
 
 void Schedule::complete_task(const string& name){
     for(int i = 0; i < the_Tasks.size(); i++){
@@ -279,7 +306,7 @@ void Schedule::complete_task(const string& name){
     cout << "Task not found";
     return;
 }
-
+//check if the task is completed 
 bool Schedule::is_complete(string name){
     for(int i = 0; i < the_Tasks.size(); i++){
         if(the_Tasks[i]->get_name() == name){

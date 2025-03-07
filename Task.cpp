@@ -4,9 +4,9 @@
 
 using namespace std;
 
+Task::Task(string taskname, string task_date, int priority, string category, int day, int hour, int week){
 
 Task::Task(string taskname, int priority, string category, int month, int day, int hour){
-    
     this->task_name=taskname;
     this->priority=priority;
     this->category = category;
@@ -18,11 +18,11 @@ Task::Task(string taskname, int priority, string category, int month, int day, i
 }
 
 void Task::complete_task(){
-    if(task_complete == true){return;}
-    task_complete = true;
+    if(!task_complete)
+        task_complete = true;
 }
 
-
+//getter
 string Task::get_date(){
     string date = to_string(month) + "/" + to_string(day);
     return date;
@@ -52,3 +52,4 @@ void Task::set_day(int newDay) {
 void Task::set_hour(int newHour) {
     hour = newHour;
 }
+

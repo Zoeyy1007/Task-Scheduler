@@ -1,3 +1,6 @@
+#ifndef TASK_H
+#define TASK_H
+
 #include <iostream>
 #include <vector>
 #include "Date.cpp"
@@ -32,9 +35,11 @@ class Task{
 
         void set_name(string newName);    
         void set_month(int month);
+
         void set_priority(int newPriority);
         void set_category(string newCategory);
         void set_day(int newDay);
         void set_hour(int newHour);
-};
 
+};
+#endif // TASK_H
