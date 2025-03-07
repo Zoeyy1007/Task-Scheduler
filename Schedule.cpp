@@ -10,13 +10,6 @@ using namespace std;
 
 //constructor
 Schedule::Schedule(){
-    schedule_name = "Defult Schedule";
-    size = 0;
-}
-
-Schedule::Schedule(string schedule_name){
-    this->schedule_name = schedule_name;
-    size = 0;
 }
 
 //add new task 
@@ -27,10 +20,6 @@ void Schedule::add_task(){
     int month;
     int day;
     int hour;
-    int week;
-    cout << "Please enter the week of this event" << endl;
-    cin.ignore();
-    cin >> week;
 
     cout << "Please enter event title" << endl; 
     cin.ignore();
@@ -63,12 +52,6 @@ void Schedule::add_task(){
     size++;
 }
 
-void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day, int week){
-    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day, week);
-
-    the_Tasks.push_back(taskPtr);
-    size++;
-}
 
 //find task by name
 Task* Schedule::findTask(string name){
@@ -221,7 +204,6 @@ void Schedule::display_full(){
 }
 
 void Schedule::single_display(Task* currtask){
-    cout << "In Week " << currtask->get_week() << ":" << endl;
     cout << currtask->get_name() << ", at " << currtask->get_date();
     cout << ", priority: " << currtask->get_priority() << endl;
     cout << "Completion Status: ";
@@ -264,10 +246,6 @@ void Schedule::display_by_day(){
     }
     return;
 }
-
-Schedule::Schedule(){
-}
-
 
 void Schedule::display_by_category(){
     if(the_Tasks.size() == 0){
