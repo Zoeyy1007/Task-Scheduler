@@ -1,9 +1,9 @@
-
 #ifndef TASK_H
 #define TASK_H
 
 #include <iostream>
 #include <vector>
+#include "Date.cpp"
 
 using namespace std;
 
@@ -12,31 +12,30 @@ class Task{
         int exec_time;
         string task_name;
         int priority;
-        string task_date;
         string category;
-
+        int month;
         int day;
         int hour;
-        int week;
+        int day_in_week;
         bool task_complete = false;
     
     public:
         void complete_task();
-        bool get_status();
-        int get_priority();
-
-        int get_hour();
-        int get_day();
-        int get_week();
-        string get_name();
+        bool get_status(){return task_complete;}
+        int get_priority(){return priority;}
+        int get_month() {return month;}
+        int get_hour(){return hour;}
+        int get_day(){return day;}
+        string get_name(){return task_name;}
         string get_date();
-        Task(string taskname, string task_date, int priority, string category, int day, int hour, int week);
+        int get_day_in_week(){return day_in_week;}
+        Task(string taskname, int priority, string category, int month, int day, int hour);
         Task();
-        string get_category();
-       
-        //setter
+        string get_category(){return category;}
+
         void set_name(string newName);    
-        void set_date(string newDate);
+        void set_month(int month);
+
         void set_priority(int newPriority);
         void set_category(string newCategory);
         void set_day(int newDay);
