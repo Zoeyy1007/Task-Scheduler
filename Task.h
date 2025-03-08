@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <iostream>
+#include "string_convert.h"
 
 using namespace std;
 
@@ -16,6 +17,11 @@ private:
     int priority;
     int duration;
     bool completed;
+    int year;
+    int month;
+    int day;
+    int hour;
+    int min;
 
 public:
     Task();
@@ -28,6 +34,11 @@ public:
     int get_priority() const;
     int get_duration() const;
     bool is_completed() const;
+    int get_hour(){return hour;}
+    int get_min(){return min;}
+    int get_year(){return year;}
+    int get_month(){return month;}
+    int get_day(){return day;}
 
     // Setters
     void set_name(const string& newName);
