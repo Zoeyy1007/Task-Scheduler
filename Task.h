@@ -1,45 +1,49 @@
 #ifndef TASK_H
 #define TASK_H
 
+#include <string>
 #include <iostream>
-#include <vector>
-#include "Date.cpp"
 
 using namespace std;
 
-class Task{
-    private:
-        int exec_time;
-        string task_name;
-        int priority;
-        string category;
-        int month;
-        int day;
-        int hour;
-        int day_in_week;
-        bool task_complete = false;
-    
-    public:
-        void complete_task();
-        bool get_status(){return task_complete;}
-        int get_priority(){return priority;}
-        int get_month() {return month;}
-        int get_hour(){return hour;}
-        int get_day(){return day;}
-        string get_name(){return task_name;}
-        string get_date();
-        int get_day_in_week(){return day_in_week;}
-        Task(string taskname, int priority, string category, int month, int day, int hour);
-        Task();
-        string get_category(){return category;}
+class Task {
+private:
+    string name;
+    string date;
+    string time; 
+    string category;
+    int priority;
+    int duration;
+    bool completed;
 
-        void set_name(string newName);    
-        void set_month(int month);
+public:
+    Task();
+    Task(const string& name, const string& date, const string& time, const string& category, int priority, int duration);
 
-        void set_priority(int newPriority);
-        void set_category(string newCategory);
-        void set_day(int newDay);
-        void set_hour(int newHour);
+    // Getters
+    string get_name() const;
+    string get_date() const;
+    string get_time() const; 
+    string get_category() const;
+    int get_priority() const;
+    int get_duration() const;
+    bool is_completed() const;
 
+    // Setters
+    void set_name(const string& newName);
+    void set_date(const string& newDate);
+    void set_time(const string& newTime); 
+    void set_category(const string& newCategory);
+    void set_priority(int newPriority);
+    void set_duration(int newDuration);
+    void mark_complete();
+
+    // Display task details
+    void display() const;
+
+    // Input and edit functions
+    void inputTask();
+    void editTask();
 };
+
 #endif // TASK_H

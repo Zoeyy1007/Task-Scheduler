@@ -1,31 +1,45 @@
 #ifndef EVENTMANAGER_H
 #define EVENTMANAGER_H
 
-#include <iostream>
+#include "Task.h"
 #include <vector>
+#include <string>
+
+using namespace std;
 
 class EventManager {
 private:
-    std::string name;
-    int startTime;  
-    int duration;  
+    vector<Task> events;  // List of tasks (events)
 
 public:
-    // Constructor
-    EventManager(const std::string& eventName, int start, int dur);
+    // Add event to the list
+    void add_event(const Task& event);
 
-  
-    std::string getName() const;
-    int getStartTime() const;
-    int getEndTime() const;
-    int getDuration() const;
+    // Remove event based on name
+    void remove_event(const string& eventName);
 
-    // checks for time conflict
-    static bool hasConflict(const EventManager& newEvent, const std::vector<EventManager>& events);
+    // Mark event as complete
+    bool mark_event_complete(const string& eventName);
 
-    
-    void displayEvent() const;
+    // Edit event details
+    bool edit_event(const string& eventName);
+
+    // Display all events
+    void display_all_events() const;
+
+    // Get all events
+    vector<Task> get_all_events() const;
+
+    // Get only completed events
+    vector<Task> get_completed_events() const;
+
+    // Filtering methods
+    vector<Task> get_events_by_category(const string& category) const;
+    vector<Task> get_events_by_priority(int priority) const;
+    vector<Task> get_events_by_date(const string& date) const;
+
+    // Get event duration
+    int get_event_duration(const Task& event) const;
 };
 
 #endif // EVENTMANAGER_H
-
