@@ -4,16 +4,16 @@
 
 using namespace std;
 
-Task::Task(string taskname, string task_date, int priority, string category, int day, int hour, int week){
 
-    
+Task::Task(string taskname, int priority, string category, int month, int day, int hour){
     this->task_name=taskname;
     this->priority=priority;
-    this->task_date = task_date;
     this->category = category;
+    this->month = month;
     this->day = day;
     this->hour = hour;
-    this->week = week;
+    Date the_date = Date(month, day);
+    this->day_in_week = the_date.day_in_week();
 }
 
 void Task::complete_task(){
@@ -23,46 +23,17 @@ void Task::complete_task(){
 
 //getter
 string Task::get_date(){
-    return task_date;
-}
-
-string Task::get_name(){
-    return task_name;
-}
-
-int Task::get_priority(){
-    return priority;
+    string date = to_string(month) + "/" + to_string(day);
+    return date;
 }
 
 
-int Task::get_hour(){
-    return hour;
-}
-
-int Task::get_day(){
-    return day;
-}
-
-int Task::get_week()
-{
-    return week;
-}
-
-string Task::get_category(){
-    return category;
-}
-
-bool Task::get_status(){
-    return task_complete;
-}
-
-//setter
 void Task::set_name(string newName) {  
     task_name = newName;
 }
 
-void Task::set_date(string newDate) {
-    task_date = newDate;
+void Task::set_month(int month) {
+    this->month = month;
 }
 
 void Task::set_priority(int newPriority) {

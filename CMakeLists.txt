@@ -8,11 +8,13 @@ add_executable(run
   main.cpp
   Schedule.cpp
   Task.cpp
+  display.cpp
 )
 
 add_executable(debug
   test.cpp
   Schedule.cpp 
+  display.cpp
   Task.cpp 
 )
 

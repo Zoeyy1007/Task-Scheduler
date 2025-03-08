@@ -1,4 +1,3 @@
-
 #include <string>
 #include <vector>
 #include <iostream>
@@ -11,17 +10,17 @@ void Sched_options();
 void Edit_event();
 
 int main(){
-    string schedule_name;
-    Schedule* s = new Schedule(schedule_name);
-
+    Schedule* s = new Schedule();
 
     string option = "";
     Main_menu();
     cin >> option;
     while(option != "q"){
-
-        //add event
-        if(option == "1"){
+        if(option == "0"){
+            Main_menu();
+            cin >> option;
+        }
+        else if(option == "1"){
             s->add_task();
             cout << "You created a new event. Enter 1 to see you current schedule, 2 to create another event, type anything else to quit" << endl;
             string op1choice1;
@@ -32,16 +31,7 @@ int main(){
             }
             //
             else if(op1choice1 == "2"){
-                s->add_task();
-                cout << "Would you like to make another?, 1 for yes, 2 for no." << endl;
-                string op1choice2; 
-                cin >> op1choice2;
-
-                while(op1choice2 == "1"){
-                    s->add_task();
-                    cout << "Would you like to make another?, 1 for yes, 2 for no." << endl;
-                    cin >> op1choice2;
-                }
+                option = "1";
                 
             }
             else{
@@ -66,38 +56,26 @@ int main(){
             else if(op2choice1 == "4"){
                 s->display_by_priority();
             }
-        Main_menu();
-        cin >> option;
-
-
-
+            option = "0";
+        }
+        else if(option == "3" && s->get_size()==0){
+            option == "0";
         }
         else if(option == "3"){
             string eventName;
             cout << "Type name of task" << endl;
+            cin.ignore();
             getline(cin, eventName);
-            Task* temp = s->findTask(eventName);
-
-            Edit_event();
-            string op3choice1;
-            cin >> op3choice1;
-            if(op3choice1 == "1") {
-                //temp->edit_event_title();  
-            } else if(op3choice1 == "2") {
-               // temp->edit_event_time();  
-            } else if(op3choice1 == "3") {
-                //temp->edit_event_day();  
-            } else if(op3choice1== "4") {
-                s->remove_task(eventName);
-            } else if(op3choice1 == "5") {
-                s->is_complete(eventName); 
-            } else if(op3choice1 == "q") {
-                cout << "Returning to main menu" << endl;
-                option = "q";
-            } else {
-                cout << "Invalid choice, try again." << endl;
-            }
-
+            s->edit_task(eventName);
+            option = "0";
+        }
+        else if(option == "4"){//delete a task
+            string taskName;
+            cout << "Please enter the name of the task you would like to delete." << endl;
+            cin.ignore();
+            getline(cin, taskName);
+            s->remove_task(taskName);
+            option = "0";
         }
         else{
             cout << "seems like you didnt pick something, pick again" << endl << endl;
@@ -114,6 +92,7 @@ void Main_menu(){
     cout << "1. Add event" << endl;
     cout << "2. View my schedule" << endl;
     cout << "3. Edit event" << endl;
+    cout << "4. Delete an event" << endl;
     cout << "q. Quit" << endl;
 }
 
@@ -125,13 +104,12 @@ void Sched_options(){
 }
 
 
-void Edit_event(){
+void Edit_task(){
     cout << "Edit options: " << endl;
-    cout << "1. Edit event title" << endl;
-    cout << "2. Edit event time" << endl;
-    cout << "3. Edit event day" << endl;
-    cout << "4. Delete this event" << endl;
+    cout << "1. Edit task title" << endl;
+    cout << "2. Edit task time" << endl;
+    cout << "3. Edit task day" << endl;
+    cout << "4. Delete this task" << endl;
     cout << "5. Mark as completed" << endl;
     cout << "Enter 'q' to go back to the main menu" << endl;
 }
-
