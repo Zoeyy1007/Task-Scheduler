@@ -10,8 +10,16 @@ class Schedule{
         int size = 0;
         vector<Task*> the_Tasks;
     public:
-        Schedule();
-        Schedule(string schedule_name);
+        Schedule()
+        {
+            schedule_name = "Defult Schedule";
+            size = 0;
+        }
+        Schedule(string schedule_name)
+        {
+            this->schedule_name = schedule_name;
+            size = 0;
+        }
 
         //management
         void add_task();
@@ -37,7 +45,4 @@ class Schedule{
         //utility
         Task* findTask(string name);
         int get_size(){return size;}
-      
-        
-
-
+};

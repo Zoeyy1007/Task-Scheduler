@@ -8,16 +8,6 @@
 
 using namespace std;
 
-//constructor
-Schedule::Schedule(){
-    schedule_name = "Defult Schedule";
-    size = 0;
-}
-
-Schedule::Schedule(string schedule_name){
-    this->schedule_name = schedule_name;
-    size = 0;
-}
 
 //add new task 
 void Schedule::add_task(){
@@ -86,8 +76,8 @@ Task* Schedule::findTask(string name){
 
 
 //remove task by name
-void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day){
-    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day);
+void Schedule::add_task(string taskname, string taskDate, int priority, string category, int hour, int day, int week){
+    Task* taskPtr = new Task(taskname, taskDate, priority, category, hour, day, week);
 
     the_Tasks.push_back(taskPtr);
     size++;
