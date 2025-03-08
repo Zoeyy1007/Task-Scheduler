@@ -2,6 +2,7 @@
 #define SCHEDULE_H
 
 #include <vector>
+#include <string>
 #include "Task.h"
 
 using namespace std;
@@ -36,4 +37,4 @@ public:
     ~Schedule();
 };
 
-#endif
+#endif // SCHEDULE_H

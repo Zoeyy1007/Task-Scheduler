@@ -19,10 +19,10 @@ public:
     void remove_event(const string& eventName);
 
     // Mark event as complete
-    void mark_event_complete(const string& eventName);
+    bool mark_event_complete(const string& eventName);
 
     // Edit event details
-    void edit_event(const string& eventName);
+    bool edit_event(const string& eventName);
 
     // Display all events
     void display_all_events() const;

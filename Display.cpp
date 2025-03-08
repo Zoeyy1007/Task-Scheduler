@@ -1,98 +1,101 @@
 #include "Display.h"
 #include <iostream>
+#include <limits> 
 
 using namespace std;
 
 Display::Display() {}
 
 void Display::show_home_screen() {
-    int choice = 0;
     EventManager manager;
-
     while (true) {
         cout << "\nHome Screen\n";
         cout << "1. Events\n";
         cout << "2. Completed Events\n";
         cout << "3. Schedule\n";
-        cout << "0. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
+        cout << "q. Exit\n";
+        int choice = get_valid_int_input("Enter your choice: ", 0, 3);
 
-        switch (choice) {
-            case 1: show_events_menu(manager); break;
-            case 2: show_completed_events_menu(manager); break;
-            case 3: show_schedule_menu(manager); break;
-            case 0: return;
-            default: cout << "Invalid option, please try again.\n";
+        if (choice == 1) {
+            show_events_menu(manager);
+        } else if (choice == 2) {
+            show_completed_events_menu(manager);
+        } else if (choice == 3) {
+            show_schedule_menu(manager);
+        } else if (choice == q) {
+            return;
         }
     }
 }
 
 void Display::show_events_menu(EventManager& manager) {
-    int choice = 0;
     while (true) {
         cout << "\nEvents Menu\n";
         cout << "1. Add Event\n";
         cout << "2. Remove Event\n";
         cout << "3. Mark Event Complete\n";
         cout << "4. Edit Event\n";
-        cout << "0. Back to Home Screen\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
+        cout << "q. Back to Home Screen\n";
+        int choice = get_valid_int_input("Enter your choice: ", 0, 4);
 
-        switch (choice) {
-            case 1: handle_add_event(manager); break;
-            case 2: handle_remove_event(manager); break;
-            case 3: handle_mark_complete(manager); break;
-            case 4: handle_edit_event(manager); break;
-            case 0: return;
-            default: cout << "Invalid option, please try again.\n";
+        if (choice == 1) {
+            handle_add_event(manager);
+        } else if (choice == 2) {
+            handle_remove_event(manager);
+        } else if (choice == 3) {
+            handle_mark_complete(manager);
+        } else if (choice == 4) {
+            handle_edit_event(manager);
+        } else if (choice == q) {
+            return;
         }
     }
 }
 
 void Display::show_completed_events_menu(EventManager& manager) {
-    int choice = 0;
     while (true) {
         cout << "\nCompleted Events Menu\n";
         cout << "1. Display All Completed Events\n";
         cout << "2. Sort by Category\n";
         cout << "3. Sort by Priority\n";
         cout << "4. Sort by Date\n";
-        cout << "0. Back to Home Screen\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
+        cout << "q. Back to Home Screen\n";
+        int choice = get_valid_int_input("Enter your choice: ", 0, 4);
 
-        switch (choice) {
-            case 1: display_event_list(manager.get_completed_events()); break;
-            case 2: handle_sort_by_category(manager); break;
-            case 3: handle_sort_by_priority(manager); break;
-            case 4: handle_sort_by_date(manager); break;
-            case 0: return;
-            default: cout << "Invalid option, please try again.\n";
+        if (choice == 1) {
+            display_event_list(manager.get_completed_events());
+        } else if (choice == 2) {
+            handle_sort_by_category(manager);
+        } else if (choice == 3) {
+            handle_sort_by_priority(manager);
+        } else if (choice == 4) {
+            handle_sort_by_date(manager);
+        } else if (choice == q) {
+            return;
         }
     }
 }
 
 void Display::show_schedule_menu(EventManager& manager) {
-    int choice = 0;
     while (true) {
         cout << "\nSchedule Menu\n";
         cout << "1. Display All Events\n";
         cout << "2. Sort by Category\n";
         cout << "3. Sort by Priority\n";
         cout << "4. Sort by Date\n";
-        cout << "0. Back to Home Screen\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
+        cout << "q. Back to Home Screen\n";
+        int choice = get_valid_int_input("Enter your choice: ", 0, 4);
 
-        switch (choice) {
-            case 1: display_event_list(manager.get_all_events()); break;
-            case 2: handle_sort_by_category(manager); break;
-            case 3: handle_sort_by_priority(manager); break;
-            case 4: handle_sort_by_date(manager); break;
-            case 0: return;
-            default: cout << "Invalid option, please try again.\n";
+        if (choice == 1) {
+            display_event_list(manager.get_all_events());
+        } else if (choice == 2) {
+            handle_sort_by_category(manager);
+        } else if (choice == 3) {
+            handle_sort_by_priority(manager);
+        } else if (choice == 4) {
+            handle_sort_by_date(manager);
+        } else if (choice == q) {
+            return;
         }
     }
 }
@@ -115,50 +118,62 @@ void Display::handle_add_event(EventManager& manager) {
 }
 
 void Display::handle_remove_event(EventManager& manager) {
-    cout << "Enter event name to remove: ";
-    string eventName;
-    cin.ignore();
-    getline(cin, eventName);
+    string eventName = get_valid_string_input("Enter event name to remove: ");
     manager.remove_event(eventName);
 }
 
 void Display::handle_mark_complete(EventManager& manager) {
-    cout << "Enter event name to mark as complete: ";
-    string eventName;
-    cin.ignore();
-    getline(cin, eventName);
+    string eventName = get_valid_string_input("Enter event name to mark as complete: ");
     manager.mark_event_complete(eventName);
 }
 
 void Display::handle_edit_event(EventManager& manager) {
-    cout << "Enter event name to edit: ";
-    string eventName;
-    cin.ignore();
-    getline(cin, eventName);
+    string eventName = get_valid_string_input("Enter event name to edit: ");
     manager.edit_event(eventName);
 }
 
 void Display::handle_sort_by_category(EventManager& manager) {
-    cout << "Enter category to sort by: ";
-    string category;
-    cin.ignore();
-    getline(cin, category);
+    string category = get_valid_string_input("Enter category to sort by: ");
     display_event_list(manager.get_events_by_category(category));
 }
 
 void Display::handle_sort_by_priority(EventManager& manager) {
-    cout << "Enter priority to sort by: ";
-    int priority;
-    cin >> priority;
+    int priority = get_valid_int_input("Enter priority to sort by: ", 1, 5);
     display_event_list(manager.get_events_by_priority(priority));
 }
 
 void Display::handle_sort_by_date(EventManager& manager) {
-    cout << "Enter date to sort by (MM/DD/YYYY): ";
-    string date;
-    cin.ignore();
-    getline(cin, date);
+    string date = get_valid_string_input("Enter date to sort by (MM/DD/YYYY): ");
     display_event_list(manager.get_events_by_date(date));
 }
 
-Display::~Display() {}
+// Helper function to validate integer input
+int Display::get_valid_int_input(const string& prompt, int min, int max) {
+    int value;
+    while (true) {
+        cout << prompt;
+        cin >> value;
+
+        if (cin.fail() || value < min || value > max) {
+            cout << "Invalid input. Please enter a number between " << min << " and " << max << ".\n";
+            cin.clear(); // Clear the error state
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+        } else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore remaining input
+            return value;
+        }
+    }
+}
+
+// Helper function to validate string input
+string Display::get_valid_string_input(const string& prompt) {
+    string input;
+    while (true) {
+        cout << prompt;
+        getline(cin, input);
+        if (!input.empty()) {
+            return input;
+        }
+        cout << "Input cannot be empty. Please enter a valid value.\n";
+    }
+}

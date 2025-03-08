@@ -4,12 +4,13 @@
 #include <iostream>
 #include <chrono>
 #include <ctime>
+#include <stdexcept>  
 
 using namespace std;
 
 class Date {
 public:
-    tm weekday;
+    tm weekday{};
     
     Date(int month, int day);
     int day_in_week();

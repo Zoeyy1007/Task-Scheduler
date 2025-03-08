@@ -1,45 +1,57 @@
 #include "EventManager.h"
 #include <iostream>
-#include <algorithm>  // Make sure to include this for std::remove_if
+#include <algorithm>  // Needed for std::remove_if
 
 using namespace std;
 
 void EventManager::add_event(const Task& event) {
     events.push_back(event);
+    cout << "Event \"" << event.get_name() << "\" added successfully.\n";
 }
 
 void EventManager::remove_event(const string& eventName) {
-    events.erase(std::remove_if(events.begin(), events.end(),
-        [&](const Task& event) { return event.get_name() == eventName; }),
-        events.end());
+    auto it = remove_if(events.begin(), events.end(),
+                        [&](const Task& event) { return event.get_name() == eventName; });
+
+    if (it != events.end()) {
+        events.erase(it, events.end());
+        cout << "Event \"" << eventName << "\" removed successfully.\n";
+    } else {
+        cout << "Error: Event \"" << eventName << "\" not found.\n";
+    }
 }
 
-void EventManager::mark_event_complete(const string& eventName) {
+bool EventManager::mark_event_complete(const string& eventName) {
     for (Task& event : events) {
         if (event.get_name() == eventName) {
             event.mark_complete();
-            return;
+            cout << "Event \"" << eventName << "\" marked as complete.\n";
+            return true;
         }
     }
+    cout << "Error: Event \"" << eventName << "\" not found.\n";
+    return false;
 }
 
-void EventManager::edit_event(const string& eventName) {
+bool EventManager::edit_event(const string& eventName) {
     for (Task& event : events) {
         if (event.get_name() == eventName) {
             event.editTask();
-            return;
+            cout << "Event \"" << eventName << "\" updated successfully.\n";
+            return true;
         }
     }
+    cout << "Error: Event \"" << eventName << "\" not found.\n";
+    return false;
 }
 
 void EventManager::display_all_events() const {
     if (events.empty()) {
-        cout << "No scheduled events." << endl;
-        return;
-    }
-
-    for (const Task& event : events) {
-        event.display();
+        cout << "No scheduled events.\n";
+    } else {
+        for (const Task& event : events) {
+            event.display();
+        }
     }
 }
 

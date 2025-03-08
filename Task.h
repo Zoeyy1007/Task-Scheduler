@@ -10,6 +10,7 @@ class Task {
 private:
     string name;
     string date;
+    string time;  // NEW: Separate time field (HH:MM)
     string category;
     int priority;
     int duration;
@@ -17,32 +18,32 @@ private:
 
 public:
     Task();
-    Task(const string& name, const string& date, const string& category, int priority, int duration);
+    Task(const string& name, const string& date, const string& time, const string& category, int priority, int duration);
 
     // Getters
     string get_name() const;
     string get_date() const;
+    string get_time() const; 
     string get_category() const;
     int get_priority() const;
     int get_duration() const;
     bool is_completed() const;
 
-    // Setters (To Edit Task Details)
+    // Setters
     void set_name(const string& newName);
     void set_date(const string& newDate);
+    void set_time(const string& newTime); 
     void set_category(const string& newCategory);
     void set_priority(int newPriority);
     void set_duration(int newDuration);
     void mark_complete();
-    
+
     // Display task details
     void display() const;
-    
-    // Input task details (For adding tasks)
+
+    // Input and edit functions
     void inputTask();
-    
-    // Edit task details
     void editTask();
 };
 
-#endif
+#endif // TASK_H
