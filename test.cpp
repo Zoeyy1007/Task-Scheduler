@@ -123,3 +123,22 @@ TEST(RmTaskTests, Remove1Task){
     s->remove_task("birthday");
     EXPECT_EQ(s->get_size(), 0);
 }
+
+TEST(scheduleTestSuite, testemptySchedule){
+    Schedule* s = new Schedule();
+    EXPECT_THROW(s->display_full(), runtime_error);
+}
+TEST(scheduleTestSuite, testIsCompleted){
+    Schedule* s = new Schedule();
+    s->add_task("birthday", 6, "home", 10, 2, 12); //birthday on 10/02, priority 6, starts from 12
+    s->complete_task("birthday");
+    EXPECT_TRUE(s->is_complete("birthday"));
+}
+
+
+TEST(RmTaskTests, Remove1Task){
+    Schedule* s = new Schedule();
+    s->add_task("birthday", 6, "home", 10, 2, 12); //birthday on 10/02, priority 6, starts from 12
+    s->remove_task("birthday");
+    EXPECT_EQ(s->get_size(), 0);
+}
