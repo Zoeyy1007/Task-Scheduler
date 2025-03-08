@@ -21,7 +21,6 @@ void Schedule::remove_task(const string& task_name) {
     } else {
         cout << "Task \"" << task_name << "\" not found.\n";
     }
-}
 
 void Schedule::mark_task_complete(const string& task_name) {
     for (Task& task : tasks) {
@@ -100,6 +99,7 @@ void Schedule::display_sorted_by_category() const {
     if (sortedTasks.empty()) {
         cout << "No tasks available to display.\n";
         return;
+
     }
 
     for (const Task& task : sortedTasks) {
@@ -112,12 +112,11 @@ void Schedule::display_sorted_by_priority() const {
     sort(sortedTasks.begin(), sortedTasks.end(), [](const Task& a, const Task& b) {
         return a.get_priority() < b.get_priority();
     });
-
+  
     if (sortedTasks.empty()) {
         cout << "No tasks available to display.\n";
         return;
     }
-
     for (const Task& task : sortedTasks) {
         task.display();
     }

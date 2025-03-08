@@ -1,5 +1,9 @@
 #include <gtest/gtest.h>
-#include "Task.h"
+#include "EventSearch.h"
+#include "EventManager.h"
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
 #include "Schedule.h"
 
 // Test Task class
@@ -66,8 +70,8 @@ TEST(ScheduleTest, RemoveTask) {
 
     vector<Task> tasks = schedule.get_all_tasks();
     auto it = find_if(tasks.begin(), tasks.end(), [](const Task& t) { return t.get_name() == "Gym"; });
-
-    EXPECT_EQ(it, tasks.end());  // Task should not exist
+     // Task should not exist
+    EXPECT_EQ(it, tasks.end()); 
 }
 
 TEST(ScheduleTest, CompleteTask) {
@@ -76,6 +80,7 @@ TEST(ScheduleTest, CompleteTask) {
     schedule.add_task(newTask);
 
     schedule.mark_task_complete("Homework");
+
 
     vector<Task> tasks = schedule.get_all_tasks();
     auto it = find_if(tasks.begin(), tasks.end(), [](const Task& t) { return t.get_name() == "Homework"; });
@@ -105,4 +110,13 @@ TEST(ScheduleTest, EditTaskManually) {
     EXPECT_EQ(it->get_date(), "2025-04-02");
     EXPECT_EQ(it->get_time(), "15:00");
     EXPECT_EQ(it->get_priority(), 7);
+}
+
+
+TEST(RmTaskTests, Remove1Task){
+    Schedule* s = new Schedule();
+    //birthday on 10/02, priority 6, starts from 12
+    s->add_task("birthday", 6, "home", 10, 2, 12); 
+    s->remove_task("birthday");
+    EXPECT_EQ(s->get_size(), 0);
 }

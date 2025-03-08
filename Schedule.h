@@ -35,6 +35,5 @@ public:
     vector<Task> get_all_tasks() const;
 
     ~Schedule();
-};
 
 #endif // SCHEDULE_H

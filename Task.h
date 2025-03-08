@@ -10,7 +10,7 @@ class Task {
 private:
     string name;
     string date;
-    string time;  // NEW: Separate time field (HH:MM)
+    string time; 
     string category;
     int priority;
     int duration;
