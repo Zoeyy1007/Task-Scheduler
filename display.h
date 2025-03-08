@@ -15,5 +15,6 @@ class Display {
         void display_complete(Schedule sched);
         void display_day(Schedule sched);
         void single_display(Task* currtask);
+        ~Display();
 };
 #endif 

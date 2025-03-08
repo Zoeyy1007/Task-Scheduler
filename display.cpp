@@ -189,3 +189,7 @@ void Display::display_category(Schedule sched){
         }
     }
 }
+
+Display::~Display(){
+
+}
