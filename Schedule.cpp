@@ -7,13 +7,6 @@
 
 
 using namespace std;
-
-
-
-//constructor
-Schedule::Schedule(){
-}
-
 //add new task 
 void Schedule::add_task(){
     string taskname;
@@ -69,7 +62,6 @@ Task* Schedule::findTask(string name){
 
 void Schedule::add_task(string taskname, int priority, string category, int month, int day, int hour){
     Task* taskPtr = new Task(taskname, priority, category, month, day, hour);
-
 
     the_Tasks.push_back(taskPtr);
     size++;

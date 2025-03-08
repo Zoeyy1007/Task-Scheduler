@@ -9,10 +9,20 @@ class Schedule{
     private:
         int size = 0;    
     public:
-        vector<Task*> the_Tasks;
-        vector<Task*> completed_Tasks;
-        Schedule();
-        ~Schedule();
+
+        Schedule()
+        {
+            schedule_name = "Defult Schedule";
+            size = 0;
+        }
+        Schedule(string schedule_name)
+        {
+            this->schedule_name = schedule_name;
+            size = 0;
+        }
+
+        //management
+
         void add_task();
 
         void add_task(string taskname, int priority, string category, int month, int day, int hour);
@@ -33,7 +43,7 @@ class Schedule{
 
         //utility
         Task* findTask(string name);
-        void single_display(Task* currtask);
-        void display_by_day();
+
+        int get_size(){return size;}
 };
 
