@@ -4,12 +4,13 @@
 
 using namespace std;
 
+
 class Schedule{
     private:
-        int size = 0;
+        int size = 0;    
+    public:
         vector<Task*> the_Tasks;
         vector<Task*> completed_Tasks;
-    public:
         Schedule();
         ~Schedule();
         void add_task();
