@@ -17,8 +17,6 @@ class Schedule{
         void add_task(string taskname, int priority, string category, int month, int day, int hour);
         void remove_task(string name);
 
-        //int get_priority(); //this should be in task.h
-        //int get_execTime();
 
         //display function 
         void display_categorized();

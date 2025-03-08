@@ -38,10 +38,3 @@ bool EventManager::hasConflict(const EventManager& newEvent, const vector<EventM
     }
     return false;
 }
-void EventManager::displayEvent() const {
-    cout << "Event: " << name 
-         << " Start Time: " << startTime 
-         << " Duration: " << duration 
-         << " minutes. Ends at: " << getEndTime() << endl;
-}
-

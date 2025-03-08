@@ -9,7 +9,7 @@
 
 // Test Task class
 TEST(TaskTest, ConstructorAndGetters) {
-   Task task("Meeting", "2025-03-10 14:00", 5, "Work", 1, 14, 2);
+   Task task("Meeting", 5, "Work", 03, 14, 2);
   
    EXPECT_EQ(task.get_name(), "Meeting");
    EXPECT_EQ(task.get_date(), "2025-03-10 14:00");
@@ -22,10 +22,10 @@ TEST(TaskTest, ConstructorAndGetters) {
 
 
 TEST(TaskTest, SetterMethods) {
-   Task task("Initial", "2025-03-10 14:00", 5, "Work", 1, 14, 2);
+   Task task("Initial", 5, "Work", 03, 15, 2);
   
    task.set_name("Updated Meeting");
-   task.set_date("2025-03-11 15:00");
+   task.set_month(4);
    task.set_priority(8);
    task.set_category("Personal");
    task.set_day(3);
@@ -42,7 +42,7 @@ TEST(TaskTest, SetterMethods) {
 
 
 TEST(TaskTest, CompleteTask) {
-   Task task("Workout", "2025-03-10 18:00", 7, "Health", 2, 18, 2);
+   Task task("Workout", 3, "Health", 2, 18, 2);
    EXPECT_FALSE(task.get_status());
 
 
@@ -54,7 +54,7 @@ TEST(TaskTest, CompleteTask) {
 // Test Schedule class
 TEST(ScheduleTest, AddAndFindTask) {
    Schedule schedule;
-   schedule.add_task("Doctor Appointment", "2025-03-15 10:00", 9, "Health", 10, 3, 1);
+   schedule.add_task("Doctor Appointment", 8, "Health", 3, 10, 13);
   
    Task* foundTask = schedule.findTask("Doctor Appointment");
    ASSERT_NE(foundTask, nullptr);
@@ -69,7 +69,7 @@ TEST(ScheduleTest, AddAndFindTask) {
 
 TEST(ScheduleTest, RemoveTask) {
    Schedule schedule;
-   schedule.add_task("Gym", "2025-03-12 07:00", 6, "Fitness", 7, 7, 2);
+   schedule.add_task("Gym", 6, "Fitness", 3, 7, 2);
   
    Task* foundTask = schedule.findTask("Gym");
    ASSERT_NE(foundTask, nullptr);  // Task should exist before removal
@@ -82,7 +82,7 @@ TEST(ScheduleTest, RemoveTask) {
 
 TEST(ScheduleTest, CompleteTask) {
    Schedule schedule;
-   schedule.add_task("Homework", "2025-03-14 20:00", 8, "Study", 5, 20, 3);
+   schedule.add_task("Homework", 8, "Study", 5, 20, 3);
   
    EXPECT_FALSE(schedule.is_complete("Homework"));
   
@@ -92,21 +92,21 @@ TEST(ScheduleTest, CompleteTask) {
 
 TEST(scheduleTestSuite, testIsCompleted){
     Schedule* s = new Schedule();
-    s->add_task("birthday", 6, "home", 10, 2, 12); //birthday on 10/02, priority 6, starts from 12
+    s->add_task("birthday", 6, "home", 3, 2, 12); //birthday on 03/02, priority 6, starts from 12
     s->complete_task("birthday");
     EXPECT_TRUE(s->is_complete("birthday"));
-
+}
 
 TEST(ScheduleTest, EditTask) {
    Schedule schedule;
-   schedule.add_task("Conference", "2025-04-01 09:00", 10, "Work", 4, 9, 1);
+   schedule.add_task("Conference", 10, "Work", 3, 9, 16);
 
 
    Task* task = schedule.findTask("Conference");
    ASSERT_NE(task, nullptr);
   
    task->set_name("Updated Conference");
-   task->set_date("2025-04-02 10:00");
+   //task->set_date("2025-04-02 10:00");
    task->set_priority(7);
   
    Task* updatedTask = schedule.findTask("Updated Conference");

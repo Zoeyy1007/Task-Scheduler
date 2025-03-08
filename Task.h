@@ -40,6 +40,6 @@ class Task{
         void set_category(string newCategory);
         void set_day(int newDay);
         void set_hour(int newHour);
-
+        void single_display();
 };
 #endif // TASK_H

@@ -52,3 +52,9 @@ void Task::set_hour(int newHour) {
     hour = newHour;
 }
 
+void Task::single_display(){
+    cout << task_name << ", at " << get_date();
+    cout << ", priority: " << priority << endl;
+    cout << "Completion Status: ";
+    cout << get_status() << endl;
+}

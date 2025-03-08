@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Schedule.h"
 
 class EventManager {
 private:
@@ -12,8 +13,7 @@ private:
 
 public:
     // Constructor
-    EventManager(const std::string& eventName, int start, int dur);
-
+    EventManager(const string& eventName, int start, int dur);
   
     std::string getName() const;
     int getStartTime() const;
