@@ -1,21 +1,15 @@
 #ifndef EVENTSEARCH_H
 #define EVENTSEARCH_H
 
-#include <iostream>
+#include "Task.h"
 #include <vector>
-#include "EventManager.h"  
+#include <string>
 
 class EventSearch {
 public:
-// search by name
-    static std::vector<EventManager> searchByName(const std::vector<EventManager>& events, const std::string& keyword);
-
-// search by time
-    static std::vector<EventManager> searchByStartTime(const std::vector<EventManager>& events, int startTime);
-//search by date
-    static std::vector<EventManager> searchByDate(const std::vector<EventManager>& events, const std::string& datePart);
-
-    static void displaySearchResults(const std::vector<EventManager>& results);
+    static std::vector<Task> searchByName(const std::vector<Task>& events, const std::string& name);
+    static std::vector<Task> searchByStartTime(const std::vector<Task>& events, const std::string& startTime);
+    static std::vector<Task> searchByDate(const std::vector<Task>& events, const std::string& date);
 };
 
-#endif // EVENTSEARCH_H
+#endif

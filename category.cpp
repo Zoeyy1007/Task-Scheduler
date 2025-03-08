@@ -3,7 +3,8 @@
 #include <string>
 using namespace std;
 
-void Category::printCategory()
-{
-    cout << "Category is: " << category_name << endl;
-}
+
+Category::Category(string name) : name(name) {}
+
+string Category::get_name() const { 
+    return name; }

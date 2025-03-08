@@ -1,17 +1,15 @@
-#ifndef CATEGORY_HPP
-#define CATEGORY_HPP
-#include <iostream>
+#ifndef CATEGORY_H
+#define CATEGORY_H
+
 #include <string>
-using namespace std;
+
 class Category {
-    public: 
-    string category_name = "";
-    Category(const string& category_name) : category_name(category_name) {}
-    void printCategory();
+private:
+    std::string name;
+
+public:
+    Category(std::string name);
+    std::string get_name() const;
 };
 
-
-
-
-
-#endif //CATEGORY_HPP
+#endif

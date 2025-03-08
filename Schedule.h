@@ -1,43 +1,39 @@
-#include <iostream>
+#ifndef SCHEDULE_H
+#define SCHEDULE_H
+
 #include <vector>
 #include "Task.h"
 
 using namespace std;
 
-class Schedule{
-    private:
-        string schedule_name;
-        int size = 0;
-        vector<Task*> the_Tasks;
-    public:
-        Schedule();
-        Schedule(string schedule_name);
+class Schedule {
+private:
+    vector<Task> tasks;
 
-        //management
-        void add_task();
-        void add_task(string taskname,string taskDate, int priority, string category, int hour, int day, int week);
-        void remove_task(string name);
+public:
+    Schedule();
 
-        //int get_priority(); //this should be in task.h
-        //int get_execTime();
+    // Task management
+    void add_task(const Task& task);
+    void remove_task(const string& task_name);
+    void mark_task_complete(const string& task_name);
+    void edit_task(const string& task_name);
 
-        //display function 
-        void display_categorized();
-        void display_full();
-        void display_by_category();
-        void display_by_priority();
-        void single_display(Task* currtask);
-        void display_by_day();
+    // Sorting functions
+    void sort_by_date();
+    void sort_by_category();
+    void sort_by_priority();
 
-        //status and edit
-        void complete_task(string name);
-        bool is_complete(string name);
-        void edit_task(string name);
+    // Display functions
+    void display_schedule() const;
+    void display_completed_events() const;
+    void display_sorted_by_category() const;
+    void display_sorted_by_priority() const;
 
-        //utility
-        Task* findTask(string name);
-        int get_size(){return size;}
-      
-        
+    // Getter
+    vector<Task> get_all_tasks() const;
 
+    ~Schedule();
+};
 
+#endif

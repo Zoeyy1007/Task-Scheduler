@@ -1,56 +1,37 @@
-#include <iostream>
-#include <vector>
 #include "EventSearch.h"
+#include "EventManager.h"
+#include "Task.h"
+#include <vector>
+#include <string>
 
 using namespace std;
 
-
-// search by name
-vector<EventManager> EventSearch::searchByName(const vector<EventManager>& events, const string& keyword) {
-    vector<EventManager> results;
-
-    for (const EventManager& event : events) {
-        string name = event.getName();
-        if (name.find(keyword)) {
-            results.push_back(event);
+vector<Task> EventSearch::searchByName(const vector<Task>& events, const string& name) {
+    vector<Task> result;
+    for (const Task& event : events) {
+        if (event.get_name() == name) {
+            result.push_back(event);
         }
     }
-
-    return results;
+    return result;
 }
 
-// search by time
-vector<EventManager> EventSearch::searchByStartTime(const vector<EventManager>& events, int startTime) {
-    vector<EventManager> results;
-    for (const EventManager& event : events) {
-        if (event.getStartTime() == startTime) {
-            results.push_back(event);
+vector<Task> EventSearch::searchByStartTime(const vector<Task>& events, const string& startTime) {
+    vector<Task> result;
+    for (const Task& event : events) {
+        if (event.get_date() == startTime) {  // Assuming date includes time
+            result.push_back(event);
         }
     }
-    return results;
+    return result;
 }
 
-// search by date 
-vector<EventManager> EventSearch::searchByDate(const vector<EventManager>& events, const string& datePart) {
-    vector<EventManager> results;
-    for (const EventManager& event : events) {
-        string eventTime = to_string(event.getStartTime());
-        if (eventTime.find(datePart) == 0) {  
-            results.push_back(event);
+vector<Task> EventSearch::searchByDate(const vector<Task>& events, const string& date) {
+    vector<Task> result;
+    for (const Task& event : events) {
+        if (event.get_date().substr(0, 10) == date) {  // Extracts only the date part (YYYY-MM-DD)
+            result.push_back(event);
         }
     }
-    return results;
-}
-
-
-void EventSearch::displaySearchResults(const vector<EventManager>& results) {
-    if (results.empty()) {
-        cout << "No matching events found." << endl;
-        return;
-    }
-
-    cout << "Matching Events:" << endl;
-    for (const EventManager& event : results) {
-        event.displayEvent();
-    }
+    return result;
 }

@@ -1,47 +1,92 @@
 #include "EventManager.h"
+#include <iostream>
+#include <algorithm>  // Make sure to include this for std::remove_if
 
 using namespace std;
 
-// constructor
-EventManager::EventManager(const string& eventName, int start, int dur) 
-    : name(eventName), startTime(start), duration(dur) {}
-//allows to set length of time for each event
-
-string EventManager::getName() const {
-    return name;
+void EventManager::add_event(const Task& event) {
+    events.push_back(event);
 }
 
-int EventManager::getStartTime() const {
-    return startTime;
+void EventManager::remove_event(const string& eventName) {
+    events.erase(std::remove_if(events.begin(), events.end(),
+        [&](const Task& event) { return event.get_name() == eventName; }),
+        events.end());
 }
 
-int EventManager::getEndTime() const {
-    return startTime + duration;  
-}
-
-int EventManager::getDuration() const {
-    return duration;
-}
-
-// checks for time conflict 
-bool EventManager::hasConflict(const EventManager& newEvent, const vector<EventManager>& events) {
-    for (const EventManager& event : events) {  
-        int existingStart = event.getStartTime();
-        int existingEnd = event.getEndTime();
-        int newStart = newEvent.getStartTime();
-        int newEnd = newEvent.getEndTime();
-
-        if (newStart < existingEnd && newEnd > existingStart) {
-            cout << "Conflict with: " << event.getName() << endl;
-            return true;
+void EventManager::mark_event_complete(const string& eventName) {
+    for (Task& event : events) {
+        if (event.get_name() == eventName) {
+            event.mark_complete();
+            return;
         }
     }
-    return false;
-}
-void EventManager::displayEvent() const {
-    cout << "Event: " << name 
-         << " Start Time: " << startTime 
-         << " Duration: " << duration 
-         << " minutes. Ends at: " << getEndTime() << endl;
 }
 
+void EventManager::edit_event(const string& eventName) {
+    for (Task& event : events) {
+        if (event.get_name() == eventName) {
+            event.editTask();
+            return;
+        }
+    }
+}
+
+void EventManager::display_all_events() const {
+    if (events.empty()) {
+        cout << "No scheduled events." << endl;
+        return;
+    }
+
+    for (const Task& event : events) {
+        event.display();
+    }
+}
+
+vector<Task> EventManager::get_all_events() const {
+    return events;
+}
+
+vector<Task> EventManager::get_completed_events() const {
+    vector<Task> completedEvents;
+    for (const Task& event : events) {
+        if (event.is_completed()) {
+            completedEvents.push_back(event);
+        }
+    }
+    return completedEvents;
+}
+
+vector<Task> EventManager::get_events_by_category(const string& category) const {
+    vector<Task> filteredEvents;
+    for (const Task& event : events) {
+        if (event.get_category() == category) {
+            filteredEvents.push_back(event);
+        }
+    }
+    return filteredEvents;
+}
+
+vector<Task> EventManager::get_events_by_priority(int priority) const {
+    vector<Task> filteredEvents;
+    for (const Task& event : events) {
+        if (event.get_priority() == priority) {
+            filteredEvents.push_back(event);
+        }
+    }
+    return filteredEvents;
+}
+
+vector<Task> EventManager::get_events_by_date(const string& date) const {
+    vector<Task> filteredEvents;
+    for (const Task& event : events) {
+        if (event.get_date() == date) {
+            filteredEvents.push_back(event);
+        }
+    }
+    return filteredEvents;
+}
+
+int EventManager::get_event_duration(const Task& event) const {
+    return event.get_duration();
+}

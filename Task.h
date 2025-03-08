@@ -1,46 +1,48 @@
-
 #ifndef TASK_H
 #define TASK_H
 
+#include <string>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-class Task{
-    private:
-        int exec_time;
-        string task_name;
-        int priority;
-        string task_date;
-        string category;
+class Task {
+private:
+    string name;
+    string date;
+    string category;
+    int priority;
+    int duration;
+    bool completed;
 
-        int day;
-        int hour;
-        int week;
-        bool task_complete = false;
+public:
+    Task();
+    Task(const string& name, const string& date, const string& category, int priority, int duration);
+
+    // Getters
+    string get_name() const;
+    string get_date() const;
+    string get_category() const;
+    int get_priority() const;
+    int get_duration() const;
+    bool is_completed() const;
+
+    // Setters (To Edit Task Details)
+    void set_name(const string& newName);
+    void set_date(const string& newDate);
+    void set_category(const string& newCategory);
+    void set_priority(int newPriority);
+    void set_duration(int newDuration);
+    void mark_complete();
     
-    public:
-        void complete_task();
-        bool get_status();
-        int get_priority();
-
-        int get_hour();
-        int get_day();
-        int get_week();
-        string get_name();
-        string get_date();
-        Task(string taskname, string task_date, int priority, string category, int day, int hour, int week);
-        Task();
-        string get_category();
-       
-        //setter
-        void set_name(string newName);    
-        void set_date(string newDate);
-        void set_priority(int newPriority);
-        void set_category(string newCategory);
-        void set_day(int newDay);
-        void set_hour(int newHour);
-
+    // Display task details
+    void display() const;
+    
+    // Input task details (For adding tasks)
+    void inputTask();
+    
+    // Edit task details
+    void editTask();
 };
-#endif // TASK_H
+
+#endif
