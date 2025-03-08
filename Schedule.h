@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 #include "Task.h"
 
 using namespace std;
@@ -13,7 +14,6 @@ private:
 
 public:
     Schedule();
-
     // Task management
     void add_task(const Task& task);
     void remove_task(const string& task_name);
@@ -35,5 +35,5 @@ public:
     vector<Task> get_all_tasks() const;
 
     ~Schedule();
-
+};
 #endif // SCHEDULE_H

@@ -11,7 +11,7 @@ add_executable(run
   Display.cpp
   eventManager.cpp
   EventSearch.cpp
-  Date.cpp
+  string_convert.cpp
 )
 
 add_executable(debug

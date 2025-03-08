@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <iostream>
+#include "string_convert.h"
 
 using namespace std;
 
@@ -15,11 +17,15 @@ private:
     int priority;
     int duration;
     bool completed;
+    int year;
+    int month;
+    int day;
+    int hour;
+    int min;
 
 public:
     Task();
     Task(const string& name, const string& date, const string& time, const string& category, int priority, int duration);
-
     // Getters
     string get_name() const;
     string get_date() const;
@@ -28,6 +34,11 @@ public:
     int get_priority() const;
     int get_duration() const;
     bool is_completed() const;
+    int get_hour(){return hour;}
+    int get_min(){return min;}
+    int get_year(){return year;}
+    int get_month(){return month;}
+    int get_day(){return day;}
 
     // Setters
     void set_name(const string& newName);

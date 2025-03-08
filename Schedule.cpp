@@ -1,3 +1,4 @@
+
 #include "Schedule.h"
 #include <iostream>
 #include <algorithm>
@@ -21,6 +22,7 @@ void Schedule::remove_task(const string& task_name) {
     } else {
         cout << "Task \"" << task_name << "\" not found.\n";
     }
+}
 
 void Schedule::mark_task_complete(const string& task_name) {
     for (Task& task : tasks) {

@@ -12,7 +12,11 @@ Task::Task() {
 }
 
 Task::Task(const string& name, const string& date, const string& time, const string& category, int priority, int duration)
-    : name(name), date(date), time(time), category(category), priority(priority), duration(duration), completed(false) {}
+    : name(name), date(date), time(time), category(category), priority(priority), duration(duration), completed(false) {
+        Date_convert the_date = Date_convert(date);
+        the_date.convert_date_to_int(year, month, day);
+        cout << "The task is on: " << year<<"/" << month<<"/"<<day<<endl;
+    }
 
 
 string Task::get_name() const { return name; }
@@ -49,9 +53,15 @@ void Task::inputTask() {
     
     cout << "Enter date (YYYY-MM-DD): ";
     getline(cin, date);
+    Date_convert the_date = Date_convert(date);
+    the_date.convert_date_to_int(year, month, day);
+    cout << "Current date is " << get_year()<< "/" << get_month() << "/" << get_day() << endl;
 
     cout << "Enter start time (HH:MM): ";
     getline(cin, time);
+    time_convert the_time = time_convert(time);
+    the_time.convert_time_int(hour, min);
+    cout << "The task is at " << hour << ":" << min << endl;
     
     cout << "Enter category: ";
     getline(cin, category);

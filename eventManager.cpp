@@ -102,3 +102,4 @@ vector<Task> EventManager::get_events_by_date(const string& date) const {
 int EventManager::get_event_duration(const Task& event) const {
     return event.get_duration();
 }
+
