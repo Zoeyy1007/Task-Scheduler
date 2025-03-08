@@ -12,11 +12,12 @@ TEST(TaskTest, ConstructorAndGetters) {
    Task task("Meeting", 5, "Work", 03, 14, 2);
   
    EXPECT_EQ(task.get_name(), "Meeting");
-   EXPECT_EQ(task.get_date(), "2025-03-10 14:00");
+   EXPECT_EQ(task.get_date(), "3/14");
    EXPECT_EQ(task.get_priority(), 5);
    EXPECT_EQ(task.get_category(), "Work");
-   EXPECT_EQ(task.get_day(), 1);
-   EXPECT_EQ(task.get_hour(), 14);
+   EXPECT_EQ(task.get_month(), 3);
+   EXPECT_EQ(task.get_day(), 14);
+   EXPECT_EQ(task.get_hour(), 2);
    EXPECT_FALSE(task.get_status());  // Task should be incomplete initially
 }
 
@@ -28,12 +29,13 @@ TEST(TaskTest, SetterMethods) {
    task.set_month(4);
    task.set_priority(8);
    task.set_category("Personal");
+   task.set_month(4);
    task.set_day(3);
    task.set_hour(16);
 
 
    EXPECT_EQ(task.get_name(), "Updated Meeting");
-   EXPECT_EQ(task.get_date(), "2025-03-11 15:00");
+   EXPECT_EQ(task.get_date(), "4/3");
    EXPECT_EQ(task.get_priority(), 8);
    EXPECT_EQ(task.get_category(), "Personal");
    EXPECT_EQ(task.get_day(), 3);
@@ -59,7 +61,7 @@ TEST(ScheduleTest, AddAndFindTask) {
    Task* foundTask = schedule.findTask("Doctor Appointment");
    ASSERT_NE(foundTask, nullptr);
    EXPECT_EQ(foundTask->get_name(), "Doctor Appointment");
-   EXPECT_EQ(foundTask->get_date(), "2025-03-15 10:00");
+   EXPECT_EQ(foundTask->get_date(), "3/10");
    EXPECT_EQ(foundTask->get_priority(), 9);
    EXPECT_EQ(foundTask->get_category(), "Health");
    EXPECT_EQ(foundTask->get_day(), 10);

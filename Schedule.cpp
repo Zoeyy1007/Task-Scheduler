@@ -275,8 +275,8 @@ void Schedule::complete_task(const string& name){
         if(the_Tasks[i]->get_name() == name){
             Task* task = the_Tasks[i];
             task->complete_task();
-            completed_Tasks.push_back(task);
-            the_Tasks.erase(the_Tasks.begin()+i);
+            //completed_Tasks.push_back(task);
+            //the_Tasks.erase(the_Tasks.begin()+i);
             return;
         }
     }
