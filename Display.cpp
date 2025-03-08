@@ -13,7 +13,7 @@ void Display::show_home_screen() {
         cout << "1. Events\n";
         cout << "2. Completed Events\n";
         cout << "3. Schedule\n";
-        cout << "q. Exit\n";
+        cout << "0. Exit\n";
         int choice = get_valid_int_input("Enter your choice: ", 0, 3);
 
         if (choice == 1) {
@@ -22,7 +22,7 @@ void Display::show_home_screen() {
             show_completed_events_menu(manager);
         } else if (choice == 3) {
             show_schedule_menu(manager);
-        } else if (choice == q) {
+        } else if (choice == 0) {
             return;
         }
     }
@@ -35,7 +35,7 @@ void Display::show_events_menu(EventManager& manager) {
         cout << "2. Remove Event\n";
         cout << "3. Mark Event Complete\n";
         cout << "4. Edit Event\n";
-        cout << "q. Back to Home Screen\n";
+        cout << "0. Back to Home Screen\n";
         int choice = get_valid_int_input("Enter your choice: ", 0, 4);
 
         if (choice == 1) {
@@ -46,7 +46,7 @@ void Display::show_events_menu(EventManager& manager) {
             handle_mark_complete(manager);
         } else if (choice == 4) {
             handle_edit_event(manager);
-        } else if (choice == q) {
+        } else if (choice == 0) {
             return;
         }
     }
@@ -59,7 +59,7 @@ void Display::show_completed_events_menu(EventManager& manager) {
         cout << "2. Sort by Category\n";
         cout << "3. Sort by Priority\n";
         cout << "4. Sort by Date\n";
-        cout << "q. Back to Home Screen\n";
+        cout << "0. Back to Home Screen\n";
         int choice = get_valid_int_input("Enter your choice: ", 0, 4);
 
         if (choice == 1) {
@@ -70,7 +70,7 @@ void Display::show_completed_events_menu(EventManager& manager) {
             handle_sort_by_priority(manager);
         } else if (choice == 4) {
             handle_sort_by_date(manager);
-        } else if (choice == q) {
+        } else if (choice == 0) {
             return;
         }
     }
@@ -83,7 +83,7 @@ void Display::show_schedule_menu(EventManager& manager) {
         cout << "2. Sort by Category\n";
         cout << "3. Sort by Priority\n";
         cout << "4. Sort by Date\n";
-        cout << "q. Back to Home Screen\n";
+        cout << "0. Back to Home Screen\n";
         int choice = get_valid_int_input("Enter your choice: ", 0, 4);
 
         if (choice == 1) {
@@ -94,7 +94,7 @@ void Display::show_schedule_menu(EventManager& manager) {
             handle_sort_by_priority(manager);
         } else if (choice == 4) {
             handle_sort_by_date(manager);
-        } else if (choice == q) {
+        } else if (choice == 0) {
             return;
         }
     }
