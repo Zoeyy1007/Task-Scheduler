@@ -8,6 +8,7 @@ Display::Display() {}
 
 void Display::show_home_screen() {
     EventManager manager;
+    EventSearch SearchMethod;
     while (true) {
         cout << "\nHome Screen\n";
         cout << "1. Events\n";
@@ -65,11 +66,11 @@ void Display::show_completed_events_menu(EventManager& manager) {
         if (choice == 1) {
             display_event_list(manager.get_completed_events());
         } else if (choice == 2) {
-            handle_sort_by_category(manager);
+            handle_sort_by_category(manager.get_completed_events());
         } else if (choice == 3) {
-            handle_sort_by_priority(manager);
+            handle_sort_by_priority(manager.get_completed_events());
         } else if (choice == 4) {
-            handle_sort_by_date(manager);
+            handle_sort_by_date(manager.get_completed_events());
         } else if (choice == 0) {
             return;
         }
@@ -89,11 +90,11 @@ void Display::show_schedule_menu(EventManager& manager) {
         if (choice == 1) {
             display_event_list(manager.get_all_events());
         } else if (choice == 2) {
-            handle_sort_by_category(manager);
+            handle_sort_by_category(manager.get_all_events());
         } else if (choice == 3) {
-            handle_sort_by_priority(manager);
+            handle_sort_by_priority(manager.get_all_events());
         } else if (choice == 4) {
-            handle_sort_by_date(manager);
+            handle_sort_by_date(manager.get_all_events());
         } else if (choice == 0) {
             return;
         }
@@ -132,19 +133,22 @@ void Display::handle_edit_event(EventManager& manager) {
     manager.edit_event(eventName);
 }
 
-void Display::handle_sort_by_category(EventManager& manager) {
+void Display::handle_sort_by_category(const vector<Task>& events) {
     string category = get_valid_string_input("Enter category to sort by: ");
-    display_event_list(manager.get_events_by_category(category));
+    EventSearch SearchMethod;
+    display_event_list(SearchMethod.searchByCategory(events, category));
 }
 
-void Display::handle_sort_by_priority(EventManager& manager) {
+void Display::handle_sort_by_priority(const vector<Task>& events) {
     int priority = get_valid_int_input("Enter priority to sort by: ", 1, 5);
-    display_event_list(manager.get_events_by_priority(priority));
+    EventSearch SearchMethod;
+    display_event_list(SearchMethod.searchByPriority(events, priority));
 }
 
-void Display::handle_sort_by_date(EventManager& manager) {
-    string date = get_valid_string_input("Enter date to sort by (MM/DD/YYYY): ");
-    display_event_list(manager.get_events_by_date(date));
+void Display::handle_sort_by_date(const vector<Task>& events) {
+    string date = get_valid_string_input("Enter date to sort by (YYYY-MM-DD): ");
+    EventSearch SearchMethod;
+    display_event_list(SearchMethod.searchByDate(events, date));
 }
 
 // Helper function to validate integer input

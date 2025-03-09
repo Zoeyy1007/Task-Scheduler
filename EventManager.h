@@ -32,12 +32,6 @@ public:
 
     // Get only completed events
     vector<Task> get_completed_events() const;
-
-    // Filtering methods
-    vector<Task> get_events_by_category(const string& category) const;
-    vector<Task> get_events_by_priority(int priority) const;
-    vector<Task> get_events_by_date(const string& date) const;
-
     // Get event duration
     int get_event_duration(const Task& event) const;
 };

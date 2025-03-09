@@ -2,6 +2,7 @@
 #define DISPLAY_H
 
 #include "EventManager.h"
+#include "EventSearch.h"
 #include <string>
 
 class Display {
@@ -20,9 +21,9 @@ private:
     void handle_remove_event(EventManager& manager);
     void handle_mark_complete(EventManager& manager);
     void handle_edit_event(EventManager& manager);
-    void handle_sort_by_category(EventManager& manager);
-    void handle_sort_by_priority(EventManager& manager);
-    void handle_sort_by_date(EventManager& manager);
+    void handle_sort_by_category(const vector<Task>& events);
+    void handle_sort_by_priority(const vector<Task>& events);
+    void handle_sort_by_date(const vector<Task>& events);
     
     int get_valid_int_input(const string& prompt, int min, int max); // Helper for integer validation
     string get_valid_string_input(const string& prompt); // Helper for string validation
