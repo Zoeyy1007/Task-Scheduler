@@ -1,6 +1,7 @@
 #include "Task.h"
 #include <limits>
 
+
 Task::Task() {
     this->name = "";
     this->date = "";
@@ -127,6 +128,29 @@ void Task::inputTask() {
     
     cin.ignore(); // Clear newline from buffer
     completed = false;
+
+    cout << "Would you like to add any Sub-events? (Y or N)";
+    string subtasksans;
+    cin >> subtasksans;
+    if(subtasksans == "y"){
+        cout << "How many sub-events would you like to add?" << endl;
+        int subtasktimes;
+        cin >> subtasktimes;
+        while(!cin.good() || subtasktimes <= 0){
+            cout << "Enter valid number starting from 0.";
+            cin >> subtasktimes;
+        }
+        for(int i = 0; i < subtasktimes; i++){
+            Subtask currsubtask;
+            currsubtask.input_subtask(year, month, day, hour, min);
+            subtasks.push_back(currsubtask);
+        }
+    }
+    else{
+        cout << "Understood, this event will have no sub-events." << endl;
+    }
+        
+    
 }
 
 void Task::editTask() {
@@ -185,3 +209,4 @@ void Task::editTask() {
         }
     }
 }
+
