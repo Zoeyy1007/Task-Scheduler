@@ -1,3 +1,6 @@
+#ifndef STRINGCONVERT_HPP
+#define STRINGCONVERT_HPP
+
 #include <iostream>
 #include <chrono>
 #include <ctime>
