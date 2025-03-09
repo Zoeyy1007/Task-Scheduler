@@ -5,6 +5,8 @@
 #include <iostream>
 #include <iostream>
 #include "string_convert.h"
+#include <vector>
+#include "subtask.h"
 
 using namespace std;
 
@@ -22,6 +24,7 @@ private:
     int day;
     int hour;
     int min;
+    vector<Subtask> subtasks;
 
 public:
     Task();

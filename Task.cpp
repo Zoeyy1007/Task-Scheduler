@@ -127,6 +127,14 @@ void Task::inputTask() {
     
     cin.ignore(); // Clear newline from buffer
     completed = false;
+
+    cout << "Would you like to add any subtasks? (Y or N)";
+    string subtasksans;
+    cin >> subtasksans;
+    if(subtasksans == "y"){
+
+
+    }
 }
 
 void Task::editTask() {
@@ -185,3 +193,4 @@ void Task::editTask() {
         }
     }
 }
+
