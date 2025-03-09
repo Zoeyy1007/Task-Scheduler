@@ -15,9 +15,49 @@ Task::Task(const string& name, const string& date, const string& time, const str
     : name(name), date(date), time(time), category(category), priority(priority), duration(duration), completed(false) {
         Date_convert the_date = Date_convert(date);
         the_date.convert_date_to_int(year, month, day);
-        cout << "The task is on: " << year<<"/" << month<<"/"<<day<<endl;
+        // add the check validity of input here
+        time_convert the_time = time_convert(time);
+
+        if (check_valid_input() == 0)
+        {
+            cout << "The task is on: " << year<<"/" << month<<"/"<<day<<endl;  
+        }
+        else
+        {
+            cout << "Invalid inputs. Please reenter." << endl;
+        }
     }
 
+int Task::check_valid_input() const
+{
+    int not_valid = 0;
+    if ((hour > 23) || (hour < 0)) //using military time
+    {
+        not_valid = 1;
+        cout << "Invalid input of hour!" << endl;
+    }
+    if ((min > 59) || (min < 0))
+    {
+        not_valid = 1;
+        cout << "Invalid input of minutes!" << endl;
+    }
+    if (year < 2025)
+    {
+        not_valid = 1;
+        cout << "Invalid input of year!" << endl;
+    }
+    if ((month < 0) || (month > 12))
+    {
+        not_valid = 1;
+        cout << "Invalid input of month" << endl;
+    }
+    if ((day < 0) || (day > 31)) //might have to account for the days exist in certain months
+    {
+        not_valid = 1;
+        cout << "Invalid input of day!" << endl;
+    }
+    return not_valid;
+}
 
 string Task::get_name() const { return name; }
 string Task::get_date() const { return date; }

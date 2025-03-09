@@ -48,7 +48,7 @@ public:
     void set_priority(int newPriority);
     void set_duration(int newDuration);
     void mark_complete();
-
+    int check_valid_input() const;
     // Display task details
     void display() const;
 
