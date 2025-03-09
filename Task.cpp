@@ -63,6 +63,11 @@ string Task::get_name() const { return name; }
 string Task::get_date() const { return date; }
 string Task::get_category() const { return category; }
 string Task::get_time() const { return time; }
+int Task::get_year() const {return year;}
+int Task::get_month() const {return month;}
+int Task::get_day() const {return day;}
+int Task::get_hour() const {return hour;}
+int Task::get_min() const {return min;}
 int Task::get_priority() const { return priority; }
 int Task::get_duration() const { return duration; }
 bool Task::is_completed() const { return completed; }

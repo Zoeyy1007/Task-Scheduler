@@ -34,11 +34,11 @@ public:
     int get_priority() const;
     int get_duration() const;
     bool is_completed() const;
-    int get_hour(){return hour;}
-    int get_min(){return min;}
-    int get_year(){return year;}
-    int get_month(){return month;}
-    int get_day(){return day;}
+    int get_hour() const;
+    int get_min() const;
+    int get_year() const;
+    int get_month() const;
+    int get_day() const;
 
     // Setters
     void set_name(const string& newName);

@@ -69,35 +69,6 @@ vector<Task> EventManager::get_completed_events() const {
     return completedEvents;
 }
 
-vector<Task> EventManager::get_events_by_category(const string& category) const {
-    vector<Task> filteredEvents;
-    for (const Task& event : events) {
-        if (event.get_category() == category) {
-            filteredEvents.push_back(event);
-        }
-    }
-    return filteredEvents;
-}
-
-vector<Task> EventManager::get_events_by_priority(int priority) const {
-    vector<Task> filteredEvents;
-    for (const Task& event : events) {
-        if (event.get_priority() == priority) {
-            filteredEvents.push_back(event);
-        }
-    }
-    return filteredEvents;
-}
-
-vector<Task> EventManager::get_events_by_date(const string& date) const {
-    vector<Task> filteredEvents;
-    for (const Task& event : events) {
-        if (event.get_date() == date) {
-            filteredEvents.push_back(event);
-        }
-    }
-    return filteredEvents;
-}
 
 int EventManager::get_event_duration(const Task& event) const {
     return event.get_duration();

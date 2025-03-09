@@ -1,6 +1,7 @@
 #include "EventSearch.h"
 #include "EventManager.h"
 #include "Task.h"
+#include "string_convert.h"
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -49,9 +50,11 @@ vector<Task> EventSearch::searchByStartTime(const vector<Task>& events, const st
 vector<Task> EventSearch::searchByDate(const vector<Task>& events, const string& date) {
     vector<Task> result;
 
+    Date_convert the_date = Date_convert(date);
+    int year, month, day;
+    the_date.convert_date_to_int(year, month, day);
     for (const Task& event : events) {
-        string eventDate = event.get_date().substr(0, 10); 
-        if (eventDate == date) {
+        if (event.get_year() == year && event.get_day() == day && event.get_month() == month) {
             result.push_back(event);
         }
     }

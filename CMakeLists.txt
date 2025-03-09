@@ -6,7 +6,6 @@ ADD_SUBDIRECTORY(googletest)
 
 add_executable(run
   main.cpp
-  Schedule.cpp
   Task.cpp
   Display.cpp
   eventManager.cpp
