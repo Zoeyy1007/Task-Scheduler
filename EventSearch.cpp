@@ -1,56 +1,98 @@
-#include <iostream>
-#include <vector>
 #include "EventSearch.h"
+#include "EventManager.h"
+#include "Task.h"
+#include "string_convert.h"
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <iostream>
 
 using namespace std;
 
+// Helper function to convert a string to lowercase for case-insensitive comparison
+string EventSearch::toLowerCase(const string& str) {
+    string lowerStr = str;
+    transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
+    return lowerStr;
+}
 
-// search by name
-vector<EventManager> EventSearch::searchByName(const vector<EventManager>& events, const string& keyword) {
-    vector<EventManager> results;
+vector<Task> EventSearch::searchByName(const vector<Task>& events, const string& name) {
+    vector<Task> result;
+    string lowerName = toLowerCase(name);
 
-    for (const EventManager& event : events) {
-        string name = event.getName();
-        if (name.find(keyword)) {
-            results.push_back(event);
+    for (const Task& event : events) {
+        if (toLowerCase(event.get_name()) == lowerName) {
+            result.push_back(event);
         }
     }
 
-    return results;
+    if (result.empty()) {
+        cout << "No events found with the name: " << name << endl;
+    }
+    return result;
 }
 
-// search by time
-vector<EventManager> EventSearch::searchByStartTime(const vector<EventManager>& events, int startTime) {
-    vector<EventManager> results;
-    for (const EventManager& event : events) {
-        if (event.getStartTime() == startTime) {
-            results.push_back(event);
+vector<Task> EventSearch::searchByStartTime(const vector<Task>& events, const string& startTime) {
+    vector<Task> result;
+
+    for (const Task& event : events) {
+        if (event.get_time() == startTime) {
+            result.push_back(event);
         }
     }
-    return results;
+
+    if (result.empty()) {
+        cout << "No events found with the start time: " << startTime << endl;
+    }
+    return result;
 }
 
-// search by date 
-vector<EventManager> EventSearch::searchByDate(const vector<EventManager>& events, const string& datePart) {
-    vector<EventManager> results;
-    for (const EventManager& event : events) {
-        string eventTime = to_string(event.getStartTime());
-        if (eventTime.find(datePart) == 0) {  
-            results.push_back(event);
+vector<Task> EventSearch::searchByDate(const vector<Task>& events, const string& date) {
+    vector<Task> result;
+
+    Date_convert the_date = Date_convert(date);
+    int year, month, day;
+    the_date.convert_date_to_int(year, month, day);
+    for (const Task& event : events) {
+        if (event.get_year() == year && event.get_day() == day && event.get_month() == month) {
+            result.push_back(event);
         }
     }
-    return results;
+
+    if (result.empty()) {
+        cout << "No events found on the date: " << date << endl;
+    }
+    return result;
 }
 
+vector<Task> EventSearch::searchByPriority(const vector<Task>& events, int priority) {
+    vector<Task> result;
 
-void EventSearch::displaySearchResults(const vector<EventManager>& results) {
-    if (results.empty()) {
-        cout << "No matching events found." << endl;
-        return;
+    for (const Task& event : events) {
+        if (event.get_priority() == priority) { 
+            result.push_back(event);
+        }
     }
 
-    cout << "Matching Events:" << endl;
-    for (const EventManager& event : results) {
-        event.displayEvent();
+    if (result.empty()) {
+        cout << "No events found with priority: " << priority << endl;
     }
+    return result;
+}
+
+vector<Task> EventSearch::searchByCategory(const vector<Task>& events, const string& category) {
+    vector<Task> result;
+    string lowerCategory = toLowerCase(category);
+
+    for (const Task& event : events) {
+        // Assuming Task has get_category()
+        if (toLowerCase(event.get_category()) == lowerCategory) { 
+            result.push_back(event);
+        }
+    }
+
+    if (result.empty()) {
+        cout << "No events found in category: " << category << endl;
+    }
+    return result;
 }

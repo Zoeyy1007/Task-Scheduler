@@ -15,7 +15,7 @@ This particular project is important to us because as students ourselves, the id
 * C++ (terminal base for interface) 
 
 ## input/output
-* Input: title, description, classification, date, priority, duration, due date
+* Input: title, description, classification, date, priority, duration
 * Output: Lists of tasks to complete in order, suggested schedules
 
 ## Feature
