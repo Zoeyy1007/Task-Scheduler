@@ -1,7 +1,6 @@
 #include "EventManager.h"
 #include <iostream>
 #include <algorithm>  // Needed for std::remove_if
-
 using namespace std;
 
 void EventManager::add_event(const Task& event) {
@@ -24,12 +23,29 @@ void EventManager::remove_event(const string& eventName) {
 bool EventManager::mark_event_complete(const string& eventName) {
     for (Task& event : events) {
         if (event.get_name() == eventName) {
-            event.mark_complete();
-            cout << "Event \"" << eventName << "\" marked as complete.\n";
-            return true;
+            bool subtaskscomplete = true;
+            for(int i = 0; i < event.subtasks.size(); i++){
+                if(event.subtasks[i].get_completion() == false){
+                    subtaskscomplete = false;
+                    cout << "Subtasks titled: " << event.subtasks[i].get_name() << " is incomplete, please complete it first in order to complete this task." << endl;
+                }
+            }
+
+            if(subtaskscomplete){
+                event.mark_complete();
+                cout << "Event \"" << eventName << "\" marked as complete.\n";
+                return true;
+            }
+            else{
+                cout << "Error: Event \"" << eventName << "\" Does not have all sub-event's completed.";
+                return false;
+            }
+            
+            
         }
+    
     }
-    cout << "Error: Event \"" << eventName << "\" not found.\n";
+    cout << "Error: Event \"" << eventName << "\" cannot be found.";
     return false;
 }
 

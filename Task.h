@@ -23,11 +23,13 @@ private:
     int day;
     int hour;
     int min;
+    
     vector<Subtask> subtasks;
     void convert_date_int(const string& date, int& year, int& month, int& day);
     void convert_time_int(const string& time, int& hour, int& min);
 
 public:
+    vector<Subtask> subtasks;
     Task();
     Task(const string& name, const string& date, const string& time, const string& category, int priority, int duration);
     // Getters
@@ -43,6 +45,7 @@ public:
     int get_year() const;
     int get_month() const;
     int get_day() const;
+    string get_description() const;
 
     // Setters
     void set_name(const string& newName);
@@ -51,10 +54,12 @@ public:
     void set_category(const string& newCategory);
     void set_priority(int newPriority);
     void set_duration(int newDuration);
+    void set_description(const string& newdesc);
     void mark_complete();
     int check_valid_input() const;
     // Display task details
     void display() const;
+    
 
     // Input and edit functions
     void inputTask();
