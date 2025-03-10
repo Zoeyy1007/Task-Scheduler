@@ -24,6 +24,7 @@ private:
     int day;
     int hour;
     int min;
+    string description;
     
 
 public:
