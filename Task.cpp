@@ -100,6 +100,7 @@ void Task::inputTask() {
     convert_date_int(date, year, month, day);
     cout << "Current date is " << get_year()<< "/" << get_month() << "/" << get_day() << endl;
 
+
     cout << "Enter start time (HH:MM): ";
     getline(cin, time);
     convert_time_int(time, hour, min);
