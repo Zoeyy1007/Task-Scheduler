@@ -79,8 +79,13 @@ void Task::set_date(const string& newDate) { if (!newDate.empty()) date = newDat
 void Task::set_category(const string& newCategory) { if (!newCategory.empty()) category = newCategory; }
 void Task::set_priority(int newPriority) { if (newPriority >= 1 && newPriority <= 5) priority = newPriority; }
 void Task::set_duration(int newDuration) { if (newDuration > 0) duration = newDuration; }
-void Task::mark_complete() { completed = true; }
+
 void Task::set_time(const string& newTime) { if (!newTime.empty()) time = newTime; }
+
+void Task::mark_complete() { 
+    completed = true;
+}
+
 
 void Task::display() const {
     cout << "Event: " << name 
@@ -162,10 +167,12 @@ void Task::editTask() {
         cout << "1. Edit Name\n";
         cout << "2. Edit Date\n";
         cout << "3. Edit Time\n";
+        //time not implemented
         cout << "4. Edit Category\n";
         cout << "5. Edit Priority\n";
         cout << "6. Edit Duration\n";
-        cout << "7. Mark Complete\n";
+        cout << "7. Mark Sub-event completed\n";
+        cout << "8. Mark Complete\n";
         cout << "q. Done Editing\n";
         cout << "Enter your choice: ";
 
@@ -178,10 +185,10 @@ void Task::editTask() {
         } else if (input == "2") {
             cout << "Enter new date (YYYY-MM-DD HH:MM): ";
             getline(cin, date);
-        } else if (input == "3") {
+        } else if (input == "4") {
             cout << "Enter new category: ";
             getline(cin, category);
-        } else if (input == "4") {
+        } else if (input == "5") {
             cout << "Enter new priority (1-5): ";
             while (!(cin >> intInput) || intInput < 1 || intInput > 5) {
                 cout << "Invalid priority. Enter a value between 1 and 5: ";
@@ -190,7 +197,7 @@ void Task::editTask() {
             }
             priority = intInput;
             cin.ignore();
-        } else if (input == "5") {
+        } else if (input == "6") {
             cout << "Enter new duration (in minutes): ";
             while (!(cin >> intInput) || intInput <= 0) {
                 cout << "Invalid duration. Enter a positive number: ";
@@ -199,9 +206,38 @@ void Task::editTask() {
             }
             duration = intInput;
             cin.ignore();
-        } else if (input == "6") {
-            mark_complete();
-            cout << "Event marked as complete.\n";
+        }else if (input == "7"){
+            cout << "Enter name of sub-events you would like to mark as complete" << endl;
+            int count = 1;
+            for(int i = 0; i < subtasks.size(); i++){
+                cout << count << ": " << subtasks[i].get_name() << endl;
+                count ++;
+            }
+            while (!(cin >> intInput) || intInput <= 0 || intInput > subtasks.size()-1) {
+                cout << "Invalid sub-event. Enter a number which corresponds to a subtask ";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            cout << subtasks[intInput-1].get_name() << " marked as completed";
+            subtasks[intInput-1].set_completion_true();
+        
+        } else if (input == "8") {
+            bool subtaskscomplete = true;
+            for(int i =0; i < subtasks.size(); i++){
+                if(subtasks[i].get_completion() == false){
+                    subtaskscomplete = false;
+                    cout << "Subtasks titled: " << subtasks[i].get_name() << "incomplete, please complete it first in order to complete this task." << endl;
+                }
+            }
+            if(subtaskscomplete == true){
+                mark_complete();
+                cout << "Event marked as complete.\n";
+            }
+            else{
+                cout << "Event has not been marked as completed due to incompletion of subtasks." << endl;;
+            }
+            
+        
         } else if (input == "q") {
             return;
         } else {
