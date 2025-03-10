@@ -25,6 +25,16 @@ void Subtask::set_category(string catname){
     category = catname;
 }
 
+void Subtask::set_description(string newdesc){
+    if(newdesc.empty()){
+        cout << "You have chosen to have no description for your sub-event." << endl;
+    }
+    else{
+        description = newdesc;
+        cout << "Description entered into sub-event." << endl;
+    }
+}
+
 //getters
 bool Subtask::get_completion()const{
     return completion;
@@ -58,12 +68,21 @@ int Subtask::get_min() const{
     return min;
 }
 
+string Subtask::get_description() const{
+    return description;
+}
+
 void Subtask::input_subtask(int tYear, int tMonth, int tDay, int tHour, int tMin){
     cout << "Enter event name: ";
     getline(cin, name);
     
     cout << "Enter category: ";
     getline(cin, category);
+
+    cout << "Enter a description for your sub-event, if not needed just press enter: ";
+    string currdesc;
+    getline(cin, currdesc);
+    set_description(currdesc);
 
     completion = false;
 
@@ -79,6 +98,7 @@ void Subtask::display_subtask() const{
          << "\n     Date: " << year << "/" << month << "/" << day
          << "\n     Time: " << hour << ":" << min
          << "\n     Category: " << category 
+         << "\n     Description: " << description
          << "\n     Status: " << (completion ? "Completed" : "Pending") 
          << "\n" << endl;
 }

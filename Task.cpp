@@ -72,6 +72,7 @@ int Task::get_min() const {return min;}
 int Task::get_priority() const { return priority; }
 int Task::get_duration() const { return duration; }
 bool Task::is_completed() const { return completed; }
+string Task::get_description() const{ return description; }
 
 // Setters
 void Task::set_name(const string& newName) { if (!newName.empty()) name = newName; }
@@ -81,6 +82,15 @@ void Task::set_priority(int newPriority) { if (newPriority >= 1 && newPriority <
 void Task::set_duration(int newDuration) { if (newDuration > 0) duration = newDuration; }
 
 void Task::set_time(const string& newTime) { if (!newTime.empty()) time = newTime; }
+void Task::set_description(const string& newdesc){
+    if(newdesc.empty()){
+        cout << "You have chosen to have no description for your event." << endl;
+    }
+    else{
+        description = newdesc;
+        cout << "Description entered into event." << endl;
+    }
+}
 
 void Task::mark_complete() { 
     completed = true;
@@ -94,6 +104,7 @@ void Task::display() const {
          << "\nCategory: " << category 
          << "\nPriority: " << priority
          << "\nDuration: " << duration << " minutes"
+         << "\nDescription: " << description
          << "\nStatus: " << (completed ? "Completed" : "Pending") 
          << "\n" << endl;
          int count = 1;
@@ -139,6 +150,12 @@ void Task::inputTask() {
     cin.ignore(); // Clear newline from buffer
     completed = false;
 
+    cout << "Enter a description, if you would like to skip this step press enter" << endl; 
+    string newdesc;
+    getline(cin, newdesc);
+    set_description(newdesc);
+
+
     cout << "Would you like to add any Sub-events? (Y or N): ";
     string subtasksans;
     cin >> subtasksans;
@@ -178,8 +195,9 @@ void Task::editTask() {
         cout << "4. Edit Category\n";
         cout << "5. Edit Priority\n";
         cout << "6. Edit Duration\n";
-        cout << "7. Mark Sub-event completed\n";
-        cout << "8. Mark Complete\n";
+        cout << "7. Edit Description\n";
+        cout << "8. Mark Sub-event completed\n";
+        cout << "9. Mark Complete\n";
         cout << "q. Done Editing\n";
         cout << "Enter your choice: ";
 
@@ -214,6 +232,13 @@ void Task::editTask() {
             duration = intInput;
             cin.ignore();
         }else if (input == "7"){
+            cout << "Enter description you would like to have for your event,\n"
+            << "just press enter if you would like to delete your current description" << endl;
+            string currdesc;
+            getline(cin, currdesc);
+            set_description(currdesc);
+            
+        }else if (input == "8"){
             cout << "Enter name of sub-events you would like to mark as complete" << endl;
             int count = 1;
             for(int i = 0; i < subtasks.size(); i++){
@@ -228,7 +253,7 @@ void Task::editTask() {
             cout << "Sub-event titled : " << subtasks[input-1].get_name() << " marked as completed" << endl << endl;
             subtasks[input-1].set_completion_true();
         
-        } else if (input == "8") {
+        } else if (input == "9") {
             bool subtaskscomplete = true;
             for(int i = 0; i < subtasks.size(); i++){
                 if(subtasks[i].get_completion() == false){

@@ -44,6 +44,7 @@ public:
     int get_year() const;
     int get_month() const;
     int get_day() const;
+    string get_description() const;
 
     // Setters
     void set_name(const string& newName);
@@ -52,10 +53,12 @@ public:
     void set_category(const string& newCategory);
     void set_priority(int newPriority);
     void set_duration(int newDuration);
+    void set_description(const string& newdesc);
     void mark_complete();
     int check_valid_input() const;
     // Display task details
     void display() const;
+    
 
     // Input and edit functions
     void inputTask();

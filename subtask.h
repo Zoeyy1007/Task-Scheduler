@@ -20,6 +20,7 @@ class Subtask {
         int day;
         int hour;
         int min;
+        string description;
     public: 
         Subtask();
         //setters
@@ -27,11 +28,13 @@ class Subtask {
         void set_completion_false();
         void set_name(string subname);
         void set_category(string catname);
+        void set_description(string newdesc);
 
         //getters
         bool get_completion()const;
         string get_name()const;
         string get_category()const;
+        string get_description() const;
         int get_year() const;
         int get_month() const;
         int get_day()const;
