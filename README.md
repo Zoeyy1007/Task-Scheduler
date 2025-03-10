@@ -2,7 +2,7 @@
 # Task Scheduler
  
 ## Authors: 
-* Joshua Citrin https://github.com/ctraino 
+* Joshua Citrin https://github.com/jdcitrin (My username was previously ctraino but recently changed my username). 
 * Lyda Taing https://github.com/LydaTaing
 * Ashley Vo https://github.com/ashvo 
 * Zoey Yang https://github.com/Zoeyy1007
