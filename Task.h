@@ -24,9 +24,10 @@ private:
     int day;
     int hour;
     int min;
-    vector<Subtask> subtasks;
+    
 
 public:
+    vector<Subtask> subtasks;
     Task();
     Task(const string& name, const string& date, const string& time, const string& category, int priority, int duration);
     // Getters
