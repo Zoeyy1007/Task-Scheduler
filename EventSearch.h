@@ -13,6 +13,7 @@ public:
     static std::vector<Task> searchByDate(const vector<Task>& events, const std::string& date);
     static std::vector<Task> searchByPriority(const vector<Task>& events, int priority);
     static std::vector<Task> searchByCategory(const vector<Task>& events, const std::string& category);
+    static void convert_date_int(const string& date, int& year, int& month, int& day);
 
 private:
     static std::string toLowerCase(const std::string& str);

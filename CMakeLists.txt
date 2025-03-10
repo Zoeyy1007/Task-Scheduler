@@ -10,12 +10,10 @@ add_executable(run
   Display.cpp
   eventManager.cpp
   EventSearch.cpp
-  string_convert.cpp
 )
 
 add_executable(debug
   test.cpp
-  Schedule.cpp 
   display.cpp
   Task.cpp 
 )

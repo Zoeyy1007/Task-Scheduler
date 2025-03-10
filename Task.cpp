@@ -14,10 +14,8 @@ Task::Task() {
 
 Task::Task(const string& name, const string& date, const string& time, const string& category, int priority, int duration)
     : name(name), date(date), time(time), category(category), priority(priority), duration(duration), completed(false) {
-        Date_convert the_date = Date_convert(date);
-        the_date.convert_date_to_int(year, month, day);
-        // add the check validity of input here
-        time_convert the_time = time_convert(time);
+        convert_date_int(date, year, month, day);
+        convert_time_int(time, hour, min);
 
         if (check_valid_input() == 0)
         {
@@ -99,14 +97,12 @@ void Task::inputTask() {
     
     cout << "Enter date (YYYY-MM-DD): ";
     getline(cin, date);
-    Date_convert the_date = Date_convert(date);
-    the_date.convert_date_to_int(year, month, day);
+    convert_date_int(date, year, month, day);
     cout << "Current date is " << get_year()<< "/" << get_month() << "/" << get_day() << endl;
 
     cout << "Enter start time (HH:MM): ";
     getline(cin, time);
-    time_convert the_time = time_convert(time);
-    the_time.convert_time_int(hour, min);
+    convert_time_int(time, hour, min);
     cout << "The task is at " << hour << ":" << min << endl;
     
     cout << "Enter category: ";
@@ -129,6 +125,7 @@ void Task::inputTask() {
     cin.ignore(); // Clear newline from buffer
     completed = false;
 
+    
     cout << "Would you like to add any Sub-events? (Y or N)";
     string subtasksans;
     cin >> subtasksans;
@@ -149,8 +146,6 @@ void Task::inputTask() {
     else{
         cout << "Understood, this event will have no sub-events." << endl;
     }
-        
-    
 }
 
 void Task::editTask() {
@@ -210,3 +205,13 @@ void Task::editTask() {
     }
 }
 
+void Task::convert_date_int(const string& date, int& year, int& month, int& day){
+    year = stoi(date.substr(0,4));
+    month = stoi(date.substr(5,2));
+    day = stoi(date.substr(8,2));
+}
+
+void Task::convert_time_int(const string& time, int& hour, int& min){
+    hour = stoi(time.substr(0,2));
+    min = stoi(time.substr(3,5));
+}
