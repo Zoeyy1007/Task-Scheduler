@@ -29,16 +29,16 @@ class Subtask {
         void set_category(string catname);
 
         //getters
-        bool get_completion();
-        string get_name();
-        string get_category();
-        int get_year();
-        int get_month();
-        int get_day();
-        int get_hour();
-        int get_min();
+        bool get_completion()const;
+        string get_name()const;
+        string get_category()const;
+        int get_year() const;
+        int get_month() const;
+        int get_day()const;
+        int get_hour()const;
+        int get_min()const;
 
         void input_subtask(int tYear, int tMonth, int tDay, int tHour, int tMin);
-        void display_subtask();
+        void display_subtask() const;
 };
 #endif 

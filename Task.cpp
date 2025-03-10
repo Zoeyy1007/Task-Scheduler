@@ -96,6 +96,11 @@ void Task::display() const {
          << "\nDuration: " << duration << " minutes"
          << "\nStatus: " << (completed ? "Completed" : "Pending") 
          << "\n" << endl;
+         int count = 1;
+         for(int i = 0; i < subtasks.size(); i++){
+            cout << "Sub-event " << count << ": " << endl;
+            subtasks[i].display_subtask();
+         }
 }
 
 void Task::inputTask() {
@@ -134,13 +139,15 @@ void Task::inputTask() {
     cin.ignore(); // Clear newline from buffer
     completed = false;
 
-    cout << "Would you like to add any Sub-events? (Y or N)";
+    cout << "Would you like to add any Sub-events? (Y or N): ";
     string subtasksans;
     cin >> subtasksans;
-    if(subtasksans == "y"){
+    if(subtasksans == "Y"){
         cout << "How many sub-events would you like to add?" << endl;
         int subtasktimes;
         cin >> subtasktimes;
+        cout << endl;
+        cin.ignore();
         while(!cin.good() || subtasktimes <= 0){
             cout << "Enter valid number starting from 0.";
             cin >> subtasktimes;
@@ -213,23 +220,24 @@ void Task::editTask() {
                 cout << count << ": " << subtasks[i].get_name() << endl;
                 count ++;
             }
-            while (!(cin >> intInput) || intInput <= 0 || intInput > subtasks.size()-1) {
-                cout << "Invalid sub-event. Enter a number which corresponds to a subtask ";
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            int input; 
+            cin >> input;
+            while(input < 0 || input > subtasks.size()){
+                cout << "Invalid sub-event. Enter a number which corresponds to one stated above." << endl;
             }
-            cout << subtasks[intInput-1].get_name() << " marked as completed";
-            subtasks[intInput-1].set_completion_true();
+            cout << "Sub-event titled : " << subtasks[input-1].get_name() << " marked as completed" << endl << endl;
+            subtasks[input-1].set_completion_true();
         
         } else if (input == "8") {
             bool subtaskscomplete = true;
-            for(int i =0; i < subtasks.size(); i++){
+            for(int i = 0; i < subtasks.size(); i++){
                 if(subtasks[i].get_completion() == false){
                     subtaskscomplete = false;
-                    cout << "Subtasks titled: " << subtasks[i].get_name() << "incomplete, please complete it first in order to complete this task." << endl;
+                    cout << "Subtasks titled: " << subtasks[i].get_name() << " is incomplete, please complete it first in order to complete this task." << endl;
                 }
             }
-            if(subtaskscomplete == true){
+
+            if(subtaskscomplete){
                 mark_complete();
                 cout << "Event marked as complete.\n";
             }
