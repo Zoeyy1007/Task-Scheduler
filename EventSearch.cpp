@@ -1,7 +1,6 @@
 #include "EventSearch.h"
 #include "EventManager.h"
 #include "Task.h"
-#include "string_convert.h"
 #include <vector>
 #include <string>
 #include <algorithm>

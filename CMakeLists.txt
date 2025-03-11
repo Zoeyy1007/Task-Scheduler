@@ -10,11 +10,15 @@ add_executable(run
   Display.cpp
   eventManager.cpp
   EventSearch.cpp
+  subtask.cpp
 )
 
 add_executable(debug
   test.cpp
-  display.cpp
+  subtask.cpp
+  eventManager.cpp
+  EventSearch.cpp
+  Display.cpp
   Task.cpp 
 )
 
