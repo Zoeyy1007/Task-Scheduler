@@ -7,6 +7,7 @@ ADD_SUBDIRECTORY(googletest)
 add_executable(run
   main.cpp
   Task.cpp
+  subtask.cpp
   Display.cpp
   eventManager.cpp
   EventSearch.cpp
@@ -14,10 +15,12 @@ add_executable(run
 )
 
 add_executable(debug
-  test.cpp
-  Schedule.cpp 
-  display.cpp
+  test.cpp 
   Task.cpp 
+  eventManager.cpp
+  EventSearch.cpp
+  subtask.cpp
+  string_convert.cpp
 )
 
 TARGET_LINK_LIBRARIES(debug gtest gtest_main)

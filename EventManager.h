@@ -35,6 +35,8 @@ public:
     vector<Task> get_completed_events() const;
     // Get event duration
     int get_event_duration(const Task& event) const;
+
+    int get_event_size() const {return events.size();}
 };
 
 #endif // EVENTMANAGER_H
