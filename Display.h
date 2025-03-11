@@ -3,6 +3,7 @@
 
 #include "EventManager.h"
 #include "EventSearch.h"
+#include "Task.h"
 #include <string>
 
 class Display {
