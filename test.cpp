@@ -5,9 +5,10 @@
 #include <sstream>
 #include <stdexcept>
 
+using namespace std;
 // Test Task class
 TEST(TaskTest, ConstructorAndGetters) {
-    Task task("Drive", "2025-07-29", "12:00", "Work", 5, 30);
+   Task task("Drive", "2025-07-29", "12:00", "Work", 5, 30);
    EXPECT_EQ(task.get_name(), "Drive");
    EXPECT_EQ(task.get_date(), "2025-07-29");
    EXPECT_EQ(task.get_priority(), 5);
@@ -15,7 +16,7 @@ TEST(TaskTest, ConstructorAndGetters) {
    EXPECT_EQ(task.get_month(), 7);
    EXPECT_EQ(task.get_day(), 29);
    EXPECT_EQ(task.get_hour(), 30);
-   EXPECT_FALSE(task.is_completed());  // Task should be incomplete initially
+   EXPECT_FALSE(task.is_completed()); 
 }
 
 TEST(TaskTest, ConstructorAndGetters2) {
@@ -27,7 +28,6 @@ TEST(TaskTest, ConstructorAndGetters2) {
     EXPECT_EQ(task.get_priority(), 5);
     EXPECT_EQ(task.get_category(), "Work");
     EXPECT_EQ(task.get_duration(), 30);
-
 }
 
 TEST(TaskTest, SetterMethods) {
@@ -49,7 +49,6 @@ TEST(TaskTest, SetterMethods) {
 }
 
 TEST(TaskTest, CompleteTask) {
-
     Task task("Workout", "2025-03-10", "07:00", "Health", 7, 2);
     EXPECT_FALSE(task.is_completed());
 
@@ -59,7 +58,6 @@ TEST(TaskTest, CompleteTask) {
 
 // Test Schedule class
 TEST(EventSearchTest, AddAndFindTaskName) {
-
    EventSearch search;
    Task task("Workout", "2025-03-10", "07:00", "Health", 7, 2);
    vector<Task>tasks;
@@ -112,7 +110,6 @@ TEST(ScheduleTest, DurationTask) {
 
 
 TEST(TaskTest, EditTask) {
-
    Task* task = new Task("Homework", "2025-04-10", "12:00", "School", 3, 40);
    ASSERT_NE(task, nullptr);
    task->set_name("Updated Conference");
@@ -125,31 +122,26 @@ TEST(TaskTest, EditTask) {
    EXPECT_EQ(task->get_priority(), 7);
 }
 
-
-
 TEST(scheduleTestSuite, testemptySchedule){
     EventManager *event= new EventManager();
     EXPECT_EQ(event->get_event_size(), 0);
     delete event;
 }
 
-
 TEST(scheduleTestSuite, testIsCompleted){
     EventManager* event = new EventManager();
     Task task("birthday", "2026-04-29","3:00","Life", 2, 12);
-    event->add_event(task); //birthday on 10/02, priority 6, starts from 12
+    event->add_event(task); 
     event->mark_event_complete("birthday");
     EXPECT_TRUE(event->mark_event_complete("birthday"));
 }
 
-
-
-
 TEST(RmTaskTests, Remove1Task){
     EventManager* event = new EventManager();
     Task task("Drive", "2025-07-29", "12:00", "Work", 5, 30);
-    event->add_event(task); //birthday on 10/02, priority 6, starts from 12
+    event->add_event(task); 
     event->remove_event("Drive");
     EXPECT_EQ(event->get_event_size(), 0);
     delete event;
 }
+

@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include <iostream>
-#include "string_convert.h"
 #include <vector>
 #include "subtask.h"
 
@@ -25,7 +24,9 @@ private:
     int hour;
     int min;
     string description;
-    
+
+    void convert_date_int(const string& date, int& year, int& month, int& day);
+    void convert_time_int(const string& time, int& hour, int& min);
 
 public:
     vector<Subtask> subtasks;
