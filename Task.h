@@ -23,8 +23,8 @@ private:
     int day;
     int hour;
     int min;
-    
-    vector<Subtask> subtasks;
+    string description;
+
     void convert_date_int(const string& date, int& year, int& month, int& day);
     void convert_time_int(const string& time, int& hour, int& min);
 
