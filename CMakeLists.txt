@@ -11,6 +11,7 @@ set(CMAKE_CXX_FLAGS --coverage)
 add_executable(run
   main.cpp
   Task.cpp
+  subtask.cpp
   Display.cpp
   eventManager.cpp
   EventSearch.cpp
@@ -18,7 +19,7 @@ add_executable(run
 )
 
 add_executable(debug
-  test.cpp
+  test.cpp 
   subtask.cpp
   eventManager.cpp
   EventSearch.cpp
