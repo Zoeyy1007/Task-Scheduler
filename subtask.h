@@ -42,5 +42,7 @@ class Subtask {
 
         void input_subtask(int tYear, int tMonth, int tDay, int tHour, int tMin);
         void display_subtask() const;
+
+        ~Subtask();
 };
 #endif 
