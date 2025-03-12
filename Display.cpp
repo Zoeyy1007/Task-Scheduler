@@ -102,6 +102,7 @@ void Display::show_schedule_menu(EventManager& manager) {
 }
 
 void Display::display_event_list(const vector<Task>& events) {
+cout << endl;
     if (events.empty()) {
         cout << "No events found.\n";
     } else {
