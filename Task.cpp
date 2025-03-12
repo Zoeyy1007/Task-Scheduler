@@ -110,6 +110,7 @@ void Task::display() const {
          for(int i = 0; i < subtasks.size(); i++){
             cout << "Sub-event " << count << ": " << endl;
             subtasks[i].display_subtask();
+            count++;
          }
 }
 
@@ -147,6 +148,11 @@ void Task::inputTask() {
     
     cin.ignore(); // Clear newline from buffer
     completed = false;
+
+    cout << "Enter a description, if you would like to skip this step press enter" << endl; 
+    string newdesc;
+    getline(cin, newdesc);
+    set_description(newdesc);
     
     cout << "Would you like to add any Sub-events? (Y or N)";
     string subtasksans;
@@ -229,7 +235,7 @@ void Task::editTask() {
             set_description(currdesc);
             
         }else if (input == "8"){
-            cout << "Enter name of sub-events you would like to mark as complete" << endl;
+            cout << "Enter the number corresponding to the sub-events you would like to mark as complete" << endl;
             int count = 1;
             for(int i = 0; i < subtasks.size(); i++){
                 cout << count << ": " << subtasks[i].get_name() << endl;
@@ -278,4 +284,8 @@ void Task::convert_date_int(const string& date, int& year, int& month, int& day)
 void Task::convert_time_int(const string& time, int& hour, int& min){
     hour = stoi(time.substr(0,2));
     min = stoi(time.substr(3,5));
+}
+
+Task::~Task(){
+    subtasks.clear();
 }

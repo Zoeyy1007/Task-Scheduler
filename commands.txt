@@ -1,0 +1,2 @@
+to run valgrind, enter $ valgrind --leak-check=full --track-origins=yes ./run
+only after cmake and make :)

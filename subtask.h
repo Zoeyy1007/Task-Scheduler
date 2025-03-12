@@ -22,6 +22,7 @@ class Subtask {
         string description;
     public: 
         Subtask();
+        Subtask(string name, string cat, string desc, int tYear, int tMonth, int tDay, int tHour, int tMin);
         //setters
         void set_completion_true();
         void set_completion_false();
@@ -42,5 +43,7 @@ class Subtask {
 
         void input_subtask(int tYear, int tMonth, int tDay, int tHour, int tMin);
         void display_subtask() const;
+
+        ~Subtask();
 };
 #endif 
