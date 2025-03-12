@@ -78,8 +78,6 @@ TEST(EventManagerTests, RemoveTask) {
     manager.add_event(currTask);
 
     manager.remove_event("Doctor Appointment");
-    //cout.rdbuf(get_cout);
-    //string output1 = ss.str();
     ss.str("");
     ss.clear();
     vector<Task> v = searchMethod.searchByName(manager.get_all_events(), "Doctor Appointment");
@@ -88,7 +86,6 @@ TEST(EventManagerTests, RemoveTask) {
     string output = ss.str();
 
     EXPECT_TRUE(v.empty());
-    //EXPECT_EQ(output1, "Event \"Doctor Appointment\" removed successfully.\n");
     EXPECT_EQ(output, "No events found with the name: Doctor Appointment\n");
 }
 
