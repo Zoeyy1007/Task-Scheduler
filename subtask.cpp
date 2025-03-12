@@ -8,6 +8,19 @@ Subtask::Subtask(){
 
 }
 
+Subtask::Subtask(string newname, string newcat, string newdesc, int tYear, int tMonth, int tDay, int tHour, int tMin){
+    name = newname;
+    category = newcat;
+    description = newdesc;
+    completion = false;
+    year = tYear;
+    month = tMonth;
+    day = tDay;
+    hour = tHour;
+    min = tMin;
+
+}
+
  //setters
 void Subtask::set_completion_true(){
     completion = true;
