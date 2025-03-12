@@ -101,3 +101,8 @@ void Subtask::display_subtask() const{
          << "\n     Status: " << (completion ? "Completed" : "Pending") 
          << "\n" << endl;
 }
+
+
+Subtask::~Subtask(){
+    
+}

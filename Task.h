@@ -64,6 +64,9 @@ public:
     // Input and edit functions
     void inputTask();
     void editTask();
+
+    //destructor
+    ~Task();
 };
 
 #endif // TASK_H
