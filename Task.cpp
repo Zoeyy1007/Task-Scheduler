@@ -121,13 +121,11 @@ void Task::inputTask() {
     cout << "Enter date (YYYY-MM-DD): ";
     getline(cin, date);
     convert_date_int(date, year, month, day);
-    cout << "Current date is " << get_year()<< "/" << get_month() << "/" << get_day() << endl;
 
 
     cout << "Enter start time (HH:MM): ";
     getline(cin, time);
     convert_time_int(time, hour, min);
-    cout << "The task is at " << hour << ":" << min << endl;
     
     cout << "Enter category: ";
     getline(cin, category);

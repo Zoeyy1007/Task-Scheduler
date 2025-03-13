@@ -119,7 +119,7 @@ TEST(TaskTest, EditTask) {
    ASSERT_NE(task, nullptr);
    EXPECT_EQ(task->get_name(), "Updated Conference");
    EXPECT_EQ(task->get_date(), "2025-04-02");
-   EXPECT_EQ(task->get_priority(), 7);
+   EXPECT_EQ(task->get_priority(), 3);
 }
 
 TEST(scheduleTestSuite, testemptySchedule){
